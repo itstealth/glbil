@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GL Bajaj Institute of Law – Shape Your Legal Future</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy:      '#0A1F44',
+          'navy-mid':'#0D2B5E',
+          'navy-deep':'#162952',
+          gold:      '#C8A84B',
+          'gold-light':'#E8C97A',
+          'gold-dark':'#9E7E2A',
+          crimson:   '#8B1A1A',
+          'off-white':'#F8F5EE',
+          'text-dark':'#1A1A2E',
+          'text-mid': '#3D3D5C',
+          'text-light':'#7A7A9A',
+        },
+        fontFamily: {
+          playfair: ['"Playfair Display"', 'serif'],
+          dm:       ['"DM Sans"', 'sans-serif'],
+        },
+        keyframes: {
+          fadeUp: {
+            '0%':   { opacity: '0', transform: 'translateY(28px)' },
+            '100%': { opacity: '1', transform: 'translateY(0)' },
+          }
+        },
+        animation: {
+          'fade-up-1': 'fadeUp 0.6s ease both',
+          'fade-up-2': 'fadeUp 0.7s ease 0.1s both',
+          'fade-up-3': 'fadeUp 0.7s ease 0.2s both',
+          'fade-up-4': 'fadeUp 0.7s ease 0.3s both',
+          'fade-up-5': 'fadeUp 0.7s ease 0.4s both',
+          'fade-up-6': 'fadeUp 0.7s ease 0.5s both',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+
+  /* Hero image panel pseudo-elements (can't do with Tailwind alone) */
+  .hero-image-panel::before {
+    content: '';
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(to right, #0A1F44 0%, rgba(10,31,68,0.4) 40%, transparent 70%);
+  }
+  .hero-image-panel::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 50%; z-index: 1;
+    background: linear-gradient(to top, #0A1F44, transparent);
+  }
+
+  /* Hero radial pattern overlay */
+  .hero-pattern {
+    background-image:
+      radial-gradient(circle at 20% 80%, rgba(200,168,75,0.12) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(200,168,75,0.08) 0%, transparent 50%),
+      linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.015) 40%, rgba(255,255,255,0.015) 60%, transparent 60%);
+    background-size: 100% 100%, 100% 100%, 60px 60px;
+  }
+
+  /* Eligibility visual § watermark */
+  .elig-watermark::before {
+    content: '§';
+    font-family: 'Playfair Display', serif;
+    position: absolute; right: -10px; bottom: -30px;
+    font-size: 14rem; color: rgba(200,168,75,0.08); line-height: 1;
+  }
+
+  /* Dot grid pattern for placements section */
+  .dot-grid {
+    background-image: radial-gradient(rgba(200,168,75,0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* Hover transitions */
+  .program-card { transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s, background 0.4s; }
+  .program-card:hover { transform: translateY(-8px); }
+  .program-card:hover img { transform: scale(1.06); }
+  .program-card img { transition: transform 0.5s; }
+
+  .stat-block { transition: background 0.3s; }
+  .recruiter-logo { transition: background 0.3s; }
+  .recruiter-logo:hover { background: #F8F5EE; }
+  .recruiter-logo:hover .recruiter-logo-text { opacity: 1; }
+  .recruiter-logo-text { transition: opacity 0.3s; }
+
+  /* Program card image overlay */
+  .program-img-wrap::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,31,68,0.9) 0%, transparent 60%);
+  }
+
+  /* About image decorative ring */
+  .about-img-wrap::before {
+    content: '';
+    position: absolute; top: -20px; right: -20px;
+    width: 120px; height: 120px;
+    border: 3px solid #C8A84B;
+    border-radius: 50%; opacity: 0.3; z-index: -1;
+  }
+</style>
+</head>
+<body class="bg-white text-text-dark font-dm">
+
+<!-- ══════════════════════════════════════════
+     STICKY NAV
+══════════════════════════════════════════ -->
+<nav class="fixed top-0 left-0 right-0 z-[999] flex items-center justify-between px-10 py-3 border-b-2 border-gold"
+     style="background:rgba(10,31,68,0.97); backdrop-filter:blur(10px);">
+  <div>
+    <span class="font-playfair text-gold font-bold text-xl tracking-wide">GL BAJAJ INSTITUTE OF LAW</span>
+    <small class="block text-[#ccc] text-[0.65rem] tracking-[2px]">GLBIL · GREATER NOIDA · EST. 2024</small>
+  </div>
+  <button class="bg-gold text-navy font-bold text-sm px-7 py-2.5 rounded cursor-pointer tracking-wide
+                 hover:bg-gold-light hover:-translate-y-0.5 transition-all duration-300">
+    Apply Now →
+  </button>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     SECTION 1: HERO BANNER
+══════════════════════════════════════════ -->
+<section class="relative min-h-screen flex items-center overflow-hidden pt-[70px]">
+  <!-- Background gradient -->
+  <div class="absolute inset-0" style="background:linear-gradient(135deg,#0A1F44 0%,#0D2B5E 40%,#162952 60%,#0A1F44 100%);"></div>
+  <!-- Pattern overlay -->
+  <div class="absolute inset-0 hero-pattern"></div>
+
+  <!-- Right image panel -->
+  <div class="hero-image-panel absolute right-0 top-0 bottom-0 w-[48%] overflow-hidden hidden md:block">
+    <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=900&q=80"
+         alt="Law library" class="w-full h-full object-cover" style="filter:brightness(0.55) saturate(0.8);">
+  </div>
+
+  <!-- Hero content -->
+  <div class="relative z-10 px-15 py-20 max-w-[620px] pl-[60px] pr-[60px] pb-[80px] pt-[60px]">
+    <!-- Badge -->
+    <div class="inline-flex items-center gap-2 border rounded-full px-[18px] py-[7px] mb-7 animate-fade-up-1"
+         style="background:rgba(200,168,75,0.15); border-color:rgba(200,168,75,0.4);">
+      <span class="w-1.5 h-1.5 bg-gold rounded-full inline-block"></span>
+      <span class="text-gold-light text-xs font-semibold tracking-[3px]">ADMISSIONS OPEN 2025–26</span>
+    </div>
+
+    <!-- Logo area -->
+    <div class="flex items-center gap-4 mb-8 animate-fade-up-2">
+      <div class="w-16 h-16 bg-gold rounded-xl flex items-center justify-center
+                  font-playfair text-navy font-black text-2xl flex-shrink-0">GL</div>
+      <div class="text-white">
+        <strong class="block font-playfair text-lg font-bold tracking-wide">GL Bajaj Institute of Law</strong>
+        <small class="text-[0.7rem] text-gold-light tracking-[2px]">WHERE ETHICS MEET EXCELLENCE</small>
+      </div>
+    </div>
+
+    <!-- H1 -->
+    <h1 class="font-playfair font-black text-white leading-[1.15] mb-5 animate-fade-up-3"
+        style="font-size:clamp(2.4rem,4vw,3.4rem);">
+      Where Justice Meets
+      <em class="italic text-gold block not-italic" style="font-style:italic;">Ambition.</em>
+    </h1>
+
+    <!-- Tagline -->
+    <p class="text-white/75 text-[1.05rem] leading-[1.7] mb-9 max-w-[500px] animate-fade-up-4">
+      Begin a transformative legal education at Greater Noida's premier law institute — shaping ethical,
+      globally competent legal professionals for the courts, boardrooms, and beyond.
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex gap-4 flex-wrap animate-fade-up-5">
+      <button class="font-bold text-navy px-9 py-4 rounded cursor-pointer transition-all duration-300
+                     hover:-translate-y-1"
+              style="background:linear-gradient(135deg,#C8A84B 0%,#9E7E2A 100%);
+                     box-shadow:0 8px 24px rgba(200,168,75,0.35);">
+        Apply for Admission
+      </button>
+      <button class="border-2 text-white bg-transparent px-8 py-3.5 rounded font-semibold
+                     transition-all duration-300 hover:border-gold hover:text-gold"
+              style="border-color:rgba(255,255,255,0.35);">
+        Download Brochure
+      </button>
+    </div>
+  </div>
+
+  <!-- Bottom stats bar -->
+  <div class="absolute bottom-10 left-[60px] flex gap-10 z-10 animate-fade-up-6">
+    <div class="text-white">
+      <strong class="block font-playfair text-[1.8rem] text-gold">800+</strong>
+      <span class="text-xs text-white/60 tracking-[1px]">FACULTY MEMBERS</span>
+    </div>
+    <div class="w-px bg-white/20"></div>
+    <div class="text-white">
+      <strong class="block font-playfair text-[1.8rem] text-gold">14,000+</strong>
+      <span class="text-xs text-white/60 tracking-[1px]">STUDENTS ACROSS GROUP</span>
+    </div>
+    <div class="w-px bg-white/20"></div>
+    <div class="text-white">
+      <strong class="block font-playfair text-[1.8rem] text-gold">25+</strong>
+      <span class="text-xs text-white/60 tracking-[1px]">YEARS OF EXCELLENCE</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 2: ABOUT GLBIL
+══════════════════════════════════════════ -->
+<section class="py-24 px-[60px] bg-off-white">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-[70px] items-center">
+
+    <!-- Image -->
+    <div class="about-img-wrap relative rounded-2xl overflow-hidden shadow-[0_30px_80px_rgba(10,31,68,0.18)]">
+      <img src="https://images.unsplash.com/photo-1436450412740-6b988f486c6b?w=800&q=80"
+           alt="GL Bajaj law campus" class="w-full h-[440px] object-cover block">
+      <div class="absolute bottom-6 left-6 bg-navy pl-4 border-l-4 border-gold py-3.5 px-5 rounded-xl">
+        <strong class="block font-playfair text-2xl text-gold">CCS University</strong>
+        <span class="text-sm text-white/80">Affiliated · Recognised</span>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div>
+      <p class="text-[0.72rem] tracking-[4px] font-bold text-crimson uppercase mb-3">About the Programme</p>
+      <h2 class="font-playfair font-extrabold text-navy leading-tight" style="font-size:clamp(1.8rem,3vw,2.6rem);">
+        A New Era in<br><span class="text-gold-dark">Legal Education</span>
+      </h2>
+      <p class="text-text-mid leading-[1.85] text-[1.02rem] mt-5 mb-5">
+        GL Bajaj Institute of Law (GLBIL), Greater Noida, is the newest crown of the GL Bajaj Group —
+        a trusted name with over two decades of academic excellence. Affiliated with Chaudhary Charan Singh
+        University, Meerut, GLBIL delivers world-class legal education that integrates academic rigor
+        with real-world relevance.
+      </p>
+      <p class="text-text-mid leading-[1.85] text-[1.02rem]">
+        Mentored by a distinguished advisory board — including Justice Deepak Verma (Retd.), Supreme Court
+        of India — GLBIL prepares the next generation of lawyers to lead, innovate, and inspire across
+        courtrooms, corporate boardrooms, and global policy chambers.
+      </p>
+
+      <!-- Highlights grid -->
+      <div class="grid grid-cols-2 gap-4 mt-8">
+        <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-navy/[0.08] shadow-sm">
+          <div class="w-9 h-9 flex-shrink-0 rounded-lg flex items-center justify-center text-base"
+               style="background:rgba(200,168,75,0.12);">⚖️</div>
+          <div>
+            <strong class="block text-navy text-sm">Moot Court Training</strong>
+            <span class="text-text-light text-xs">Live courtroom simulations</span>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-navy/[0.08] shadow-sm">
+          <div class="w-9 h-9 flex-shrink-0 rounded-lg flex items-center justify-center text-base"
+               style="background:rgba(200,168,75,0.12);">🎓</div>
+          <div>
+            <strong class="block text-navy text-sm">Expert Faculty</strong>
+            <span class="text-text-light text-xs">Industry & judiciary veterans</span>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-navy/[0.08] shadow-sm">
+          <div class="w-9 h-9 flex-shrink-0 rounded-lg flex items-center justify-center text-base"
+               style="background:rgba(200,168,75,0.12);">💼</div>
+          <div>
+            <strong class="block text-navy text-sm">Internship Support</strong>
+            <span class="text-text-light text-xs">Law firms, NGOs, corporates</span>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-navy/[0.08] shadow-sm">
+          <div class="w-9 h-9 flex-shrink-0 rounded-lg flex items-center justify-center text-base"
+               style="background:rgba(200,168,75,0.12);">📜</div>
+          <div>
+            <strong class="block text-navy text-sm">Add-on Certifications</strong>
+            <span class="text-text-light text-xs">Trending legal domains</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 3: LAW PROGRAMMES (CARDS)
+══════════════════════════════════════════ -->
+<section class="py-24 px-[60px] bg-navy relative overflow-hidden">
+  <!-- Radial glow -->
+  <div class="absolute -top-24 -right-24 w-[500px] h-[500px] rounded-full pointer-events-none"
+       style="background:radial-gradient(circle,rgba(200,168,75,0.08) 0%,transparent 70%);"></div>
+
+  <!-- Header -->
+  <div class="text-center mb-16">
+    <p class="text-[0.72rem] tracking-[4px] font-bold text-gold uppercase mb-3">Our Programmes</p>
+    <h2 class="font-playfair font-extrabold text-white leading-tight" style="font-size:clamp(1.8rem,3vw,2.6rem);">
+      Law Programmes <span class="text-gold">Offered</span>
+    </h2>
+    <p class="text-white/60 mt-3 max-w-[520px] mx-auto text-[0.95rem]">
+      Choose the programme that aligns with your academic background and career aspirations.
+    </p>
+  </div>
+
+  <!-- Cards -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+
+    <!-- Card 1 — BA LLB -->
+    <div class="program-card rounded-2xl overflow-hidden border border-gold/25 hover:border-gold
+                hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)] hover:bg-white/[0.09]"
+         style="background:rgba(255,255,255,0.05);">
+      <div class="program-img-wrap relative h-[200px] overflow-hidden">
+        <span class="absolute top-3.5 right-3.5 z-10 bg-gold text-navy font-bold text-xs
+                     px-3 py-1 rounded-full tracking-wide">5 YEARS</span>
+        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80"
+             alt="BA LLB" class="w-full h-full object-cover" style="filter:brightness(0.8);">
+      </div>
+      <div class="p-6">
+        <h3 class="font-playfair text-xl text-white mb-2.5">B.A. LL.B.</h3>
+        <p class="text-white/65 text-sm leading-[1.7] mb-4">
+          A flagship integrated programme that blends Arts and Law education, building critical thinking,
+          advocacy skills, and a strong legal foundation from the ground up.
+        </p>
+        <span class="inline-block border border-gold/40 text-gold-light text-[0.72rem] px-3 py-1 rounded mr-1.5 mb-1.5 tracking-wide">5-Year Integrated</span>
+        <span class="inline-block border border-gold/40 text-gold-light text-[0.72rem] px-3 py-1 rounded mr-1.5 mb-1.5 tracking-wide">After 10+2</span>
+        <a href="#" class="block w-full border border-gold text-gold text-center py-2.5 rounded-md mt-4
+                           text-sm font-semibold hover:bg-gold hover:text-navy transition-all duration-300">
+          Apply Now →
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 2 — BCom LLB -->
+    <div class="program-card rounded-2xl overflow-hidden border border-gold/25 hover:border-gold
+                hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)] hover:bg-white/[0.09]"
+         style="background:rgba(255,255,255,0.05);">
+      <div class="program-img-wrap relative h-[200px] overflow-hidden">
+        <span class="absolute top-3.5 right-3.5 z-10 bg-gold text-navy font-bold text-xs
+                     px-3 py-1 rounded-full tracking-wide">5 YEARS</span>
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80"
+             alt="BCom LLB" class="w-full h-full object-cover" style="filter:brightness(0.8);">
+      </div>
+      <div class="p-6">
+        <h3 class="font-playfair text-xl text-white mb-2.5">B.Com. LL.B.</h3>
+        <p class="text-white/65 text-sm leading-[1.7] mb-4">
+          Combining Commerce and Law, this programme is ideal for aspiring corporate lawyers,
+          tax consultants, and financial regulators in India's booming economy.
+        </p>
+        <span class="inline-block border border-gold/40 text-gold-light text-[0.72rem] px-3 py-1 rounded mr-1.5 mb-1.5 tracking-wide">5-Year Integrated</span>
+        <span class="inline-block border border-gold/40 text-gold-light text-[0.72rem] px-3 py-1 rounded mr-1.5 mb-1.5 tracking-wide">Commerce + Law</span>
+        <a href="#" class="block w-full border border-gold text-gold text-center py-2.5 rounded-md mt-4
+                           text-sm font-semibold hover:bg-gold hover:text-navy transition-all duration-300">
+          Apply Now →
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 3 — LLB -->
+    <div class="program-card rounded-2xl overflow-hidden border border-gold/25 hover:border-gold
+                hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)] hover:bg-white/[0.09]"
+         style="background:rgba(255,255,255,0.05);">
+      <div class="program-img-wrap relative h-[200px] overflow-hidden">
+        <span class="absolute top-3.5 right-3.5 z-10 bg-gold text-navy font-bold text-xs
+                     px-3 py-1 rounded-full tracking-wide">3 YEARS</span>
+        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80"
+             alt="LLB" class="w-full h-full object-cover" style="filter:brightness(0.8);">
+      </div>
+      <div class="p-6">
+        <h3 class="font-playfair text-xl text-white mb-2.5">LL.B. (3 Years)</h3>
+        <p class="text-white/65 text-sm leading-[1.7] mb-4">
+          Designed for graduates from any stream, this programme offers an accelerated path into
+          the legal profession with practical exposure to real legal challenges.
+        </p>
+        <span class="inline-block border border-gold/40 text-gold-light text-[0.72rem] px-3 py-1 rounded mr-1.5 mb-1.5 tracking-wide">3-Year Programme</span>
+        <span class="inline-block border border-gold/40 text-gold-light text-[0.72rem] px-3 py-1 rounded mr-1.5 mb-1.5 tracking-wide">For Graduates</span>
+        <a href="#" class="block w-full border border-gold text-gold text-center py-2.5 rounded-md mt-4
+                           text-sm font-semibold hover:bg-gold hover:text-navy transition-all duration-300">
+          Apply Now →
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 4: ELIGIBILITY CRITERIA
+══════════════════════════════════════════ -->
+<section class="py-24 px-[60px] bg-white">
+  <div class="text-center mb-12">
+    <p class="text-[0.72rem] tracking-[4px] font-bold text-crimson uppercase mb-3">Who Can Apply</p>
+    <h2 class="font-playfair font-extrabold text-navy leading-tight" style="font-size:clamp(1.8rem,3vw,2.6rem);">
+      Eligibility <span class="text-gold-dark">Criteria</span>
+    </h2>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-[60px] items-start">
+
+    <!-- Visual panel -->
+    <div class="elig-watermark relative rounded-2xl p-[50px_40px] overflow-hidden"
+         style="background:linear-gradient(135deg,#0A1F44,#162952);">
+      <h3 class="font-playfair text-gold text-[1.8rem] mb-2.5">Your Legal Journey Starts Here</h3>
+      <p class="text-white/70 mb-8 text-sm">Check if you meet the requirements and take your first step
+        toward a prestigious legal career with GL Bajaj.</p>
+      <div class="bg-white/[0.07] border border-gold/25 rounded-xl p-5 mb-3.5">
+        <strong class="block text-white text-base mb-1">B.A. LL.B. / B.Com. LL.B.</strong>
+        <span class="text-white/60 text-[0.82rem]">Minimum 50% marks in Class 10+2 from any recognised board</span>
+      </div>
+      <div class="bg-white/[0.07] border border-gold/25 rounded-xl p-5 mb-3.5">
+        <strong class="block text-white text-base mb-1">LL.B. (3 Years)</strong>
+        <span class="text-white/60 text-[0.82rem]">Graduation from any stream with minimum 50% aggregate marks</span>
+      </div>
+      <div class="bg-white/[0.07] border border-gold/25 rounded-xl p-5">
+        <strong class="block text-white text-base mb-1">Age Limit</strong>
+        <span class="text-white/60 text-[0.82rem]">As per Bar Council of India norms (20 yrs for 5-yr / 30 yrs for 3-yr)</span>
+      </div>
+    </div>
+
+    <!-- Criteria list -->
+    <ul class="list-none">
+      <li class="py-5 border-b border-navy/[0.08] flex gap-4 items-start">
+        <div class="w-9 h-9 flex-shrink-0 rounded-full flex items-center justify-center
+                    text-navy font-extrabold text-sm"
+             style="background:linear-gradient(135deg,#C8A84B,#9E7E2A);">01</div>
+        <div>
+          <strong class="block text-navy text-[0.95rem] mb-1">Academic Qualification</strong>
+          <span class="text-text-light text-[0.85rem]">Candidates must have passed 10+2 (for integrated programmes) or Graduation (for LL.B.) from a recognised university or board.</span>
+        </div>
+      </li>
+      <li class="py-5 border-b border-navy/[0.08] flex gap-4 items-start">
+        <div class="w-9 h-9 flex-shrink-0 rounded-full flex items-center justify-center
+                    text-navy font-extrabold text-sm"
+             style="background:linear-gradient(135deg,#C8A84B,#9E7E2A);">02</div>
+        <div>
+          <strong class="block text-navy text-[0.95rem] mb-1">Minimum Marks</strong>
+          <span class="text-text-light text-[0.85rem]">A minimum of 50% aggregate marks in the qualifying examination. SC/ST candidates may be eligible for relaxation as per government norms.</span>
+        </div>
+      </li>
+      <li class="py-5 border-b border-navy/[0.08] flex gap-4 items-start">
+        <div class="w-9 h-9 flex-shrink-0 rounded-full flex items-center justify-center
+                    text-navy font-extrabold text-sm"
+             style="background:linear-gradient(135deg,#C8A84B,#9E7E2A);">03</div>
+        <div>
+          <strong class="block text-navy text-[0.95rem] mb-1">Entrance Exam</strong>
+          <span class="text-text-light text-[0.85rem]">Admission based on merit in CLAT / CUET-UG / State Law Entrance Tests or GLBIL's institutional entrance assessment.</span>
+        </div>
+      </li>
+      <li class="py-5 border-b border-navy/[0.08] flex gap-4 items-start">
+        <div class="w-9 h-9 flex-shrink-0 rounded-full flex items-center justify-center
+                    text-navy font-extrabold text-sm"
+             style="background:linear-gradient(135deg,#C8A84B,#9E7E2A);">04</div>
+        <div>
+          <strong class="block text-navy text-[0.95rem] mb-1">Documents Required</strong>
+          <span class="text-text-light text-[0.85rem]">10th & 12th Mark Sheets, Transfer Certificate, Migration Certificate, Character Certificate, and recent passport-size photographs.</span>
+        </div>
+      </li>
+      <li class="py-5 flex gap-4 items-start">
+        <div class="w-9 h-9 flex-shrink-0 rounded-full flex items-center justify-center
+                    text-navy font-extrabold text-sm"
+             style="background:linear-gradient(135deg,#C8A84B,#9E7E2A);">05</div>
+        <div>
+          <strong class="block text-navy text-[0.95rem] mb-1">Age Criteria</strong>
+          <span class="text-text-light text-[0.85rem]">As mandated by the Bar Council of India. Applicants must not exceed the maximum age prescribed for the respective programme.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 5: WHY CHOOSE GL BAJAJ
+══════════════════════════════════════════ -->
+<section class="py-24 px-[60px] bg-off-white">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-[70px] items-center">
+
+    <!-- Image -->
+    <div class="relative">
+      <img src="https://images.unsplash.com/photo-1593115057322-e94b77572f20?w=800&q=80"
+           alt="GL Bajaj Law College" class="w-full h-[480px] object-cover rounded-2xl
+           shadow-[0_30px_70px_rgba(10,31,68,0.2)]">
+      <div class="absolute -bottom-8 -right-8 w-[200px] bg-gold rounded-xl p-6
+                  shadow-[0_12px_40px_rgba(200,168,75,0.4)]">
+        <strong class="block font-playfair text-[2rem] text-navy leading-tight">Top 10</strong>
+        <span class="text-navy/80 text-sm">Law Colleges in North India</span>
+      </div>
+    </div>
+
+    <!-- Reasons -->
+    <div>
+      <p class="text-[0.72rem] tracking-[4px] font-bold text-crimson uppercase mb-3">Why GL Bajaj</p>
+      <h2 class="font-playfair font-extrabold text-navy leading-tight" style="font-size:clamp(1.8rem,3vw,2.6rem);">
+        More Than a Degree —<br><span class="text-gold-dark">A Launchpad</span>
+      </h2>
+      <ul class="mt-8 list-none">
+        <li class="py-5 border-b border-navy/[0.08] flex gap-[18px] items-start">
+          <div class="w-11 h-11 flex-shrink-0 bg-navy rounded-xl flex items-center justify-center text-xl">🏛️</div>
+          <div>
+            <strong class="block text-navy text-base mb-1">Supreme Court-Connected Advisory Board</strong>
+            <span class="text-text-mid text-sm leading-[1.6]">Mentorship from Justice Deepak Verma (Retd.), SC of India, and leading legal luminaries shaping the curriculum.</span>
+          </div>
+        </li>
+        <li class="py-5 border-b border-navy/[0.08] flex gap-[18px] items-start">
+          <div class="w-11 h-11 flex-shrink-0 bg-navy rounded-xl flex items-center justify-center text-xl">📚</div>
+          <div>
+            <strong class="block text-navy text-base mb-1">Experiential Learning Ecosystem</strong>
+            <span class="text-text-mid text-sm leading-[1.6]">Moot courts, legal aid clinics, ADR simulations, and real-case exposure ensure practice-ready graduates.</span>
+          </div>
+        </li>
+        <li class="py-5 border-b border-navy/[0.08] flex gap-[18px] items-start">
+          <div class="w-11 h-11 flex-shrink-0 bg-navy rounded-xl flex items-center justify-center text-xl">💡</div>
+          <div>
+            <strong class="block text-navy text-base mb-1">Tech-Enabled Modern Classrooms</strong>
+            <span class="text-text-mid text-sm leading-[1.6]">Digital-first infrastructure with AI-assisted legal research tools and e-library access for every student.</span>
+          </div>
+        </li>
+        <li class="py-5 border-b border-navy/[0.08] flex gap-[18px] items-start">
+          <div class="w-11 h-11 flex-shrink-0 bg-navy rounded-xl flex items-center justify-center text-xl">🤝</div>
+          <div>
+            <strong class="block text-navy text-base mb-1">Industry-Connected Placement Cell</strong>
+            <span class="text-text-mid text-sm leading-[1.6]">Partnerships with top law firms, corporate legal departments, and NGOs ensure career support from Day 1.</span>
+          </div>
+        </li>
+        <li class="py-5 border-b border-navy/[0.08] flex gap-[18px] items-start">
+          <div class="w-11 h-11 flex-shrink-0 bg-navy rounded-xl flex items-center justify-center text-xl">🏆</div>
+          <div>
+            <strong class="block text-navy text-base mb-1">25+ Years of Group Legacy</strong>
+            <span class="text-text-mid text-sm leading-[1.6]">GL Bajaj Group's proven track record across 8 institutions with 14,000+ students and 800+ expert faculty.</span>
+          </div>
+        </li>
+        <li class="py-5 flex gap-[18px] items-start">
+          <div class="w-11 h-11 flex-shrink-0 bg-navy rounded-xl flex items-center justify-center text-xl">💰</div>
+          <div>
+            <strong class="block text-navy text-base mb-1">Scholarship Up to ₹50,000</strong>
+            <span class="text-text-mid text-sm leading-[1.6]">Merit-based scholarship opportunities to ensure financial barriers don't stand between talent and excellence.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 6: PLACEMENT STATISTICS
+══════════════════════════════════════════ -->
+<section class="py-24 px-[60px] relative overflow-hidden dot-grid"
+         style="background:linear-gradient(135deg,#0A1F44 0%,#0D2B5E 100%);">
+
+  <!-- Header -->
+  <div class="text-center mb-[70px]">
+    <p class="text-[0.72rem] tracking-[4px] font-bold text-gold uppercase mb-3">Placement Record</p>
+    <h2 class="font-playfair font-extrabold text-white leading-tight" style="font-size:clamp(1.8rem,3vw,2.6rem);">
+      Our Students. Top Organisations.
+    </h2>
+    <p class="text-white/65 text-center max-w-[560px] mx-auto mt-4 text-[0.95rem]">
+      From GL Bajaj's broader group pedigree to GLBIL's growing placement ecosystem — our numbers speak for themselves.
+    </p>
+  </div>
+
+  <!-- Stats grid -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-[2px] rounded-2xl overflow-hidden mb-12"
+       style="background:rgba(200,168,75,0.15);">
+    <div class="stat-block py-10 px-6 text-center hover:bg-navy/60"
+         style="background:rgba(10,31,68,0.85);">
+      <span class="block font-playfair font-black text-gold leading-none text-5xl">5000<span class="text-3xl">+</span></span>
+      <span class="block text-white/65 text-[0.82rem] mt-2 tracking-wide">STUDENTS PLACED</span>
+      <span class="block text-white/40 text-[0.72rem] mt-1">Across Group Institutions</span>
+    </div>
+    <div class="stat-block py-10 px-6 text-center hover:bg-navy/60"
+         style="background:rgba(10,31,68,0.85);">
+      <span class="block font-playfair font-black text-gold leading-none text-5xl">200<span class="text-3xl">+</span></span>
+      <span class="block text-white/65 text-[0.82rem] mt-2 tracking-wide">PARTNER RECRUITERS</span>
+      <span class="block text-white/40 text-[0.72rem] mt-1">Law Firms & Corporates</span>
+    </div>
+    <div class="stat-block py-10 px-6 text-center hover:bg-navy/60"
+         style="background:rgba(10,31,68,0.85);">
+      <span class="block font-playfair font-black text-gold leading-none text-5xl">100<span class="text-3xl">+</span></span>
+      <span class="block text-white/65 text-[0.82rem] mt-2 tracking-wide">EXPERT FACULTY</span>
+      <span class="block text-white/40 text-[0.72rem] mt-1">Practitioners & Professors</span>
+    </div>
+    <div class="stat-block py-10 px-6 text-center hover:bg-navy/60"
+         style="background:rgba(10,31,68,0.85);">
+      <span class="block font-playfair font-black text-gold leading-none text-5xl">8<span class="text-3xl">+</span></span>
+      <span class="block text-white/65 text-[0.82rem] mt-2 tracking-wide">INSTITUTIONS</span>
+      <span class="block text-white/40 text-[0.72rem] mt-1">GL Bajaj Group Network</span>
+    </div>
+  </div>
+
+  <!-- Feature tiles -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="border border-gold/20 rounded-xl p-7 text-center"
+         style="background:rgba(255,255,255,0.06);">
+      <span class="block text-3xl mb-3">📋</span>
+      <strong class="block text-white text-base mb-1.5">Dedicated Placement Cell</strong>
+      <p class="text-white/55 text-[0.82rem] leading-[1.6]">Year-round career support including CV workshops, mock interviews, and direct recruiter connects.</p>
+    </div>
+    <div class="border border-gold/20 rounded-xl p-7 text-center"
+         style="background:rgba(255,255,255,0.06);">
+      <span class="block text-3xl mb-3">🌐</span>
+      <strong class="block text-white text-base mb-1.5">Pan-India Opportunities</strong>
+      <p class="text-white/55 text-[0.82rem] leading-[1.6]">Placements across law firms, MNCs, government bodies, NGOs, and judicial institutions nationwide.</p>
+    </div>
+    <div class="border border-gold/20 rounded-xl p-7 text-center"
+         style="background:rgba(255,255,255,0.06);">
+      <span class="block text-3xl mb-3">⚡</span>
+      <strong class="block text-white text-base mb-1.5">Industry Mentorship</strong>
+      <p class="text-white/55 text-[0.82rem] leading-[1.6]">One-on-one mentoring from senior advocates, corporate counsel, and policy experts throughout the programme.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 7: RECRUITERS
+══════════════════════════════════════════ -->
+<section class="py-20 px-[60px] bg-white">
+  <div class="text-center mb-12">
+    <p class="text-[0.72rem] tracking-[4px] font-bold text-crimson uppercase mb-3">Our Recruiters</p>
+    <h2 class="font-playfair font-extrabold text-navy leading-tight" style="font-size:clamp(1.8rem,3vw,2.6rem);">
+      Top <span class="text-gold-dark">Organisations</span> That Hire Our Students
+    </h2>
+    <p class="text-text-light mt-3 text-[0.95rem]">Our graduates are placed across India's leading legal, corporate, and public sector organisations.</p>
+  </div>
+
+  <div class="grid grid-cols-3 md:grid-cols-6 border border-navy/10 rounded-xl overflow-hidden">
+    <!-- Row 1 -->
+    <div class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">KHAITAN &amp; CO.</span>
+    </div>
+    <div class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">AZB &amp; PARTNERS</span>
+    </div>
+    <div class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">SHARDUL AMARCHAND MANGALDAS</span>
+    </div>
+    <div class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">CYRIL AMARCHAND MANGALDAS</span>
+    </div>
+    <div class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">J. SAGAR ASSOCIATES</span>
+    </div>
+    <div class="recruiter-logo border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">TRILEGAL</span>
+    </div>
+    <!-- Row 2 -->
+    <div class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">NISHITH DESAI ASSOCIATES</span>
+    </div>
+    <div class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">LUTHRA &amp; LUTHRA</span>
+    </div>
+    <div class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">LAKSHMIKUMARAN &amp; SRIDHARAN</span>
+    </div>
+    <div class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">S&amp;R ASSOCIATES</span>
+    </div>
+    <div class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">DSK LEGAL</span>
+    </div>
+    <div class="recruiter-logo border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">INDUS LAW</span>
+    </div>
+    <!-- Row 3 -->
+    <div class="recruiter-logo border-r border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">TATA CONSULTANCY</span>
+    </div>
+    <div class="recruiter-logo border-r border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">WIPRO LEGAL</span>
+    </div>
+    <div class="recruiter-logo border-r border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">INFOSYS BPM</span>
+    </div>
+    <div class="recruiter-logo border-r border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">HCL LEGAL</span>
+    </div>
+    <div class="recruiter-logo border-r border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">LEGAL AID INDIA</span>
+    </div>
+    <div class="recruiter-logo flex items-center justify-center py-7 px-5 min-h-[90px]">
+      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">MINISTRY OF LAW &amp; JUSTICE</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     LEAD FORM STRIP
+══════════════════════════════════════════ -->
+<div class="flex items-center gap-[50px] flex-wrap px-[60px] py-[60px]"
+     style="background:linear-gradient(135deg,#9E7E2A 0%,#C8A84B 50%,#E8C97A 100%);">
+  <div class="flex-1 min-w-[260px]">
+    <h2 class="font-playfair text-[2rem] text-navy mb-2">Ready to Begin?</h2>
+    <p class="text-navy/70">Seats are limited. Secure your spot at GLBIL today.</p>
+  </div>
+  <div class="flex gap-3 flex-wrap flex-[1.5] min-w-[320px]">
+    <input type="text" placeholder="Your Full Name"
+           class="flex-1 min-w-[160px] px-[18px] py-3.5 border-2 border-navy/20 rounded-md
+                  font-dm text-[0.95rem] bg-white outline-none focus:border-navy transition-all duration-300">
+    <input type="tel" placeholder="Mobile Number"
+           class="flex-1 min-w-[160px] px-[18px] py-3.5 border-2 border-navy/20 rounded-md
+                  font-dm text-[0.95rem] bg-white outline-none focus:border-navy transition-all duration-300">
+    <input type="email" placeholder="Email Address"
+           class="flex-1 min-w-[160px] px-[18px] py-3.5 border-2 border-navy/20 rounded-md
+                  font-dm text-[0.95rem] bg-white outline-none focus:border-navy transition-all duration-300">
+    <button class="bg-navy text-white px-8 py-3.5 rounded-md font-dm font-bold text-[0.95rem]
+                   cursor-pointer hover:bg-navy-mid hover:-translate-y-0.5 transition-all duration-300">
+      Get Counselling →
+    </button>
+  </div>f
+</div>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer class="bg-text-dark text-white/60 text-center py-7 text-[0.82rem]">
+  <p>© 2025 <strong class="text-gold">GL Bajaj Institute of Law (GLBIL)</strong> · Plot No. 2A, Knowledge Park III, Greater Noida – 201306 · All Rights Reserved</p>
+  <p class="mt-1.5">Affiliated to Chaudhary Charan Singh University, Meerut · Governed under IDMRS</p>
+</footer>
+
+</body>
+</html>
