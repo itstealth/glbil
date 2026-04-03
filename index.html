@@ -1,720 +1,1343 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GL Bajaj Institute of Law – Shape Your Legal Future</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          navy:      '#0A1F44',
-          'navy-mid':'#0D2B5E',
-          'navy-deep':'#162952',
-          gold:      '#C8A84B',
-          'gold-light':'#E8C97A',
-          'gold-dark':'#9E7E2A',
-          crimson:   '#8B1A1A',
-          'off-white':'#F8F5EE',
-          'text-dark':'#1A1A2E',
-          'text-mid': '#3D3D5C',
-          'text-light':'#7A7A9A',
-        },
-        fontFamily: {
-          playfair: ['"Playfair Display"', 'serif'],
-          dm:       ['"DM Sans"', 'sans-serif'],
-        },
-        keyframes: {
-          fadeUp: {
-            '0%':   { opacity: '0', transform: 'translateY(28px)' },
-            '100%': { opacity: '1', transform: 'translateY(0)' },
-          }
-        },
-        animation: {
-          'fade-up-1': 'fadeUp 0.6s ease both',
-          'fade-up-2': 'fadeUp 0.7s ease 0.1s both',
-          'fade-up-3': 'fadeUp 0.7s ease 0.2s both',
-          'fade-up-4': 'fadeUp 0.7s ease 0.3s both',
-          'fade-up-5': 'fadeUp 0.7s ease 0.4s both',
-          'fade-up-6': 'fadeUp 0.7s ease 0.5s both',
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GL Bajaj Institute of Law – Shape Your Legal Future</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#472510',
+                        'navy-mid': '#80471c',
+                        'navy-deep': '#5a3015',
+                        gold: '#c48a47',
+                        'gold-light': '#ffcc4e',
+                        'gold-dark': '#80471c',
+                        crimson: '#dc3545',
+                        'off-white': '#F8F5EF',
+                        'text-dark': '#1A1A1A',
+                        'text-mid': '#444444',
+                        'text-light': '#777777',
+                    },
+                    fontFamily: {
+                        playfair: ['"Playfair Display"', 'serif'],
+                        dm: ['"DM Sans"', 'sans-serif'],
+                    },
+                    keyframes: {
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(28px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    },
+                    animation: {
+                        'fade-up-1': 'fadeUp 0.6s ease both',
+                        'fade-up-2': 'fadeUp 0.7s ease 0.1s both',
+                        'fade-up-3': 'fadeUp 0.7s ease 0.2s both',
+                        'fade-up-4': 'fadeUp 0.7s ease 0.3s both',
+                        'fade-up-5': 'fadeUp 0.7s ease 0.4s both',
+                        'fade-up-6': 'fadeUp 0.7s ease 0.5s both',
+                    }
+                }
+            }
         }
-      }
-    }
-  }
-</script>
-<style>
-  html { scroll-behavior: smooth; }
-  body { font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
 
-  /* Hero image panel pseudo-elements (can't do with Tailwind alone) */
-  .hero-image-panel::before {
-    content: '';
-    position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(to right, #0A1F44 0%, rgba(10,31,68,0.4) 40%, transparent 70%);
-  }
-  .hero-image-panel::after {
-    content: '';
-    position: absolute; bottom: 0; left: 0; right: 0; height: 50%; z-index: 1;
-    background: linear-gradient(to top, #0A1F44, transparent);
-  }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden;
+        }
 
-  /* Hero radial pattern overlay */
-  .hero-pattern {
-    background-image:
-      radial-gradient(circle at 20% 80%, rgba(200,168,75,0.12) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(200,168,75,0.08) 0%, transparent 50%),
-      linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.015) 40%, rgba(255,255,255,0.015) 60%, transparent 60%);
-    background-size: 100% 100%, 100% 100%, 60px 60px;
-  }
+        /* Hero image panel pseudo-elements (can't do with Tailwind alone) */
+        .hero-image-panel::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(to right, #472510 0%, rgba(71, 37, 16, 0.4) 40%, transparent 70%);
+        }
 
-  /* Eligibility visual § watermark */
-  .elig-watermark::before {
-    content: '§';
-    font-family: 'Playfair Display', serif;
-    position: absolute; right: -10px; bottom: -30px;
-    font-size: 14rem; color: rgba(200,168,75,0.08); line-height: 1;
-  }
+        .hero-image-panel::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            z-index: 1;
+            background: linear-gradient(to top, #472510, transparent);
+        }
 
-  /* Dot grid pattern for placements section */
-  .dot-grid {
-    background-image: radial-gradient(rgba(200,168,75,0.06) 1px, transparent 1px);
-    background-size: 32px 32px;
-  }
+        /* Hero radial pattern overlay */
+        .hero-pattern {
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(196, 138, 71, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 204, 78, 0.10) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.015) 40%, rgba(255, 255, 255, 0.015) 60%, transparent 60%);
+            background-size: 100% 100%, 100% 100%, 60px 60px;
+        }
 
-  /* Hover transitions */
-  .program-card { transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s, background 0.4s; }
-  .program-card:hover { transform: translateY(-8px); }
-  .program-card:hover img { transform: scale(1.06); }
-  .program-card img { transition: transform 0.5s; }
+        /* Eligibility visual § watermark */
+        .elig-watermark::before {
+            content: '§';
+            font-family: 'Playfair Display', serif;
+            position: absolute;
+            right: -10px;
+            bottom: -30px;
+            font-size: 14rem;
+            color: rgba(196, 138, 71, 0.08);
+            line-height: 1;
+        }
 
-  .stat-block { transition: background 0.3s; }
-  .recruiter-logo { transition: background 0.3s; }
-  .recruiter-logo:hover { background: #F8F5EE; }
-  .recruiter-logo:hover .recruiter-logo-text { opacity: 1; }
-  .recruiter-logo-text { transition: opacity 0.3s; }
+        /* Dot grid pattern for placements section */
+        .dot-grid {
+            background-image: radial-gradient(rgba(196, 138, 71, 0.08) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
 
-  /* Program card image overlay */
-  .program-img-wrap::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(10,31,68,0.9) 0%, transparent 60%);
-  }
+        /* Hover transitions */
+        .program-card {
+            transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s, background 0.4s;
+        }
 
-  /* About image decorative ring */
-  .about-img-wrap::before {
-    content: '';
-    position: absolute; top: -20px; right: -20px;
-    width: 120px; height: 120px;
-    border: 3px solid #C8A84B;
-    border-radius: 50%; opacity: 0.3; z-index: -1;
-  }
-</style>
+        .program-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .program-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .program-card img {
+            transition: transform 0.5s;
+        }
+
+        .stat-block {
+            transition: background 0.3s;
+        }
+
+        .recruiter-logo {
+            transition: background 0.3s;
+        }
+
+        .recruiter-logo:hover {
+            background: #F9F7F4;
+        }
+
+        .recruiter-logo:hover .recruiter-logo-text {
+            opacity: 1;
+        }
+
+        .recruiter-logo-text {
+            transition: opacity 0.3s;
+        }
+
+        /* Program card image overlay */
+        .program-img-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(71, 37, 16, 0.9) 0%, transparent 60%);
+        }
+
+        /* About image decorative ring */
+        .about-img-wrap::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 120px;
+            height: 120px;
+            border: 3px solid #c48a47;
+            border-radius: 50%;
+            opacity: 0.3;
+            z-index: -1;
+        }
+    </style>
 </head>
+
 <body class="bg-white text-text-dark font-dm">
 
-<!-- ══════════════════════════════════════════
+    <!-- ══════════════════════════════════════════
      STICKY NAV
 ══════════════════════════════════════════ -->
-<nav class="fixed top-0 left-0 right-0 z-[999] flex items-center justify-between px-10 py-3 border-b-2 border-gold"
-     style="background:rgba(10,31,68,0.97); backdrop-filter:blur(10px);">
-  <div>
-    <span class="font-playfair text-gold font-bold text-xl tracking-wide">GL BAJAJ INSTITUTE OF LAW</span>
-    <small class="block text-[#ccc] text-[0.65rem] tracking-[2px]">GLBIL · GREATER NOIDA · EST. 2024</small>
-  </div>
-  <button class="bg-gold text-navy font-bold text-sm px-7 py-2.5 rounded cursor-pointer tracking-wide
-                 hover:bg-gold-light hover:-translate-y-0.5 transition-all duration-300">
-    Apply Now →
-  </button>
-</nav>
+    <nav class="fixed top-0 left-0 right-0 z-[999] flex items-center justify-between px-10 py-3 border-b-2 border-gold"
+        style="background:rgba(255,255,255,0.97); backdrop-filter:blur(10px);">
+        <div>
+            <span class="font-playfair text-navy font-bold text-xl tracking-wide">GL BAJAJ INSTITUTE OF LAW</span>
+            <small class="block text-[#666] text-[0.65rem] tracking-[2px]">GLBIL · GREATER NOIDA · EST. 2024</small>
+        </div>
+        <button class="bg-navy text-white font-bold text-sm px-7 py-2.5 rounded cursor-pointer tracking-wide
+                 hover:bg-navy-mid hover:-translate-y-0.5 transition-all duration-300">
+            Apply Now →
+        </button>
+    </nav>
 
-<!-- ══════════════════════════════════════════
+    <!-- ══════════════════════════════════════════
      SECTION 1: HERO BANNER
 ══════════════════════════════════════════ -->
-<section class="relative min-h-screen flex items-center overflow-hidden pt-[70px]">
-  <!-- Background gradient -->
-  <div class="absolute inset-0" style="background:linear-gradient(135deg,#0A1F44 0%,#0D2B5E 40%,#162952 60%,#0A1F44 100%);"></div>
-  <!-- Pattern overlay -->
-  <div class="absolute inset-0 hero-pattern"></div>
+    <section class="relative h-screen flex items-center overflow-hidden">
+        <!-- Full-bleed background image -->
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1800&q=80&fit=crop"
+                alt="Law library" class="w-full h-full object-cover object-center"
+                style="filter:brightness(0.38) saturate(0.85);">
+        </div>
+        <!-- Warm brown gradient overlay -->
+        <div class="absolute inset-0"
+            style="background:linear-gradient(105deg,rgba(71,37,16,0.97) 0%,rgba(71,37,16,0.82) 45%,rgba(71,37,16,0.35) 75%,rgba(71,37,16,0.15) 100%);">
+        </div>
+        <!-- Subtle radial gold glow bottom-left -->
+        <div class="absolute bottom-0 left-0 w-[600px] h-[400px] pointer-events-none"
+            style="background:radial-gradient(ellipse at 0% 100%,rgba(196,138,71,0.18) 0%,transparent 65%);"></div>
+        <!-- Noise grain texture -->
+        <div class="absolute inset-0 opacity-[0.03] pointer-events-none"
+            style="background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 512 512%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%22.75%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E');">
+        </div>
 
-  <!-- Right image panel -->
-  <div class="hero-image-panel absolute right-0 top-0 bottom-0 w-[48%] overflow-hidden hidden md:block">
-    <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=900&q=80"
-         alt="Law library" class="w-full h-full object-cover" style="filter:brightness(0.55) saturate(0.8);">
-  </div>
+        <!-- ── MAIN CONTENT GRID ── -->
+        <div
+            class="relative z-10 w-full max-w-[1320px] mx-auto px-[60px] pt-[70px] flex items-center justify-between gap-12">
 
-  <!-- Hero content -->
-  <div class="relative z-10 px-15 py-20 max-w-[620px] pl-[60px] pr-[60px] pb-[80px] pt-[60px]">
-    <!-- Badge -->
-    <div class="inline-flex items-center gap-2 border rounded-full px-[18px] py-[7px] mb-7 animate-fade-up-1"
-         style="background:rgba(200,168,75,0.15); border-color:rgba(200,168,75,0.4);">
-      <span class="w-1.5 h-1.5 bg-gold rounded-full inline-block"></span>
-      <span class="text-gold-light text-xs font-semibold tracking-[3px]">ADMISSIONS OPEN 2025–26</span>
-    </div>
+            <!-- Left: Copy -->
+            <div class="max-w-[580px]">
 
-    <!-- Logo area -->
-    <div class="flex items-center gap-4 mb-8 animate-fade-up-2">
-      <div class="w-16 h-16 bg-gold rounded-xl flex items-center justify-center
-                  font-playfair text-navy font-black text-2xl flex-shrink-0">GL</div>
-      <div class="text-white">
-        <strong class="block font-playfair text-lg font-bold tracking-wide">GL Bajaj Institute of Law</strong>
-        <small class="text-[0.7rem] text-gold-light tracking-[2px]">WHERE ETHICS MEET EXCELLENCE</small>
-      </div>
-    </div>
+                <!-- Admission badge -->
+                <div class="inline-flex items-center gap-2.5 rounded-full px-4 py-2 mb-6 animate-fade-up-1"
+                    style="background:rgba(196,138,71,0.14);border:1px solid rgba(255,204,78,0.3);">
+                    <span class="w-2 h-2 rounded-full bg-gold-light animate-pulse inline-block"></span>
+                    <span class="text-gold-light text-[0.7rem] font-bold tracking-[3.5px] uppercase">Admissions Open ·
+                        2025–26</span>
+                </div>
 
-    <!-- H1 -->
-    <h1 class="font-playfair font-black text-white leading-[1.15] mb-5 animate-fade-up-3"
-        style="font-size:clamp(2.4rem,4vw,3.4rem);">
-      Where Justice Meets
-      <em class="italic text-gold block not-italic" style="font-style:italic;">Ambition.</em>
-    </h1>
+                <!-- Institute identifier -->
+                <div class="flex items-center gap-3.5 mb-7 animate-fade-up-2">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center font-playfair font-black text-navy text-lg flex-shrink-0"
+                        style="background:linear-gradient(135deg,#c48a47,#ffcc4e);">GL</div>
+                    <div>
+                        <strong class="block text-white font-playfair text-base tracking-wide leading-tight">GL Bajaj
+                            Institute of Law</strong>
+                        <small class="text-gold text-[0.65rem] tracking-[2px] uppercase">Where Ethics Meet
+                            Excellence</small>
+                    </div>
+                </div>
 
-    <!-- Tagline -->
-    <p class="text-white/75 text-[1.05rem] leading-[1.7] mb-9 max-w-[500px] animate-fade-up-4">
-      Begin a transformative legal education at Greater Noida's premier law institute — shaping ethical,
-      globally competent legal professionals for the courts, boardrooms, and beyond.
-    </p>
+                <!-- H1 -->
+                <h1 class="font-playfair font-black text-white leading-[1.08] mb-5 animate-fade-up-3"
+                    style="font-size:clamp(2.6rem,4.2vw,3.8rem);">
+                    Where Justice<br>
+                    Meets <em
+                        style="font-style:italic;background:linear-gradient(90deg,#c48a47,#ffcc4e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Ambition.</em>
+                </h1>
 
-    <!-- CTAs -->
-    <div class="flex gap-4 flex-wrap animate-fade-up-5">
-      <button class="font-bold text-navy px-9 py-4 rounded cursor-pointer transition-all duration-300
-                     hover:-translate-y-1"
-              style="background:linear-gradient(135deg,#C8A84B 0%,#9E7E2A 100%);
-                     box-shadow:0 8px 24px rgba(200,168,75,0.35);">
-        Apply for Admission
-      </button>
-      <button class="border-2 text-white bg-transparent px-8 py-3.5 rounded font-semibold
-                     transition-all duration-300 hover:border-gold hover:text-gold"
-              style="border-color:rgba(255,255,255,0.35);">
-        Download Brochure
-      </button>
-    </div>
-  </div>
+                <!-- Tagline -->
+                <p class="text-white/65 leading-[1.8] mb-8 animate-fade-up-4"
+                    style="font-size:0.97rem;max-width:460px;">
+                    Greater Noida's premier law institute — shaping ethical, globally competent legal professionals for
+                    courts, boardrooms, and beyond.
+                </p>
 
-  <!-- Bottom stats bar -->
-  <div class="absolute bottom-10 left-[60px] flex gap-10 z-10 animate-fade-up-6">
-    <div class="text-white">
-      <strong class="block font-playfair text-[1.8rem] text-gold">800+</strong>
-      <span class="text-xs text-white/60 tracking-[1px]">FACULTY MEMBERS</span>
-    </div>
-    <div class="w-px bg-white/20"></div>
-    <div class="text-white">
-      <strong class="block font-playfair text-[1.8rem] text-gold">14,000+</strong>
-      <span class="text-xs text-white/60 tracking-[1px]">STUDENTS ACROSS GROUP</span>
-    </div>
-    <div class="w-px bg-white/20"></div>
-    <div class="text-white">
-      <strong class="block font-playfair text-[1.8rem] text-gold">25+</strong>
-      <span class="text-xs text-white/60 tracking-[1px]">YEARS OF EXCELLENCE</span>
-    </div>
-  </div>
-</section>
+                <!-- CTAs -->
+                <div class="flex gap-3.5 flex-wrap mb-10 animate-fade-up-5">
+                    <button
+                        class="font-bold text-navy px-8 py-3.5 rounded-lg cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl text-sm tracking-wide"
+                        style="background:linear-gradient(135deg,#ffcc4e 0%,#c48a47 100%);box-shadow:0 8px 28px rgba(196,138,71,0.4);">
+                        Apply for Admission →
+                    </button>
+                    <button
+                        class="px-7 py-3.5 rounded-lg font-semibold text-sm text-white/85 transition-all duration-300 hover:text-gold-light"
+                        style="border:1.5px solid rgba(255,255,255,0.22);background:rgba(255,255,255,0.05);backdrop-filter:blur(8px);">
+                        Download Brochure
+                    </button>
+                </div>
 
-<!-- ══════════════════════════════════════════
+                <!-- Trust badges -->
+                <div class="flex flex-wrap gap-3 animate-fade-up-6">
+                    <span class="flex items-center gap-1.5 text-white/50 text-[0.72rem] tracking-wide">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="#c48a47" stroke-width="2" viewBox="0 0 24 24">
+                            <path
+                                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Bar Council of India Recognised
+                    </span>
+                    <span class="text-white/20">·</span>
+                    <span class="flex items-center gap-1.5 text-white/50 text-[0.72rem] tracking-wide">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="#c48a47" stroke-width="2" viewBox="0 0 24 24">
+                            <path
+                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        CCS University Affiliated
+                    </span>
+                    <span class="text-white/20">·</span>
+                    <span class="flex items-center gap-1.5 text-white/50 text-[0.72rem] tracking-wide">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="#c48a47" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M12 14l9-5-9-5-9 5 9 5z" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Est. 2024 · Greater Noida
+                    </span>
+                </div>
+            </div>
+
+            <!-- Right: Counselling Form -->
+            <div class="hidden lg:block flex-shrink-0 w-[320px]">
+                <div class="rounded-2xl overflow-hidden"
+                    style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,204,78,0.18);backdrop-filter:blur(20px);">
+                    <!-- Form header -->
+                    <div class="px-6 pt-5 pb-4 border-b" style="border-color:rgba(255,255,255,0.07);">
+                        <h3 class="font-playfair text-white text-[1.15rem] font-bold leading-tight">Free Counselling
+                            Session</h3>
+                        <p class="text-white/45 text-[0.72rem] mt-1">Our advisors will call you within 24 hrs.</p>
+                    </div>
+                    <!-- Form fields -->
+                    <form id="glbil-hero-form" novalidate>
+                        <div class="p-5 flex flex-col gap-3">
+
+                            <!-- Full Name -->
+                            <div>
+                                <label class="block text-white/40 text-[0.65rem] tracking-[1.5px] uppercase mb-1.5"
+                                    for="hf-name">Full Name</label>
+                                <input id="hf-name" name="Name" type="text" autocomplete="name"
+                                    class="w-full rounded-lg px-3.5 py-2.5 text-white text-sm outline-none transition-all duration-200 font-dm hf-field"
+                                    style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);caret-color:#ffcc4e;"
+                                    placeholder="Arjun Sharma">
+                                <span class="hf-err hidden block text-[0.65rem] mt-1 pl-1" id="err-name"
+                                    style="color:#ff8a95;"></span>
+                            </div>
+
+                            <!-- Mobile -->
+                            <div>
+                                <label class="block text-white/40 text-[0.65rem] tracking-[1.5px] uppercase mb-1.5"
+                                    for="hf-phone">Mobile Number</label>
+                                <input id="hf-phone" name="Phone" type="tel" autocomplete="tel"
+                                    class="w-full rounded-lg px-3.5 py-2.5 text-white text-sm outline-none transition-all duration-200 font-dm hf-field"
+                                    style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);caret-color:#ffcc4e;"
+                                    placeholder="9876543210" maxlength="10">
+                                <span class="hf-err hidden block text-[0.65rem] mt-1 pl-1" id="err-phone"
+                                    style="color:#ff8a95;"></span>
+                            </div>
+
+                            <!-- Email -->
+                            <div>
+                                <label class="block text-white/40 text-[0.65rem] tracking-[1.5px] uppercase mb-1.5"
+                                    for="hf-email">Email Address</label>
+                                <input id="hf-email" name="Email" type="email" autocomplete="email"
+                                    class="w-full rounded-lg px-3.5 py-2.5 text-white text-sm outline-none transition-all duration-200 font-dm hf-field"
+                                    style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);caret-color:#ffcc4e;"
+                                    placeholder="you@email.com">
+                                <span class="hf-err hidden block text-[0.65rem] mt-1 pl-1" id="err-email"
+                                    style="color:#ff8a95;"></span>
+                            </div>
+
+                            <!-- City + State -->
+                            <div class="grid grid-cols-2 gap-2">
+                                <div>
+                                    <label class="block text-white/40 text-[0.65rem] tracking-[1.5px] uppercase mb-1.5"
+                                        for="hf-city">City</label>
+                                    <input id="hf-city" name="City" type="text" autocomplete="address-level2"
+                                        class="w-full rounded-lg px-3.5 py-2.5 text-white text-sm outline-none transition-all duration-200 font-dm hf-field"
+                                        style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);caret-color:#ffcc4e;"
+                                        placeholder="New Delhi">
+                                    <span class="hf-err hidden block text-[0.65rem] mt-1 pl-1" id="err-city"
+                                        style="color:#ff8a95;"></span>
+                                </div>
+                                <div>
+                                    <label class="block text-white/40 text-[0.65rem] tracking-[1.5px] uppercase mb-1.5"
+                                        for="hf-state">State</label>
+                                    <input id="hf-state" name="State" type="text"
+                                        class="w-full rounded-lg px-3.5 py-2.5 text-white text-sm outline-none transition-all duration-200 font-dm hf-field"
+                                        style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);caret-color:#ffcc4e;"
+                                        placeholder="Uttar Pradesh">
+                                    <span class="hf-err hidden block text-[0.65rem] mt-1 pl-1" id="err-state"
+                                        style="color:#ff8a95;"></span>
+                                </div>
+                            </div>
+
+                            <!-- Programme -->
+                            <div>
+                                <label class="block text-white/40 text-[0.65rem] tracking-[1.5px] uppercase mb-1.5"
+                                    for="hf-program">Programme</label>
+                                <select id="hf-program" name="Program"
+                                    class="w-full rounded-lg px-3.5 py-2.5 text-white text-sm outline-none transition-all duration-200 font-dm appearance-none cursor-pointer hf-field"
+                                    style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);">
+                                    <option value="" style="background:#472510;">Select Programme</option>
+                                    <option value="B.A. LL.B. — 5 Year" style="background:#472510;">B.A. LL.B. — 5 Year
+                                    </option>
+                                    <option value="B.Com. LL.B. — 5 Year" style="background:#472510;">B.Com. LL.B. — 5
+                                        Year</option>
+                                    <option value="LL.B. — 3 Year" style="background:#472510;">LL.B. — 3 Year</option>
+                                </select>
+                                <span class="hf-err hidden block text-[0.65rem] mt-1 pl-1" id="err-program"
+                                    style="color:#ff8a95;"></span>
+                            </div>
+
+                            <!-- Submit button with states -->
+                            <button id="hf-submit" type="submit"
+                                class="w-full py-3 rounded-lg text-navy text-sm font-bold tracking-wide mt-1 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl flex items-center justify-center gap-2"
+                                style="background:linear-gradient(135deg,#ffcc4e 0%,#c48a47 100%);box-shadow:0 8px 24px rgba(196,138,71,0.4);">
+                                <span id="hf-btn-text">Get Free Counselling →</span>
+                                <svg id="hf-spinner" class="hidden animate-spin w-4 h-4" fill="none"
+                                    viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="#472510"
+                                        stroke-width="4" />
+                                    <path class="opacity-75" fill="#472510" d="M4 12a8 8 0 018-8v8z" />
+                                </svg>
+                            </button>
+
+                            <!-- Feedback banners -->
+                            <div id="hf-success" class="hidden text-center py-2 px-3 rounded-lg text-sm font-semibold"
+                                style="background:rgba(196,138,71,0.15);border:1px solid rgba(255,204,78,0.3);color:#ffcc4e;">
+                                ✅ Thank you! We'll call you within 24 hours.
+                            </div>
+                            <div id="hf-error" class="hidden text-center py-2 px-3 rounded-lg text-sm"
+                                style="background:rgba(220,53,69,0.12);border:1px solid rgba(220,53,69,0.3);color:#ff8a95;">
+                                ⚠️ Something went wrong. Please try again.
+                            </div>
+
+                            <p class="text-center text-white/30 text-[0.65rem] mt-0.5">🔒 100% confidential · No spam,
+                                ever</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom gradient fade -->
+        <div class="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
+            style="background:linear-gradient(to top,rgba(248,245,239,0.08),transparent);"></div>
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-7 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 z-10 opacity-40">
+            <span class="text-white text-[0.6rem] tracking-[3px] uppercase">Scroll</span>
+            <div class="w-px h-8 bg-white/40"></div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
      SECTION 2: ABOUT GLBIL
 ══════════════════════════════════════════ -->
-<section class="py-24 px-[60px] bg-off-white">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-[70px] items-center">
+    <section class="py-24 px-[60px] bg-off-white">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-[70px] items-center">
 
-    <!-- Image -->
-    <div class="about-img-wrap relative rounded-2xl overflow-hidden shadow-[0_30px_80px_rgba(10,31,68,0.18)]">
-      <img src="https://images.unsplash.com/photo-1436450412740-6b988f486c6b?w=800&q=80"
-           alt="GL Bajaj law campus" class="w-full h-[440px] object-cover block">
-      <div class="absolute bottom-6 left-6 bg-navy pl-4 border-l-4 border-gold py-3.5 px-5 rounded-xl">
-        <strong class="block font-playfair text-2xl text-gold">CCS University</strong>
-        <span class="text-sm text-white/80">Affiliated · Recognised</span>
-      </div>
-    </div>
+            <!-- Image -->
+            <div class="about-img-wrap relative rounded-2xl overflow-hidden shadow-[0_30px_80px_rgba(10,31,68,0.18)]">
+                <img src="https://images.unsplash.com/photo-1436450412740-6b988f486c6b?w=800&q=80"
+                    alt="GL Bajaj law campus" class="w-full h-[440px] object-cover block">
+                <div class="absolute bottom-6 left-6 bg-navy pl-4 border-l-4 border-gold py-3.5 px-5 rounded-xl">
+                    <strong class="block font-playfair text-2xl text-gold">CCS University</strong>
+                    <span class="text-sm text-white/90">Affiliated · Recognised</span>
+                </div>
+            </div>
 
-    <!-- Content -->
-    <div>
-      <p class="text-[0.72rem] tracking-[4px] font-bold text-crimson uppercase mb-3">About the Programme</p>
-      <h2 class="font-playfair font-extrabold text-navy leading-tight" style="font-size:clamp(1.8rem,3vw,2.6rem);">
-        A New Era in<br><span class="text-gold-dark">Legal Education</span>
-      </h2>
-      <p class="text-text-mid leading-[1.85] text-[1.02rem] mt-5 mb-5">
-        GL Bajaj Institute of Law (GLBIL), Greater Noida, is the newest crown of the GL Bajaj Group —
-        a trusted name with over two decades of academic excellence. Affiliated with Chaudhary Charan Singh
-        University, Meerut, GLBIL delivers world-class legal education that integrates academic rigor
-        with real-world relevance.
-      </p>
-      <p class="text-text-mid leading-[1.85] text-[1.02rem]">
-        Mentored by a distinguished advisory board — including Justice Deepak Verma (Retd.), Supreme Court
-        of India — GLBIL prepares the next generation of lawyers to lead, innovate, and inspire across
-        courtrooms, corporate boardrooms, and global policy chambers.
-      </p>
+            <!-- Content -->
+            <div>
+                <p class="text-[0.72rem] tracking-[4px] font-bold text-crimson uppercase mb-3">About the Programme</p>
+                <h2 class="font-playfair font-extrabold text-navy leading-tight"
+                    style="font-size:clamp(1.8rem,3vw,2.6rem);">
+                    A New Era in<br><span class="text-gold-dark">Legal Education</span>
+                </h2>
+                <p class="text-text-mid leading-[1.85] text-[1.02rem] mt-5 mb-5">
+                    GL Bajaj Institute of Law (GLBIL), Greater Noida, is the newest crown of the GL Bajaj Group —
+                    a trusted name with over two decades of academic excellence. Affiliated with Chaudhary Charan Singh
+                    University, Meerut, GLBIL delivers world-class legal education that integrates academic rigor
+                    with real-world relevance.
+                </p>
+                <p class="text-text-mid leading-[1.85] text-[1.02rem]">
+                    Mentored by a distinguished advisory board — including Justice Deepak Verma (Retd.), Supreme Court
+                    of India — GLBIL prepares the next generation of lawyers to lead, innovate, and inspire across
+                    courtrooms, corporate boardrooms, and global policy chambers.
+                </p>
 
-      <!-- Highlights grid -->
-      <div class="grid grid-cols-2 gap-4 mt-8">
-        <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-navy/[0.08] shadow-sm">
-          <div class="w-9 h-9 flex-shrink-0 rounded-lg flex items-center justify-center text-base"
-               style="background:rgba(200,168,75,0.12);">⚖️</div>
-          <div>
-            <strong class="block text-navy text-sm">Moot Court Training</strong>
-            <span class="text-text-light text-xs">Live courtroom simulations</span>
-          </div>
+                <!-- Highlights grid -->
+                <div class="grid grid-cols-2 gap-4 mt-8">
+                    <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-navy/[0.08] shadow-sm">
+                        <div class="w-9 h-9 flex-shrink-0 rounded-lg flex items-center justify-center text-base"
+                            style="background:rgba(200,168,75,0.12);">⚖️</div>
+                        <div>
+                            <strong class="block text-navy text-sm">Moot Court Training</strong>
+                            <span class="text-text-light text-xs">Live courtroom simulations</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-navy/[0.08] shadow-sm">
+                        <div class="w-9 h-9 flex-shrink-0 rounded-lg flex items-center justify-center text-base"
+                            style="background:rgba(200,168,75,0.12);">🎓</div>
+                        <div>
+                            <strong class="block text-navy text-sm">Expert Faculty</strong>
+                            <span class="text-text-light text-xs">Industry & judiciary veterans</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-navy/[0.08] shadow-sm">
+                        <div class="w-9 h-9 flex-shrink-0 rounded-lg flex items-center justify-center text-base"
+                            style="background:rgba(200,168,75,0.12);">💼</div>
+                        <div>
+                            <strong class="block text-navy text-sm">Internship Support</strong>
+                            <span class="text-text-light text-xs">Law firms, NGOs, corporates</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-navy/[0.08] shadow-sm">
+                        <div class="w-9 h-9 flex-shrink-0 rounded-lg flex items-center justify-center text-base"
+                            style="background:rgba(200,168,75,0.12);">📜</div>
+                        <div>
+                            <strong class="block text-navy text-sm">Add-on Certifications</strong>
+                            <span class="text-text-light text-xs">Trending legal domains</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-navy/[0.08] shadow-sm">
-          <div class="w-9 h-9 flex-shrink-0 rounded-lg flex items-center justify-center text-base"
-               style="background:rgba(200,168,75,0.12);">🎓</div>
-          <div>
-            <strong class="block text-navy text-sm">Expert Faculty</strong>
-            <span class="text-text-light text-xs">Industry & judiciary veterans</span>
-          </div>
-        </div>
-        <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-navy/[0.08] shadow-sm">
-          <div class="w-9 h-9 flex-shrink-0 rounded-lg flex items-center justify-center text-base"
-               style="background:rgba(200,168,75,0.12);">💼</div>
-          <div>
-            <strong class="block text-navy text-sm">Internship Support</strong>
-            <span class="text-text-light text-xs">Law firms, NGOs, corporates</span>
-          </div>
-        </div>
-        <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-navy/[0.08] shadow-sm">
-          <div class="w-9 h-9 flex-shrink-0 rounded-lg flex items-center justify-center text-base"
-               style="background:rgba(200,168,75,0.12);">📜</div>
-          <div>
-            <strong class="block text-navy text-sm">Add-on Certifications</strong>
-            <span class="text-text-light text-xs">Trending legal domains</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ══════════════════════════════════════════
+    <!-- ══════════════════════════════════════════
      SECTION 3: LAW PROGRAMMES (CARDS)
 ══════════════════════════════════════════ -->
-<section class="py-24 px-[60px] bg-navy relative overflow-hidden">
-  <!-- Radial glow -->
-  <div class="absolute -top-24 -right-24 w-[500px] h-[500px] rounded-full pointer-events-none"
-       style="background:radial-gradient(circle,rgba(200,168,75,0.08) 0%,transparent 70%);"></div>
+    <section class="py-24 px-[60px] relative overflow-hidden"
+        style="background:linear-gradient(135deg,#472510 0%,#5a3015 100%);">
+        <!-- Radial glow -->
+        <div class="absolute -top-24 -right-24 w-[500px] h-[500px] rounded-full pointer-events-none"
+            style="background:radial-gradient(circle,rgba(255,204,78,0.12) 0%,transparent 70%);"></div>
 
-  <!-- Header -->
-  <div class="text-center mb-16">
-    <p class="text-[0.72rem] tracking-[4px] font-bold text-gold uppercase mb-3">Our Programmes</p>
-    <h2 class="font-playfair font-extrabold text-white leading-tight" style="font-size:clamp(1.8rem,3vw,2.6rem);">
-      Law Programmes <span class="text-gold">Offered</span>
-    </h2>
-    <p class="text-white/60 mt-3 max-w-[520px] mx-auto text-[0.95rem]">
-      Choose the programme that aligns with your academic background and career aspirations.
-    </p>
-  </div>
+        <!-- Header -->
+        <div class="text-center mb-16">
+            <p class="text-[0.72rem] tracking-[4px] font-bold text-gold uppercase mb-3">Our Programmes</p>
+            <h2 class="font-playfair font-extrabold text-white leading-tight"
+                style="font-size:clamp(1.8rem,3vw,2.6rem);">
+                Law Programmes <span class="text-gold">Offered</span>
+            </h2>
+            <p class="text-white/60 mt-3 max-w-[520px] mx-auto text-[0.95rem]">
+                Choose the programme that aligns with your academic background and career aspirations.
+            </p>
+        </div>
 
-  <!-- Cards -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+        <!-- Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
 
-    <!-- Card 1 — BA LLB -->
-    <div class="program-card rounded-2xl overflow-hidden border border-gold/25 hover:border-gold
+            <!-- Card 1 — BA LLB -->
+            <div class="program-card rounded-2xl overflow-hidden border border-gold/25 hover:border-gold
                 hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)] hover:bg-white/[0.09]"
-         style="background:rgba(255,255,255,0.05);">
-      <div class="program-img-wrap relative h-[200px] overflow-hidden">
-        <span class="absolute top-3.5 right-3.5 z-10 bg-gold text-navy font-bold text-xs
+                style="background:rgba(255,255,255,0.05);">
+                <div class="program-img-wrap relative h-[200px] overflow-hidden">
+                    <span class="absolute top-3.5 right-3.5 z-10 bg-gold text-navy font-bold text-xs
                      px-3 py-1 rounded-full tracking-wide">5 YEARS</span>
-        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80"
-             alt="BA LLB" class="w-full h-full object-cover" style="filter:brightness(0.8);">
-      </div>
-      <div class="p-6">
-        <h3 class="font-playfair text-xl text-white mb-2.5">B.A. LL.B.</h3>
-        <p class="text-white/65 text-sm leading-[1.7] mb-4">
-          A flagship integrated programme that blends Arts and Law education, building critical thinking,
-          advocacy skills, and a strong legal foundation from the ground up.
-        </p>
-        <span class="inline-block border border-gold/40 text-gold-light text-[0.72rem] px-3 py-1 rounded mr-1.5 mb-1.5 tracking-wide">5-Year Integrated</span>
-        <span class="inline-block border border-gold/40 text-gold-light text-[0.72rem] px-3 py-1 rounded mr-1.5 mb-1.5 tracking-wide">After 10+2</span>
-        <a href="#" class="block w-full border border-gold text-gold text-center py-2.5 rounded-md mt-4
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80" alt="BA LLB"
+                        class="w-full h-full object-cover" style="filter:brightness(0.8);">
+                </div>
+                <div class="p-6">
+                    <h3 class="font-playfair text-xl text-white mb-2.5">B.A. LL.B.</h3>
+                    <p class="text-white/65 text-sm leading-[1.7] mb-4">
+                        A flagship integrated programme that blends Arts and Law education, building critical thinking,
+                        advocacy skills, and a strong legal foundation from the ground up.
+                    </p>
+                    <span
+                        class="inline-block border border-gold/40 text-gold-light text-[0.72rem] px-3 py-1 rounded mr-1.5 mb-1.5 tracking-wide">5-Year
+                        Integrated</span>
+                    <span
+                        class="inline-block border border-gold/40 text-gold-light text-[0.72rem] px-3 py-1 rounded mr-1.5 mb-1.5 tracking-wide">After
+                        10+2</span>
+                    <a href="#" class="block w-full border border-gold text-gold text-center py-2.5 rounded-md mt-4
                            text-sm font-semibold hover:bg-gold hover:text-navy transition-all duration-300">
-          Apply Now →
-        </a>
-      </div>
-    </div>
+                        Apply Now →
+                    </a>
+                </div>
+            </div>
 
-    <!-- Card 2 — BCom LLB -->
-    <div class="program-card rounded-2xl overflow-hidden border border-gold/25 hover:border-gold
+            <!-- Card 2 — BCom LLB -->
+            <div class="program-card rounded-2xl overflow-hidden border border-gold/25 hover:border-gold
                 hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)] hover:bg-white/[0.09]"
-         style="background:rgba(255,255,255,0.05);">
-      <div class="program-img-wrap relative h-[200px] overflow-hidden">
-        <span class="absolute top-3.5 right-3.5 z-10 bg-gold text-navy font-bold text-xs
+                style="background:rgba(255,255,255,0.05);">
+                <div class="program-img-wrap relative h-[200px] overflow-hidden">
+                    <span class="absolute top-3.5 right-3.5 z-10 bg-gold text-navy font-bold text-xs
                      px-3 py-1 rounded-full tracking-wide">5 YEARS</span>
-        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80"
-             alt="BCom LLB" class="w-full h-full object-cover" style="filter:brightness(0.8);">
-      </div>
-      <div class="p-6">
-        <h3 class="font-playfair text-xl text-white mb-2.5">B.Com. LL.B.</h3>
-        <p class="text-white/65 text-sm leading-[1.7] mb-4">
-          Combining Commerce and Law, this programme is ideal for aspiring corporate lawyers,
-          tax consultants, and financial regulators in India's booming economy.
-        </p>
-        <span class="inline-block border border-gold/40 text-gold-light text-[0.72rem] px-3 py-1 rounded mr-1.5 mb-1.5 tracking-wide">5-Year Integrated</span>
-        <span class="inline-block border border-gold/40 text-gold-light text-[0.72rem] px-3 py-1 rounded mr-1.5 mb-1.5 tracking-wide">Commerce + Law</span>
-        <a href="#" class="block w-full border border-gold text-gold text-center py-2.5 rounded-md mt-4
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" alt="BCom LLB"
+                        class="w-full h-full object-cover" style="filter:brightness(0.8);">
+                </div>
+                <div class="p-6">
+                    <h3 class="font-playfair text-xl text-white mb-2.5">B.Com. LL.B.</h3>
+                    <p class="text-white/65 text-sm leading-[1.7] mb-4">
+                        Combining Commerce and Law, this programme is ideal for aspiring corporate lawyers,
+                        tax consultants, and financial regulators in India's booming economy.
+                    </p>
+                    <span
+                        class="inline-block border border-gold/40 text-gold-light text-[0.72rem] px-3 py-1 rounded mr-1.5 mb-1.5 tracking-wide">5-Year
+                        Integrated</span>
+                    <span
+                        class="inline-block border border-gold/40 text-gold-light text-[0.72rem] px-3 py-1 rounded mr-1.5 mb-1.5 tracking-wide">Commerce
+                        + Law</span>
+                    <a href="#" class="block w-full border border-gold text-gold text-center py-2.5 rounded-md mt-4
                            text-sm font-semibold hover:bg-gold hover:text-navy transition-all duration-300">
-          Apply Now →
-        </a>
-      </div>
-    </div>
+                        Apply Now →
+                    </a>
+                </div>
+            </div>
 
-    <!-- Card 3 — LLB -->
-    <div class="program-card rounded-2xl overflow-hidden border border-gold/25 hover:border-gold
+            <!-- Card 3 — LLB -->
+            <div class="program-card rounded-2xl overflow-hidden border border-gold/25 hover:border-gold
                 hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)] hover:bg-white/[0.09]"
-         style="background:rgba(255,255,255,0.05);">
-      <div class="program-img-wrap relative h-[200px] overflow-hidden">
-        <span class="absolute top-3.5 right-3.5 z-10 bg-gold text-navy font-bold text-xs
+                style="background:rgba(255,255,255,0.05);">
+                <div class="program-img-wrap relative h-[200px] overflow-hidden">
+                    <span class="absolute top-3.5 right-3.5 z-10 bg-gold text-navy font-bold text-xs
                      px-3 py-1 rounded-full tracking-wide">3 YEARS</span>
-        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80"
-             alt="LLB" class="w-full h-full object-cover" style="filter:brightness(0.8);">
-      </div>
-      <div class="p-6">
-        <h3 class="font-playfair text-xl text-white mb-2.5">LL.B. (3 Years)</h3>
-        <p class="text-white/65 text-sm leading-[1.7] mb-4">
-          Designed for graduates from any stream, this programme offers an accelerated path into
-          the legal profession with practical exposure to real legal challenges.
-        </p>
-        <span class="inline-block border border-gold/40 text-gold-light text-[0.72rem] px-3 py-1 rounded mr-1.5 mb-1.5 tracking-wide">3-Year Programme</span>
-        <span class="inline-block border border-gold/40 text-gold-light text-[0.72rem] px-3 py-1 rounded mr-1.5 mb-1.5 tracking-wide">For Graduates</span>
-        <a href="#" class="block w-full border border-gold text-gold text-center py-2.5 rounded-md mt-4
+                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80" alt="LLB"
+                        class="w-full h-full object-cover" style="filter:brightness(0.8);">
+                </div>
+                <div class="p-6">
+                    <h3 class="font-playfair text-xl text-white mb-2.5">LL.B. (3 Years)</h3>
+                    <p class="text-white/65 text-sm leading-[1.7] mb-4">
+                        Designed for graduates from any stream, this programme offers an accelerated path into
+                        the legal profession with practical exposure to real legal challenges.
+                    </p>
+                    <span
+                        class="inline-block border border-gold/40 text-gold-light text-[0.72rem] px-3 py-1 rounded mr-1.5 mb-1.5 tracking-wide">3-Year
+                        Programme</span>
+                    <span
+                        class="inline-block border border-gold/40 text-gold-light text-[0.72rem] px-3 py-1 rounded mr-1.5 mb-1.5 tracking-wide">For
+                        Graduates</span>
+                    <a href="#" class="block w-full border border-gold text-gold text-center py-2.5 rounded-md mt-4
                            text-sm font-semibold hover:bg-gold hover:text-navy transition-all duration-300">
-          Apply Now →
-        </a>
-      </div>
-    </div>
+                        Apply Now →
+                    </a>
+                </div>
+            </div>
 
-  </div>
-</section>
+        </div>
+    </section>
 
-<!-- ══════════════════════════════════════════
+    <!-- ══════════════════════════════════════════
      SECTION 4: ELIGIBILITY CRITERIA
 ══════════════════════════════════════════ -->
-<section class="py-24 px-[60px] bg-white">
-  <div class="text-center mb-12">
-    <p class="text-[0.72rem] tracking-[4px] font-bold text-crimson uppercase mb-3">Who Can Apply</p>
-    <h2 class="font-playfair font-extrabold text-navy leading-tight" style="font-size:clamp(1.8rem,3vw,2.6rem);">
-      Eligibility <span class="text-gold-dark">Criteria</span>
-    </h2>
-  </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-[60px] items-start">
+    <section class="py-24 px-[60px] bg-white">
+        <div class="text-center mb-12">
+            <p class="text-[0.72rem] tracking-[4px] font-bold text-crimson uppercase mb-3">Who Can Apply</p>
+            <h2 class="font-playfair font-extrabold text-navy leading-tight"
+                style="font-size:clamp(1.8rem,3vw,2.6rem);">
+                Eligibility <span class="text-gold-dark">Criteria</span>
+            </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-[60px] items-start">
 
-    <!-- Visual panel -->
-    <div class="elig-watermark relative rounded-2xl p-[50px_40px] overflow-hidden"
-         style="background:linear-gradient(135deg,#0A1F44,#162952);">
-      <h3 class="font-playfair text-gold text-[1.8rem] mb-2.5">Your Legal Journey Starts Here</h3>
-      <p class="text-white/70 mb-8 text-sm">Check if you meet the requirements and take your first step
-        toward a prestigious legal career with GL Bajaj.</p>
-      <div class="bg-white/[0.07] border border-gold/25 rounded-xl p-5 mb-3.5">
-        <strong class="block text-white text-base mb-1">B.A. LL.B. / B.Com. LL.B.</strong>
-        <span class="text-white/60 text-[0.82rem]">Minimum 50% marks in Class 10+2 from any recognised board</span>
-      </div>
-      <div class="bg-white/[0.07] border border-gold/25 rounded-xl p-5 mb-3.5">
-        <strong class="block text-white text-base mb-1">LL.B. (3 Years)</strong>
-        <span class="text-white/60 text-[0.82rem]">Graduation from any stream with minimum 50% aggregate marks</span>
-      </div>
-      <div class="bg-white/[0.07] border border-gold/25 rounded-xl p-5">
-        <strong class="block text-white text-base mb-1">Age Limit</strong>
-        <span class="text-white/60 text-[0.82rem]">As per Bar Council of India norms (20 yrs for 5-yr / 30 yrs for 3-yr)</span>
-      </div>
-    </div>
+            <!-- Visual panel -->
+            <div class="elig-watermark relative rounded-2xl p-[50px_40px] overflow-hidden"
+                style="background:linear-gradient(135deg,#472510,#5a3015);">
+                <h3 class="font-playfair text-gold text-[1.8rem] mb-2.5">Your Legal Journey Starts Here</h3>
+                <p class="text-white/70 mb-8 text-sm">Check if you meet the requirements and take your first step
+                    toward a prestigious legal career with GL Bajaj.</p>
+                <div class="bg-white/[0.07] border border-gold/25 rounded-xl p-5 mb-3.5">
+                    <strong class="block text-white text-base mb-1">B.A. LL.B. / B.Com. LL.B.</strong>
+                    <span class="text-white/60 text-[0.82rem]">Minimum 50% marks in Class 10+2 from any recognised
+                        board</span>
+                </div>
+                <div class="bg-white/[0.07] border border-gold/25 rounded-xl p-5 mb-3.5">
+                    <strong class="block text-white text-base mb-1">LL.B. (3 Years)</strong>
+                    <span class="text-white/60 text-[0.82rem]">Graduation from any stream with minimum 50% aggregate
+                        marks</span>
+                </div>
+                <div class="bg-white/[0.07] border border-gold/25 rounded-xl p-5">
+                    <strong class="block text-white text-base mb-1">Age Limit</strong>
+                    <span class="text-white/60 text-[0.82rem]">As per Bar Council of India norms (20 yrs for 5-yr / 30
+                        yrs for 3-yr)</span>
+                </div>
+            </div>
 
-    <!-- Criteria list -->
-    <ul class="list-none">
-      <li class="py-5 border-b border-navy/[0.08] flex gap-4 items-start">
-        <div class="w-9 h-9 flex-shrink-0 rounded-full flex items-center justify-center
-                    text-navy font-extrabold text-sm"
-             style="background:linear-gradient(135deg,#C8A84B,#9E7E2A);">01</div>
-        <div>
-          <strong class="block text-navy text-[0.95rem] mb-1">Academic Qualification</strong>
-          <span class="text-text-light text-[0.85rem]">Candidates must have passed 10+2 (for integrated programmes) or Graduation (for LL.B.) from a recognised university or board.</span>
+            <!-- Criteria list -->
+            <ul class="list-none">
+                <li class="py-5 border-b border-navy/[0.08] flex gap-4 items-start">
+                    <div class="w-9 h-9 flex-shrink-0 rounded-full flex items-center justify-center
+                    text-navy font-extrabold text-sm" style="background:linear-gradient(135deg,#C8A84B,#9E7E2A);">01
+                    </div>
+                    <div>
+                        <strong class="block text-navy text-[0.95rem] mb-1">Academic Qualification</strong>
+                        <span class="text-text-light text-[0.85rem]">Candidates must have passed 10+2 (for integrated
+                            programmes) or Graduation (for LL.B.) from a recognised university or board.</span>
+                    </div>
+                </li>
+                <li class="py-5 border-b border-navy/[0.08] flex gap-4 items-start">
+                    <div class="w-9 h-9 flex-shrink-0 rounded-full flex items-center justify-center
+                    text-navy font-extrabold text-sm" style="background:linear-gradient(135deg,#C8A84B,#9E7E2A);">02
+                    </div>
+                    <div>
+                        <strong class="block text-navy text-[0.95rem] mb-1">Minimum Marks</strong>
+                        <span class="text-text-light text-[0.85rem]">A minimum of 50% aggregate marks in the qualifying
+                            examination. SC/ST candidates may be eligible for relaxation as per government norms.</span>
+                    </div>
+                </li>
+                <li class="py-5 border-b border-navy/[0.08] flex gap-4 items-start">
+                    <div class="w-9 h-9 flex-shrink-0 rounded-full flex items-center justify-center
+                    text-navy font-extrabold text-sm" style="background:linear-gradient(135deg,#C8A84B,#9E7E2A);">03
+                    </div>
+                    <div>
+                        <strong class="block text-navy text-[0.95rem] mb-1">Entrance Exam</strong>
+                        <span class="text-text-light text-[0.85rem]">Admission based on merit in CLAT / CUET-UG / State
+                            Law Entrance Tests or GLBIL's institutional entrance assessment.</span>
+                    </div>
+                </li>
+                <li class="py-5 border-b border-navy/[0.08] flex gap-4 items-start">
+                    <div class="w-9 h-9 flex-shrink-0 rounded-full flex items-center justify-center
+                    text-navy font-extrabold text-sm" style="background:linear-gradient(135deg,#C8A84B,#9E7E2A);">04
+                    </div>
+                    <div>
+                        <strong class="block text-navy text-[0.95rem] mb-1">Documents Required</strong>
+                        <span class="text-text-light text-[0.85rem]">10th & 12th Mark Sheets, Transfer Certificate,
+                            Migration Certificate, Character Certificate, and recent passport-size photographs.</span>
+                    </div>
+                </li>
+                <li class="py-5 flex gap-4 items-start">
+                    <div class="w-9 h-9 flex-shrink-0 rounded-full flex items-center justify-center
+                    text-navy font-extrabold text-sm" style="background:linear-gradient(135deg,#C8A84B,#9E7E2A);">05
+                    </div>
+                    <div>
+                        <strong class="block text-navy text-[0.95rem] mb-1">Age Criteria</strong>
+                        <span class="text-text-light text-[0.85rem]">As mandated by the Bar Council of India. Applicants
+                            must not exceed the maximum age prescribed for the respective programme.</span>
+                    </div>
+                </li>
+            </ul>
         </div>
-      </li>
-      <li class="py-5 border-b border-navy/[0.08] flex gap-4 items-start">
-        <div class="w-9 h-9 flex-shrink-0 rounded-full flex items-center justify-center
-                    text-navy font-extrabold text-sm"
-             style="background:linear-gradient(135deg,#C8A84B,#9E7E2A);">02</div>
-        <div>
-          <strong class="block text-navy text-[0.95rem] mb-1">Minimum Marks</strong>
-          <span class="text-text-light text-[0.85rem]">A minimum of 50% aggregate marks in the qualifying examination. SC/ST candidates may be eligible for relaxation as per government norms.</span>
-        </div>
-      </li>
-      <li class="py-5 border-b border-navy/[0.08] flex gap-4 items-start">
-        <div class="w-9 h-9 flex-shrink-0 rounded-full flex items-center justify-center
-                    text-navy font-extrabold text-sm"
-             style="background:linear-gradient(135deg,#C8A84B,#9E7E2A);">03</div>
-        <div>
-          <strong class="block text-navy text-[0.95rem] mb-1">Entrance Exam</strong>
-          <span class="text-text-light text-[0.85rem]">Admission based on merit in CLAT / CUET-UG / State Law Entrance Tests or GLBIL's institutional entrance assessment.</span>
-        </div>
-      </li>
-      <li class="py-5 border-b border-navy/[0.08] flex gap-4 items-start">
-        <div class="w-9 h-9 flex-shrink-0 rounded-full flex items-center justify-center
-                    text-navy font-extrabold text-sm"
-             style="background:linear-gradient(135deg,#C8A84B,#9E7E2A);">04</div>
-        <div>
-          <strong class="block text-navy text-[0.95rem] mb-1">Documents Required</strong>
-          <span class="text-text-light text-[0.85rem]">10th & 12th Mark Sheets, Transfer Certificate, Migration Certificate, Character Certificate, and recent passport-size photographs.</span>
-        </div>
-      </li>
-      <li class="py-5 flex gap-4 items-start">
-        <div class="w-9 h-9 flex-shrink-0 rounded-full flex items-center justify-center
-                    text-navy font-extrabold text-sm"
-             style="background:linear-gradient(135deg,#C8A84B,#9E7E2A);">05</div>
-        <div>
-          <strong class="block text-navy text-[0.95rem] mb-1">Age Criteria</strong>
-          <span class="text-text-light text-[0.85rem]">As mandated by the Bar Council of India. Applicants must not exceed the maximum age prescribed for the respective programme.</span>
-        </div>
-      </li>
-    </ul>
-  </div>
-</section>
+    </section>
 
-<!-- ══════════════════════════════════════════
+    <!-- ══════════════════════════════════════════
      SECTION 5: WHY CHOOSE GL BAJAJ
 ══════════════════════════════════════════ -->
-<section class="py-24 px-[60px] bg-off-white">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-[70px] items-center">
+    <section class="py-24 px-[60px] bg-off-white">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-[70px] items-center">
 
-    <!-- Image -->
-    <div class="relative">
-      <img src="https://images.unsplash.com/photo-1593115057322-e94b77572f20?w=800&q=80"
-           alt="GL Bajaj Law College" class="w-full h-[480px] object-cover rounded-2xl
+            <!-- Image -->
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1593115057322-e94b77572f20?w=800&q=80"
+                    alt="GL Bajaj Law College" class="w-full h-[480px] object-cover rounded-2xl
            shadow-[0_30px_70px_rgba(10,31,68,0.2)]">
-      <div class="absolute -bottom-8 -right-8 w-[200px] bg-gold rounded-xl p-6
+                <div class="absolute -bottom-8 -right-8 w-[200px] bg-gold rounded-xl p-6
                   shadow-[0_12px_40px_rgba(200,168,75,0.4)]">
-        <strong class="block font-playfair text-[2rem] text-navy leading-tight">Top 10</strong>
-        <span class="text-navy/80 text-sm">Law Colleges in North India</span>
-      </div>
-    </div>
+                    <strong class="block font-playfair text-[2rem] text-navy leading-tight">Top 10</strong>
+                    <span class="text-navy/80 text-sm">Law Colleges in North India</span>
+                </div>
+            </div>
 
-    <!-- Reasons -->
-    <div>
-      <p class="text-[0.72rem] tracking-[4px] font-bold text-crimson uppercase mb-3">Why GL Bajaj</p>
-      <h2 class="font-playfair font-extrabold text-navy leading-tight" style="font-size:clamp(1.8rem,3vw,2.6rem);">
-        More Than a Degree —<br><span class="text-gold-dark">A Launchpad</span>
-      </h2>
-      <ul class="mt-8 list-none">
-        <li class="py-5 border-b border-navy/[0.08] flex gap-[18px] items-start">
-          <div class="w-11 h-11 flex-shrink-0 bg-navy rounded-xl flex items-center justify-center text-xl">🏛️</div>
-          <div>
-            <strong class="block text-navy text-base mb-1">Supreme Court-Connected Advisory Board</strong>
-            <span class="text-text-mid text-sm leading-[1.6]">Mentorship from Justice Deepak Verma (Retd.), SC of India, and leading legal luminaries shaping the curriculum.</span>
-          </div>
-        </li>
-        <li class="py-5 border-b border-navy/[0.08] flex gap-[18px] items-start">
-          <div class="w-11 h-11 flex-shrink-0 bg-navy rounded-xl flex items-center justify-center text-xl">📚</div>
-          <div>
-            <strong class="block text-navy text-base mb-1">Experiential Learning Ecosystem</strong>
-            <span class="text-text-mid text-sm leading-[1.6]">Moot courts, legal aid clinics, ADR simulations, and real-case exposure ensure practice-ready graduates.</span>
-          </div>
-        </li>
-        <li class="py-5 border-b border-navy/[0.08] flex gap-[18px] items-start">
-          <div class="w-11 h-11 flex-shrink-0 bg-navy rounded-xl flex items-center justify-center text-xl">💡</div>
-          <div>
-            <strong class="block text-navy text-base mb-1">Tech-Enabled Modern Classrooms</strong>
-            <span class="text-text-mid text-sm leading-[1.6]">Digital-first infrastructure with AI-assisted legal research tools and e-library access for every student.</span>
-          </div>
-        </li>
-        <li class="py-5 border-b border-navy/[0.08] flex gap-[18px] items-start">
-          <div class="w-11 h-11 flex-shrink-0 bg-navy rounded-xl flex items-center justify-center text-xl">🤝</div>
-          <div>
-            <strong class="block text-navy text-base mb-1">Industry-Connected Placement Cell</strong>
-            <span class="text-text-mid text-sm leading-[1.6]">Partnerships with top law firms, corporate legal departments, and NGOs ensure career support from Day 1.</span>
-          </div>
-        </li>
-        <li class="py-5 border-b border-navy/[0.08] flex gap-[18px] items-start">
-          <div class="w-11 h-11 flex-shrink-0 bg-navy rounded-xl flex items-center justify-center text-xl">🏆</div>
-          <div>
-            <strong class="block text-navy text-base mb-1">25+ Years of Group Legacy</strong>
-            <span class="text-text-mid text-sm leading-[1.6]">GL Bajaj Group's proven track record across 8 institutions with 14,000+ students and 800+ expert faculty.</span>
-          </div>
-        </li>
-        <li class="py-5 flex gap-[18px] items-start">
-          <div class="w-11 h-11 flex-shrink-0 bg-navy rounded-xl flex items-center justify-center text-xl">💰</div>
-          <div>
-            <strong class="block text-navy text-base mb-1">Scholarship Up to ₹50,000</strong>
-            <span class="text-text-mid text-sm leading-[1.6]">Merit-based scholarship opportunities to ensure financial barriers don't stand between talent and excellence.</span>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
+            <!-- Reasons -->
+            <div>
+                <p class="text-[0.72rem] tracking-[4px] font-bold text-crimson uppercase mb-3">Why GL Bajaj</p>
+                <h2 class="font-playfair font-extrabold text-navy leading-tight"
+                    style="font-size:clamp(1.8rem,3vw,2.6rem);">
+                    More Than a Degree —<br><span class="text-gold-dark">A Launchpad</span>
+                </h2>
+                <ul class="mt-8 list-none">
+                    <li class="py-5 border-b border-navy/[0.08] flex gap-[18px] items-start">
+                        <div
+                            class="w-11 h-11 flex-shrink-0 bg-navy rounded-xl flex items-center justify-center text-xl">
+                            🏛️</div>
+                        <div>
+                            <strong class="block text-navy text-base mb-1">Supreme Court-Connected Advisory
+                                Board</strong>
+                            <span class="text-text-mid text-sm leading-[1.6]">Mentorship from Justice Deepak Verma
+                                (Retd.), SC of India, and leading legal luminaries shaping the curriculum.</span>
+                        </div>
+                    </li>
+                    <li class="py-5 border-b border-navy/[0.08] flex gap-[18px] items-start">
+                        <div
+                            class="w-11 h-11 flex-shrink-0 bg-navy rounded-xl flex items-center justify-center text-xl">
+                            📚</div>
+                        <div>
+                            <strong class="block text-navy text-base mb-1">Experiential Learning Ecosystem</strong>
+                            <span class="text-text-mid text-sm leading-[1.6]">Moot courts, legal aid clinics, ADR
+                                simulations, and real-case exposure ensure practice-ready graduates.</span>
+                        </div>
+                    </li>
+                    <li class="py-5 border-b border-navy/[0.08] flex gap-[18px] items-start">
+                        <div
+                            class="w-11 h-11 flex-shrink-0 bg-navy rounded-xl flex items-center justify-center text-xl">
+                            💡</div>
+                        <div>
+                            <strong class="block text-navy text-base mb-1">Tech-Enabled Modern Classrooms</strong>
+                            <span class="text-text-mid text-sm leading-[1.6]">Digital-first infrastructure with
+                                AI-assisted legal research tools and e-library access for every student.</span>
+                        </div>
+                    </li>
+                    <li class="py-5 border-b border-navy/[0.08] flex gap-[18px] items-start">
+                        <div
+                            class="w-11 h-11 flex-shrink-0 bg-navy rounded-xl flex items-center justify-center text-xl">
+                            🤝</div>
+                        <div>
+                            <strong class="block text-navy text-base mb-1">Industry-Connected Placement Cell</strong>
+                            <span class="text-text-mid text-sm leading-[1.6]">Partnerships with top law firms, corporate
+                                legal departments, and NGOs ensure career support from Day 1.</span>
+                        </div>
+                    </li>
+                    <li class="py-5 border-b border-navy/[0.08] flex gap-[18px] items-start">
+                        <div
+                            class="w-11 h-11 flex-shrink-0 bg-navy rounded-xl flex items-center justify-center text-xl">
+                            🏆</div>
+                        <div>
+                            <strong class="block text-navy text-base mb-1">25+ Years of Group Legacy</strong>
+                            <span class="text-text-mid text-sm leading-[1.6]">GL Bajaj Group's proven track record
+                                across 8 institutions with 14,000+ students and 800+ expert faculty.</span>
+                        </div>
+                    </li>
+                    <li class="py-5 flex gap-[18px] items-start">
+                        <div
+                            class="w-11 h-11 flex-shrink-0 bg-navy rounded-xl flex items-center justify-center text-xl">
+                            💰</div>
+                        <div>
+                            <strong class="block text-navy text-base mb-1">Scholarship Up to ₹50,000</strong>
+                            <span class="text-text-mid text-sm leading-[1.6]">Merit-based scholarship opportunities to
+                                ensure financial barriers don't stand between talent and excellence.</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-<!-- ══════════════════════════════════════════
+    <!-- ══════════════════════════════════════════
      SECTION 6: PLACEMENT STATISTICS
 ══════════════════════════════════════════ -->
-<section class="py-24 px-[60px] relative overflow-hidden dot-grid"
-         style="background:linear-gradient(135deg,#0A1F44 0%,#0D2B5E 100%);">
+    <section class="py-24 px-[60px] relative overflow-hidden dot-grid"
+        style="background:linear-gradient(135deg,#472510 0%,#5a3015 100%);">
 
-  <!-- Header -->
-  <div class="text-center mb-[70px]">
-    <p class="text-[0.72rem] tracking-[4px] font-bold text-gold uppercase mb-3">Placement Record</p>
-    <h2 class="font-playfair font-extrabold text-white leading-tight" style="font-size:clamp(1.8rem,3vw,2.6rem);">
-      Our Students. Top Organisations.
-    </h2>
-    <p class="text-white/65 text-center max-w-[560px] mx-auto mt-4 text-[0.95rem]">
-      From GL Bajaj's broader group pedigree to GLBIL's growing placement ecosystem — our numbers speak for themselves.
-    </p>
-  </div>
+        <!-- Header -->
+        <div class="text-center mb-[70px]">
+            <p class="text-[0.72rem] tracking-[4px] font-bold text-gold uppercase mb-3">Placement Record</p>
+            <h2 class="font-playfair font-extrabold text-white leading-tight"
+                style="font-size:clamp(1.8rem,3vw,2.6rem);">
+                Our Students. Top Organisations.
+            </h2>
+            <p class="text-white/65 text-center max-w-[560px] mx-auto mt-4 text-[0.95rem]">
+                From GL Bajaj's broader group pedigree to GLBIL's growing placement ecosystem — our numbers speak for
+                themselves.
+            </p>
+        </div>
 
-  <!-- Stats grid -->
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-[2px] rounded-2xl overflow-hidden mb-12"
-       style="background:rgba(200,168,75,0.15);">
-    <div class="stat-block py-10 px-6 text-center hover:bg-navy/60"
-         style="background:rgba(10,31,68,0.85);">
-      <span class="block font-playfair font-black text-gold leading-none text-5xl">5000<span class="text-3xl">+</span></span>
-      <span class="block text-white/65 text-[0.82rem] mt-2 tracking-wide">STUDENTS PLACED</span>
-      <span class="block text-white/40 text-[0.72rem] mt-1">Across Group Institutions</span>
-    </div>
-    <div class="stat-block py-10 px-6 text-center hover:bg-navy/60"
-         style="background:rgba(10,31,68,0.85);">
-      <span class="block font-playfair font-black text-gold leading-none text-5xl">200<span class="text-3xl">+</span></span>
-      <span class="block text-white/65 text-[0.82rem] mt-2 tracking-wide">PARTNER RECRUITERS</span>
-      <span class="block text-white/40 text-[0.72rem] mt-1">Law Firms & Corporates</span>
-    </div>
-    <div class="stat-block py-10 px-6 text-center hover:bg-navy/60"
-         style="background:rgba(10,31,68,0.85);">
-      <span class="block font-playfair font-black text-gold leading-none text-5xl">100<span class="text-3xl">+</span></span>
-      <span class="block text-white/65 text-[0.82rem] mt-2 tracking-wide">EXPERT FACULTY</span>
-      <span class="block text-white/40 text-[0.72rem] mt-1">Practitioners & Professors</span>
-    </div>
-    <div class="stat-block py-10 px-6 text-center hover:bg-navy/60"
-         style="background:rgba(10,31,68,0.85);">
-      <span class="block font-playfair font-black text-gold leading-none text-5xl">8<span class="text-3xl">+</span></span>
-      <span class="block text-white/65 text-[0.82rem] mt-2 tracking-wide">INSTITUTIONS</span>
-      <span class="block text-white/40 text-[0.72rem] mt-1">GL Bajaj Group Network</span>
-    </div>
-  </div>
+        <!-- Stats grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-[2px] rounded-2xl overflow-hidden mb-12"
+            style="background:rgba(196,138,71,0.2);">
+            <div class="stat-block py-10 px-6 text-center" style="background:rgba(51,25,8,0.88);">
+                <span class="block font-playfair font-black text-gold leading-none text-5xl">5000<span
+                        class="text-3xl">+</span></span>
+                <span class="block text-white/65 text-[0.82rem] mt-2 tracking-wide">STUDENTS PLACED</span>
+                <span class="block text-white/40 text-[0.72rem] mt-1">Across Group Institutions</span>
+            </div>
+            <div class="stat-block py-10 px-6 text-center" style="background:rgba(51,25,8,0.88);">
+                <span class="block font-playfair font-black text-gold leading-none text-5xl">200<span
+                        class="text-3xl">+</span></span>
+                <span class="block text-white/65 text-[0.82rem] mt-2 tracking-wide">PARTNER RECRUITERS</span>
+                <span class="block text-white/40 text-[0.72rem] mt-1">Law Firms & Corporates</span>
+            </div>
+            <div class="stat-block py-10 px-6 text-center" style="background:rgba(51,25,8,0.88);">
+                <span class="block font-playfair font-black text-gold leading-none text-5xl">100<span
+                        class="text-3xl">+</span></span>
+                <span class="block text-white/65 text-[0.82rem] mt-2 tracking-wide">EXPERT FACULTY</span>
+                <span class="block text-white/40 text-[0.72rem] mt-1">Practitioners & Professors</span>
+            </div>
+            <div class="stat-block py-10 px-6 text-center" style="background:rgba(51,25,8,0.88);">
+                <span class="block font-playfair font-black text-gold leading-none text-5xl">8<span
+                        class="text-3xl">+</span></span>
+                <span class="block text-white/65 text-[0.82rem] mt-2 tracking-wide">INSTITUTIONS</span>
+                <span class="block text-white/40 text-[0.72rem] mt-1">GL Bajaj Group Network</span>
+            </div>
+        </div>
 
-  <!-- Feature tiles -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <div class="border border-gold/20 rounded-xl p-7 text-center"
-         style="background:rgba(255,255,255,0.06);">
-      <span class="block text-3xl mb-3">📋</span>
-      <strong class="block text-white text-base mb-1.5">Dedicated Placement Cell</strong>
-      <p class="text-white/55 text-[0.82rem] leading-[1.6]">Year-round career support including CV workshops, mock interviews, and direct recruiter connects.</p>
-    </div>
-    <div class="border border-gold/20 rounded-xl p-7 text-center"
-         style="background:rgba(255,255,255,0.06);">
-      <span class="block text-3xl mb-3">🌐</span>
-      <strong class="block text-white text-base mb-1.5">Pan-India Opportunities</strong>
-      <p class="text-white/55 text-[0.82rem] leading-[1.6]">Placements across law firms, MNCs, government bodies, NGOs, and judicial institutions nationwide.</p>
-    </div>
-    <div class="border border-gold/20 rounded-xl p-7 text-center"
-         style="background:rgba(255,255,255,0.06);">
-      <span class="block text-3xl mb-3">⚡</span>
-      <strong class="block text-white text-base mb-1.5">Industry Mentorship</strong>
-      <p class="text-white/55 text-[0.82rem] leading-[1.6]">One-on-one mentoring from senior advocates, corporate counsel, and policy experts throughout the programme.</p>
-    </div>
-  </div>
-</section>
+        <!-- Feature tiles -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="border border-gold/20 rounded-xl p-7 text-center" style="background:rgba(255,255,255,0.06);">
+                <span class="block text-3xl mb-3">📋</span>
+                <strong class="block text-white text-base mb-1.5">Dedicated Placement Cell</strong>
+                <p class="text-white/55 text-[0.82rem] leading-[1.6]">Year-round career support including CV workshops,
+                    mock interviews, and direct recruiter connects.</p>
+            </div>
+            <div class="border border-gold/20 rounded-xl p-7 text-center" style="background:rgba(255,255,255,0.06);">
+                <span class="block text-3xl mb-3">🌐</span>
+                <strong class="block text-white text-base mb-1.5">Pan-India Opportunities</strong>
+                <p class="text-white/55 text-[0.82rem] leading-[1.6]">Placements across law firms, MNCs, government
+                    bodies, NGOs, and judicial institutions nationwide.</p>
+            </div>
+            <div class="border border-gold/20 rounded-xl p-7 text-center" style="background:rgba(255,255,255,0.06);">
+                <span class="block text-3xl mb-3">⚡</span>
+                <strong class="block text-white text-base mb-1.5">Industry Mentorship</strong>
+                <p class="text-white/55 text-[0.82rem] leading-[1.6]">One-on-one mentoring from senior advocates,
+                    corporate counsel, and policy experts throughout the programme.</p>
+            </div>
+        </div>
+    </section>
 
-<!-- ══════════════════════════════════════════
+    <!-- ══════════════════════════════════════════
      SECTION 7: RECRUITERS
 ══════════════════════════════════════════ -->
-<section class="py-20 px-[60px] bg-white">
-  <div class="text-center mb-12">
-    <p class="text-[0.72rem] tracking-[4px] font-bold text-crimson uppercase mb-3">Our Recruiters</p>
-    <h2 class="font-playfair font-extrabold text-navy leading-tight" style="font-size:clamp(1.8rem,3vw,2.6rem);">
-      Top <span class="text-gold-dark">Organisations</span> That Hire Our Students
-    </h2>
-    <p class="text-text-light mt-3 text-[0.95rem]">Our graduates are placed across India's leading legal, corporate, and public sector organisations.</p>
-  </div>
+    <section class="py-20 px-[60px] bg-white">
+        <div class="text-center mb-12">
+            <p class="text-[0.72rem] tracking-[4px] font-bold text-crimson uppercase mb-3">Our Recruiters</p>
+            <h2 class="font-playfair font-extrabold text-navy leading-tight"
+                style="font-size:clamp(1.8rem,3vw,2.6rem);">
+                Top <span class="text-gold-dark">Organisations</span> That Hire Our Students
+            </h2>
+            <p class="text-text-light mt-3 text-[0.95rem]">Our graduates are placed across India's leading legal,
+                corporate, and public sector organisations.</p>
+        </div>
 
-  <div class="grid grid-cols-3 md:grid-cols-6 border border-navy/10 rounded-xl overflow-hidden">
-    <!-- Row 1 -->
-    <div class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">KHAITAN &amp; CO.</span>
-    </div>
-    <div class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">AZB &amp; PARTNERS</span>
-    </div>
-    <div class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">SHARDUL AMARCHAND MANGALDAS</span>
-    </div>
-    <div class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">CYRIL AMARCHAND MANGALDAS</span>
-    </div>
-    <div class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">J. SAGAR ASSOCIATES</span>
-    </div>
-    <div class="recruiter-logo border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">TRILEGAL</span>
-    </div>
-    <!-- Row 2 -->
-    <div class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">NISHITH DESAI ASSOCIATES</span>
-    </div>
-    <div class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">LUTHRA &amp; LUTHRA</span>
-    </div>
-    <div class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">LAKSHMIKUMARAN &amp; SRIDHARAN</span>
-    </div>
-    <div class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">S&amp;R ASSOCIATES</span>
-    </div>
-    <div class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">DSK LEGAL</span>
-    </div>
-    <div class="recruiter-logo border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">INDUS LAW</span>
-    </div>
-    <!-- Row 3 -->
-    <div class="recruiter-logo border-r border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">TATA CONSULTANCY</span>
-    </div>
-    <div class="recruiter-logo border-r border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">WIPRO LEGAL</span>
-    </div>
-    <div class="recruiter-logo border-r border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">INFOSYS BPM</span>
-    </div>
-    <div class="recruiter-logo border-r border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">HCL LEGAL</span>
-    </div>
-    <div class="recruiter-logo border-r border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">LEGAL AID INDIA</span>
-    </div>
-    <div class="recruiter-logo flex items-center justify-center py-7 px-5 min-h-[90px]">
-      <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">MINISTRY OF LAW &amp; JUSTICE</span>
-    </div>
-  </div>
-</section>
+        <div class="grid grid-cols-3 md:grid-cols-6 border border-navy/10 rounded-xl overflow-hidden">
+            <!-- Row 1 -->
+            <div
+                class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+                <span
+                    class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">KHAITAN
+                    &amp; CO.</span>
+            </div>
+            <div
+                class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+                <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">AZB
+                    &amp; PARTNERS</span>
+            </div>
+            <div
+                class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+                <span
+                    class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">SHARDUL
+                    AMARCHAND MANGALDAS</span>
+            </div>
+            <div
+                class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+                <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">CYRIL
+                    AMARCHAND MANGALDAS</span>
+            </div>
+            <div
+                class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+                <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">J.
+                    SAGAR ASSOCIATES</span>
+            </div>
+            <div
+                class="recruiter-logo border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+                <span
+                    class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">TRILEGAL</span>
+            </div>
+            <!-- Row 2 -->
+            <div
+                class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+                <span
+                    class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">NISHITH
+                    DESAI ASSOCIATES</span>
+            </div>
+            <div
+                class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+                <span
+                    class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">LUTHRA
+                    &amp; LUTHRA</span>
+            </div>
+            <div
+                class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+                <span
+                    class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">LAKSHMIKUMARAN
+                    &amp; SRIDHARAN</span>
+            </div>
+            <div
+                class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+                <span
+                    class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">S&amp;R
+                    ASSOCIATES</span>
+            </div>
+            <div
+                class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+                <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">DSK
+                    LEGAL</span>
+            </div>
+            <div
+                class="recruiter-logo border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+                <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">INDUS
+                    LAW</span>
+            </div>
+            <!-- Row 3 -->
+            <div
+                class="recruiter-logo border-r border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+                <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">TATA
+                    CONSULTANCY</span>
+            </div>
+            <div
+                class="recruiter-logo border-r border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+                <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">WIPRO
+                    LEGAL</span>
+            </div>
+            <div
+                class="recruiter-logo border-r border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+                <span
+                    class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">INFOSYS
+                    BPM</span>
+            </div>
+            <div
+                class="recruiter-logo border-r border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+                <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">HCL
+                    LEGAL</span>
+            </div>
+            <div
+                class="recruiter-logo border-r border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
+                <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">LEGAL
+                    AID INDIA</span>
+            </div>
+            <div class="recruiter-logo flex items-center justify-center py-7 px-5 min-h-[90px]">
+                <span
+                    class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">MINISTRY
+                    OF LAW &amp; JUSTICE</span>
+            </div>
+        </div>
+    </section>
 
-<!-- ══════════════════════════════════════════
-     LEAD FORM STRIP
-══════════════════════════════════════════ -->
-<div class="flex items-center gap-[50px] flex-wrap px-[60px] py-[60px]"
-     style="background:linear-gradient(135deg,#9E7E2A 0%,#C8A84B 50%,#E8C97A 100%);">
-  <div class="flex-1 min-w-[260px]">
-    <h2 class="font-playfair text-[2rem] text-navy mb-2">Ready to Begin?</h2>
-    <p class="text-navy/70">Seats are limited. Secure your spot at GLBIL today.</p>
-  </div>
-  <div class="flex gap-3 flex-wrap flex-[1.5] min-w-[320px]">
-    <input type="text" placeholder="Your Full Name"
-           class="flex-1 min-w-[160px] px-[18px] py-3.5 border-2 border-navy/20 rounded-md
-                  font-dm text-[0.95rem] bg-white outline-none focus:border-navy transition-all duration-300">
-    <input type="tel" placeholder="Mobile Number"
-           class="flex-1 min-w-[160px] px-[18px] py-3.5 border-2 border-navy/20 rounded-md
-                  font-dm text-[0.95rem] bg-white outline-none focus:border-navy transition-all duration-300">
-    <input type="email" placeholder="Email Address"
-           class="flex-1 min-w-[160px] px-[18px] py-3.5 border-2 border-navy/20 rounded-md
-                  font-dm text-[0.95rem] bg-white outline-none focus:border-navy transition-all duration-300">
-    <button class="bg-navy text-white px-8 py-3.5 rounded-md font-dm font-bold text-[0.95rem]
-                   cursor-pointer hover:bg-navy-mid hover:-translate-y-0.5 transition-all duration-300">
-      Get Counselling →
-    </button>
-  </div>f
-</div>
 
-<!-- ══════════════════════════════════════════
+
+    <!-- ════ CTA BANNER ════ -->
+    <div class="relative overflow-hidden">
+        <!-- Background image layer -->
+        <div class="h-[520px] bg-cover bg-center relative"
+             style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1600&q=80&fit=crop');">
+
+            <!-- Dark brown directional overlay -->
+            <div class="absolute inset-0"
+                 style="background:linear-gradient(to right,rgba(71,37,16,.97) 45%,rgba(71,37,16,.7) 75%,rgba(71,37,16,.45) 100%);"></div>
+
+            <!-- Centred content wrapper -->
+            <div class="absolute inset-0 flex items-center">
+                <div class="max-w-[1320px] mx-auto px-10 w-full">
+
+                    <!-- Pre-heading pill -->
+                    <span class="block text-gold-light text-[0.72rem] tracking-[0.18em] uppercase font-medium mb-5">
+                        Admissions Open · 2025–26 Batch · Limited Seats
+                    </span>
+
+                    <!-- Headline -->
+                    <h2 class="font-playfair font-bold text-white leading-[1.05] mb-5"
+                        style="font-size:clamp(2.5rem,5vw,4rem);">
+                        Your Future in Law<br />
+                        Begins <em class="italic text-gold-light">Today.</em>
+                    </h2>
+
+                    <!-- Body copy -->
+                    <p class="text-white/50 text-[0.97rem] leading-[1.75] max-w-[480px] font-light mb-[2.4rem]">
+                        Seats are limited and fill months before the deadline. The earlier you apply, the better your
+                        chances of securing a scholarship and your preferred programme.
+                    </p>
+
+                    <!-- CTA buttons -->
+                    <div class="flex items-center gap-4 flex-wrap mb-8">
+                        <a href="#hero-form"
+                           class="inline-flex items-center gap-2 font-bold text-navy text-sm tracking-wide px-7 py-3.5 rounded-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl"
+                           style="background:linear-gradient(135deg,#ffcc4e,#c48a47);box-shadow:0 8px 24px rgba(196,138,71,0.4);">
+                            Apply Now — Free Counselling
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                        <a href="tel:+911234567890"
+                           class="px-7 py-3.5 rounded-lg text-sm font-semibold text-white/85 transition-all duration-300 hover:text-gold-light"
+                           style="border:1.5px solid rgba(255,255,255,0.28);background:rgba(255,255,255,0.05);backdrop-filter:blur(8px);">
+                            📞 +91 12345 67890
+                        </a>
+                    </div>
+
+                    <!-- Trust badges -->
+                    <div class="flex gap-[1.8rem] flex-wrap">
+                        <div class="flex items-center gap-1.5 text-white/35 text-[0.78rem]">
+                            <svg class="w-[13px] h-[13px] fill-gold flex-shrink-0" viewBox="0 0 20 20">
+                                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                            </svg>
+                            NAAC Accredited
+                        </div>
+                        <div class="flex items-center gap-1.5 text-white/35 text-[0.78rem]">
+                            <svg class="w-[13px] h-[13px] fill-gold flex-shrink-0" viewBox="0 0 20 20">
+                                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                            </svg>
+                            Bar Council Recognised
+                        </div>
+                        <div class="flex items-center gap-1.5 text-white/35 text-[0.78rem]">
+                            <svg class="w-[13px] h-[13px] fill-gold flex-shrink-0" viewBox="0 0 20 20">
+                                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                            </svg>
+                            AKTU Affiliated
+                        </div>
+                        <div class="flex items-center gap-1.5 text-white/35 text-[0.78rem]">
+                            <svg class="w-[13px] h-[13px] fill-gold flex-shrink-0" viewBox="0 0 20 20">
+                                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                            </svg>
+                            Scholarship Available
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
      FOOTER
 ══════════════════════════════════════════ -->
-<footer class="bg-text-dark text-white/60 text-center py-7 text-[0.82rem]">
-  <p>© 2025 <strong class="text-gold">GL Bajaj Institute of Law (GLBIL)</strong> · Plot No. 2A, Knowledge Park III, Greater Noida – 201306 · All Rights Reserved</p>
-  <p class="mt-1.5">Affiliated to Chaudhary Charan Singh University, Meerut · Governed under IDMRS</p>
-</footer>
+    <footer class="bg-text-dark text-white/60 text-center py-7 text-[0.82rem]">
+        <p>© 2025 <strong class="text-gold">GL Bajaj Institute of Law (GLBIL)</strong> · Plot No. 2A, Knowledge Park
+            III, Greater Noida – 201306 · All Rights Reserved</p>
+        <p class="mt-1.5">Affiliated to Chaudhary Charan Singh University, Meerut · Governed under IDMRS</p>
+    </footer>
+
+    <!-- ══════════════════════════════════════════
+     GLBIL FORM — VALIDATION + GAS INTEGRATION
+══════════════════════════════════════════ -->
+    <script>
+            (function () {
+                'use strict';
+
+                /* ═══════════════════════════════════════════════════════════════
+                   1. CONFIGURATION
+                   ─ Paste your deployed GAS Web App URL below after deployment.
+                ═══════════════════════════════════════════════════════════════ */
+                const GAS_URL = "https://script.google.com/macros/s/AKfycbzqQfWrEqGrqkx3rB5a7VB6QJVD9vBE5E8HP_KIlVZiYEWN0avNdFs_NCuefboK4rj-/exec";
+
+                /* ═══════════════════════════════════════════════════════════════
+                   2. VALIDATION RULES
+                   ─ Each entry = { regex, message }
+                   ─ regex: null  → only required (non-empty) check
+                ═══════════════════════════════════════════════════════════════ */
+                const RULES = {
+                    "hf-name": {
+                        label: "Full Name",
+                        regex: /^[A-Za-z ]{2,}$/,
+                        message: "Only letters and spaces allowed (min 2 chars)."
+                    },
+                    "hf-phone": {
+                        label: "Mobile Number",
+                        regex: /^[6-9]\d{9}$/,
+                        message: "Enter a valid 10-digit Indian mobile number (starts with 6–9)."
+                    },
+                    "hf-email": {
+                        label: "Email Address",
+                        regex: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
+                        message: "Enter a valid email address (e.g. you@domain.com)."
+                    },
+                    "hf-city": {
+                        label: "City",
+                        regex: /^[A-Za-z ]{2,}$/,
+                        message: "Only letters and spaces allowed."
+                    },
+                    "hf-state": {
+                        label: "State",
+                        regex: /^[A-Za-z ]{2,}$/,
+                        message: "Only letters and spaces allowed."
+                    },
+                    "hf-program": {
+                        label: "Programme",
+                        regex: null,           // select — just check non-empty
+                        message: "Please select a programme."
+                    }
+                };
+
+                /* ═══════════════════════════════════════════════════════════════
+                   3. BORDER COLOUR CONSTANTS
+                ═══════════════════════════════════════════════════════════════ */
+                const BORDER = {
+                    neutral: "1px solid rgba(255,255,255,0.1)",
+                    focus: "1px solid rgba(255,204,78,0.55)",
+                    valid: "1px solid rgba(100,220,120,0.55)",
+                    invalid: "1px solid rgba(220,53,69,0.7)"
+                };
+
+                /* ═══════════════════════════════════════════════════════════════
+                   4. HELPERS — validate a single field
+                ═══════════════════════════════════════════════════════════════ */
+                function getField(id) { return document.getElementById(id); }
+                function getErrEl(id) { return document.getElementById("err-" + id.replace("hf-", "")); }
+
+                /**
+                 * Validates one field.
+                 * @returns {boolean} true = valid, false = invalid
+                 */
+                function validateField(id, showError) {
+                    const el = getField(id);
+                    const err = getErrEl(id);
+                    const rule = RULES[id];
+                    if (!el || !rule) return true;
+
+                    const val = el.value.trim();
+                    let msg = "";
+
+                    if (!val) {
+                        msg = rule.label + " is required.";
+                    } else if (rule.regex && !rule.regex.test(val)) {
+                        msg = rule.message;
+                    }
+
+                    if (msg) {
+                        if (showError) {
+                            el.style.border = BORDER.invalid;
+                            if (err) { err.textContent = msg; err.classList.remove("hidden"); }
+                        }
+                        return false;
+                    } else {
+                        el.style.border = BORDER.valid;
+                        if (err) { err.textContent = ""; err.classList.add("hidden"); }
+                        return true;
+                    }
+                }
+
+                /* ═══════════════════════════════════════════════════════════════
+                   5. HELPERS — UI state
+                ═══════════════════════════════════════════════════════════════ */
+                function setLoading(yes) {
+                    const btn = getField("hf-submit");
+                    const text = getField("hf-btn-text");
+                    const spin = getField("hf-spinner");
+                    if (!btn) return;
+                    btn.disabled = yes;
+                    btn.style.opacity = yes ? "0.75" : "1";
+                    text.textContent = yes ? "Submitting…" : "Get Free Counselling →";
+                    spin.classList.toggle("hidden", !yes);
+                }
+
+                function showBanner(type, msg) {
+                    const el = getField("hf-" + type);
+                    if (!el) return;
+                    if (msg && msg !== true) el.textContent = msg;
+                    el.classList.remove("hidden");
+                    // auto-hide after 7 s
+                    setTimeout(() => el.classList.add("hidden"), 7000);
+                }
+
+                function hideBanners() {
+                    ["hf-success", "hf-error"].forEach(id => {
+                        getField(id)?.classList.add("hidden");
+                    });
+                }
+
+                /* ═══════════════════════════════════════════════════════════════
+                   6. UTM CAPTURE
+                ═══════════════════════════════════════════════════════════════ */
+                function getUTM(key) {
+                    try { return new URLSearchParams(window.location.search).get(key) || ""; }
+                    catch { return ""; }
+                }
+
+                /* ═══════════════════════════════════════════════════════════════
+                   7. REAL-TIME EVENT LISTENERS (blur + input)
+                ═══════════════════════════════════════════════════════════════ */
+                function attachFieldListeners() {
+                    Object.keys(RULES).forEach(id => {
+                        const el = getField(id);
+                        if (!el) return;
+
+                        // Focus → blue-gold border
+                        el.addEventListener("focus", () => {
+                            if (el.style.border === BORDER.invalid) return; // keep red if already invalid
+                            el.style.border = BORDER.focus;
+                        });
+
+                        // Blur → validate immediately
+                        el.addEventListener("blur", () => {
+                            if (el.value.trim() === "") {
+                                // if untouched-blank, go neutral rather than flagging red on first touch
+                                el.style.border = BORDER.neutral;
+                                const err = getErrEl(id);
+                                if (err) { err.textContent = ""; err.classList.add("hidden"); }
+                            } else {
+                                validateField(id, true);
+                            }
+                        });
+
+                        // Input → clear error as soon as user starts correcting
+                        el.addEventListener("input", () => {
+                            const err = getErrEl(id);
+                            if (el.value.trim() !== "" && err && !err.classList.contains("hidden")) {
+                                validateField(id, true); // re-run silently to clear/update
+                            }
+                        });
+                    });
+                }
+
+                /* ═══════════════════════════════════════════════════════════════
+                   8. FORM SUBMIT HANDLER
+                ═══════════════════════════════════════════════════════════════ */
+                function attachSubmitHandler() {
+                    const form = getField("glbil-hero-form");
+                    if (!form) return;
+
+                    form.addEventListener("submit", async function (e) {
+                        e.preventDefault();
+                        hideBanners();
+
+                        // ── Validate ALL fields, show all errors at once ──
+                        let isValid = true;
+                        Object.keys(RULES).forEach(id => {
+                            if (!validateField(id, true)) isValid = false;
+                        });
+
+                        if (!isValid) {
+                            // Scroll the first error into view
+                            const firstErr = form.querySelector(".hf-err:not(.hidden)");
+                            if (firstErr) firstErr.scrollIntoView({ behavior: "smooth", block: "center" });
+                            return;
+                        }
+
+                        // ── GAS URL guard ──
+                        if (!GAS_URL || GAS_URL.includes("YOUR_GOOGLE")) {
+                            showBanner("error", "⚠️ Form endpoint not configured. Please contact the admin.");
+                            return;
+                        }
+
+                        setLoading(true);
+
+                        // ── Build payload ──
+                        const payload = new URLSearchParams({
+                            Name: getField("hf-name").value.trim(),
+                            Phone: getField("hf-phone").value.trim(),
+                            Email: getField("hf-email").value.trim(),
+                            Program: getField("hf-program").value,
+                            City: getField("hf-city").value.trim(),
+                            State: getField("hf-state").value.trim(),
+                            utm_source: getUTM("utm_source"),
+                            utm_medium: getUTM("utm_medium"),
+                            utm_campaign: getUTM("utm_campaign"),
+                        });
+
+                        try {
+                            await fetch(GAS_URL, {
+                                method: "POST",
+                                mode: "no-cors",   // required for GAS cross-origin requests
+                                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                                body: payload.toString(),
+                            });
+
+                            // no-cors gives opaque response — reaching here = network success
+                            setLoading(false);
+                            showBanner("success", true);
+                            form.reset();
+
+                            // Reset all borders to neutral after success
+                            Object.keys(RULES).forEach(id => {
+                                const el = getField(id);
+                                if (el) el.style.border = BORDER.neutral;
+                            });
+
+                        } catch (networkErr) {
+                            setLoading(false);
+                            showBanner("error", "⚠️ Network error. Check your connection and try again.");
+                            console.error("[GLBIL Form Error]", networkErr);
+                        }
+                    });
+                }
+
+                /* ═══════════════════════════════════════════════════════════════
+                   9. BOOT
+                ═══════════════════════════════════════════════════════════════ */
+                document.addEventListener("DOMContentLoaded", function () {
+                    attachFieldListeners();
+                    attachSubmitHandler();
+                });
+
+            })();
+    </script>
+
+
 
 </body>
+
 </html>
