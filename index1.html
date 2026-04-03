@@ -1,0 +1,346 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  @keyframes glbShimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  @keyframes glbFloatBadge {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-4px); }
+  }
+
+  @keyframes glbPulseRing {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(196,138,71,0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(196,138,71,0); }
+  }
+
+  .glb-font-playfair { font-family: 'Playfair Display', serif; }
+  .glb-font-dm { font-family: 'DM Sans', sans-serif; }
+
+  .glb-shimmer-text {
+    background: linear-gradient(90deg, #c48a47 0%, #ffcc4e 40%, #c48a47 60%, #80471c 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: glbShimmer 3s linear infinite;
+  }
+
+  .glb-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1),
+                transform 0.75s cubic-bezier(0.22,1,0.36,1);
+  }
+
+  .glb-reveal.glb-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .glb-delay-1 { transition-delay: 0.10s; }
+  .glb-delay-2 { transition-delay: 0.22s; }
+  .glb-delay-3 { transition-delay: 0.34s; }
+  .glb-delay-4 { transition-delay: 0.46s; }
+
+  .glb-card {
+    transition: transform 0.38s cubic-bezier(0.22,1,0.36,1), box-shadow 0.38s ease;
+    cursor: default;
+  }
+
+  .glb-card:hover { transform: translateY(-8px); }
+  .glb-card-light:hover { box-shadow: 0 32px 64px rgba(71,37,16,0.15); }
+  .glb-card-dark:hover { box-shadow: 0 32px 64px rgba(71,37,16,0.35); }
+
+  .glb-photo-wrap {
+    position: relative;
+    display: inline-block;
+  }
+
+  .glb-photo-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 9999px;
+    background: conic-gradient(from 0deg, #c48a47, #ffcc4e, #80471c, #c48a47);
+    z-index: 0;
+    animation: glbPulseRing 2.8s ease-in-out infinite;
+  }
+
+  .glb-photo-wrap img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    border-radius: 9999px;
+    object-fit: cover;
+    object-position: top center;
+    background: #3a1d0c;
+  }
+
+  .glb-photo-wrap-featured::before {
+    background: conic-gradient(from 0deg, #ffcc4e, #c48a47, #80471c, #ffcc4e);
+    inset: -5px;
+    animation: glbPulseRing 2.2s ease-in-out infinite;
+  }
+
+  .glb-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c48a47 40%, transparent);
+  }
+
+  .glb-divider-light {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(196,138,71,0.35) 40%, transparent);
+  }
+
+  .glb-programme-tag {
+    background: linear-gradient(135deg, #472510, #80471c);
+    border: 1px solid rgba(196,138,71,0.3);
+    color: #ffcc4e;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+    display: inline-block;
+    margin-top: 4px;
+  }
+
+  .glb-programme-tag-light {
+    background: linear-gradient(135deg, #ffcc4e, #c48a47);
+    color: #2a1208;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 100px;
+    display: inline-block;
+    margin-top: 4px;
+  }
+
+  .glb-quote-bg {
+    font-family: 'Playfair Display', serif;
+    font-size: 10rem;
+    line-height: 0.6;
+    color: #c48a47;
+    opacity: 0.08;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .glb-quote-bg-dark {
+    color: #ffcc4e;
+    opacity: 0.07;
+  }
+
+  .glb-section-bg {
+    background:
+      radial-gradient(ellipse at 15% 0%, rgba(196,138,71,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 85% 100%, rgba(71,37,16,0.07) 0%, transparent 50%),
+      #F8F5EF;
+  }
+
+  .glb-deco-line {
+    position: absolute;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(196,138,71,0.3), transparent);
+    pointer-events: none;
+  }
+
+  .glb-stat-bar {
+    background: linear-gradient(135deg, #3a1d0c 0%, #472510 40%, #80471c 100%);
+    border: 1px solid rgba(196,138,71,0.25);
+  }
+
+  .glb-institute-badge {
+    animation: glbFloatBadge 3.5s ease-in-out infinite;
+  }
+</style>
+
+<section class="glb-section-bg relative py-24 px-4 sm:px-6 overflow-hidden">
+
+  <div class="max-w-6xl mx-auto relative z-10">
+    <div class="text-center mb-20 glb-reveal">
+      <div class="glb-institute-badge glb-font-dm inline-flex items-center gap-2 bg-white border border-[rgba(196,138,71,0.3)] text-[#80471c] text-xs font-semibold tracking-[0.2em] uppercase px-5 py-2 rounded-full mb-6 shadow-sm">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#c48a47] inline-block"></span>
+        GL Bajaj Institute of Law
+        <span class="w-1.5 h-1.5 rounded-full bg-[#c48a47] inline-block"></span>
+      </div>
+
+      <h2 class="glb-font-playfair text-4xl sm:text-5xl md:text-6xl font-bold text-[#472510] leading-[1.15] mb-5">
+        Voices from Our <br><em class="glb-shimmer-text not-italic">Students</em>
+      </h2>
+
+      <div class="glb-divider w-24 mx-auto mb-6"></div>
+
+      <p class="glb-font-dm text-[#444444] max-w-lg mx-auto text-[0.95rem] leading-relaxed">
+        Real experiences from students who are building their legal careers at GL Bajaj — shaped by exceptional faculty, practical exposure, and a vibrant campus community.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start">
+      <div class="glb-card glb-card-light glb-reveal glb-delay-1 rounded-2xl overflow-hidden"
+           style="background:#fff; border:1px solid rgba(196,138,71,0.18); box-shadow:0 8px 32px rgba(71,37,16,0.08);">
+
+        <div class="relative overflow-hidden" style="background:linear-gradient(160deg,#fdf3e7 0%,#f5e6cc 100%); padding:2rem 2rem 0;">
+          <div class="absolute top-0 left-0 right-0 h-1" style="background:linear-gradient(90deg,#472510,#c48a47,#ffcc4e);"></div>
+          <div class="glb-quote-bg">&ldquo;</div>
+
+          <div class="flex flex-col items-center pb-6 relative z-10">
+            <div class="glb-photo-wrap mb-4">
+              <!-- Paste the same Teya Bhati base64 img src from your original code here -->
+              <img src="PASTE_ORIGINAL_BASE64_IMAGE_1" alt="Teya Bhati" style="width:96px;height:96px;" />
+            </div>
+
+            <p class="glb-font-playfair font-bold text-[#472510] text-xl leading-tight text-center">Teya Bhati</p>
+            <span class="glb-programme-tag glb-font-dm">B.A. LL.B. &middot; 5 Year &middot; 2025</span>
+
+            <div class="flex gap-1 mt-3">
+              <span class="text-[#c48a47] text-base">★</span>
+              <span class="text-[#c48a47] text-base">★</span>
+              <span class="text-[#c48a47] text-base">★</span>
+              <span class="text-[#c48a47] text-base">★</span>
+              <span class="text-[#c48a47] text-base">★</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6">
+          <div class="glb-divider-light mb-5"></div>
+          <p class="glb-font-dm text-[#444444] text-[0.9rem] leading-relaxed">
+            The institute provides excellent practical exposure through field visits and helps me understand the real application of law. Student clubs — the Literary, Mooting, and Debate Clubs — have enhanced my skills and confidence. Campus life at GL Bajaj is truly engaging.
+          </p>
+          <div class="glb-divider-light mt-5 mb-4"></div>
+          <p class="glb-font-dm text-[0.75rem] text-[#777777] italic text-center">
+            "I feel confident about my personal and professional growth."
+          </p>
+        </div>
+      </div>
+
+      <div class="glb-card glb-card-dark glb-reveal glb-delay-2 rounded-2xl overflow-hidden md:-mt-8"
+           style="background:linear-gradient(170deg,#3a1d0c 0%,#472510 50%,#80471c 100%); border:1px solid rgba(196,138,71,0.3); box-shadow:0 20px 60px rgba(71,37,16,0.3);">
+
+        <div style="height:5px;background:linear-gradient(90deg,#ffcc4e,#c48a47,#80471c,#c48a47,#ffcc4e);background-size:200%;animation:glbShimmer 3s linear infinite;"></div>
+
+        <div class="flex justify-center pt-5 pb-0">
+          <span class="glb-font-dm text-[#472510] text-[0.62rem] font-bold tracking-widest uppercase px-3 py-1 rounded-full"
+                style="background:linear-gradient(135deg,#ffcc4e,#c48a47);">
+            ✦ Featured Student ✦
+          </span>
+        </div>
+
+        <div class="relative px-6 pt-4 pb-0">
+          <div class="glb-quote-bg glb-quote-bg-dark">&ldquo;</div>
+
+          <div class="flex flex-col items-center pb-5 relative z-10">
+            <div class="glb-photo-wrap glb-photo-wrap-featured mb-4">
+              <!-- Paste the same Shaurya Dutt Singh base64 img src from your original code here -->
+              <img src="PASTE_ORIGINAL_BASE64_IMAGE_2" alt="Shaurya Dutt Singh" style="width:108px;height:108px;" />
+            </div>
+
+            <p class="glb-font-playfair font-bold text-[#F8F5EF] text-xl leading-tight text-center">Shaurya Dutt Singh</p>
+            <span class="glb-programme-tag-light glb-font-dm">B.Com.LL.B. &middot; 5 Year &middot; 2025</span>
+
+            <div class="flex gap-1 mt-3">
+              <span class="text-[#ffcc4e] text-base">★</span>
+              <span class="text-[#ffcc4e] text-base">★</span>
+              <span class="text-[#ffcc4e] text-base">★</span>
+              <span class="text-[#ffcc4e] text-base">★</span>
+              <span class="text-[#ffcc4e] text-base">★</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="px-6 pb-7">
+          <div class="glb-divider-light mb-5"></div>
+          <p class="glb-font-dm text-[0.9rem] leading-relaxed" style="color:#e8d0b0;">
+            The academic environment is supportive and faculty guide me at every step, helping me build strong conceptual understanding. Legal aid activities and field visits have enriched my overall experience. GL Bajaj encourages discipline, confidence, and all-round development.
+          </p>
+          <div class="glb-divider-light mt-5 mb-4"></div>
+          <p class="glb-font-dm text-[0.75rem] italic text-center" style="color:#c48a47;">
+            "Studying at GL Bajaj is helping me grow both personally and professionally."
+          </p>
+        </div>
+      </div>
+
+      <div class="glb-card glb-card-light glb-reveal glb-delay-3 rounded-2xl overflow-hidden"
+           style="background:#fff; border:1px solid rgba(196,138,71,0.18); box-shadow:0 8px 32px rgba(71,37,16,0.08);">
+
+        <div class="relative overflow-hidden" style="background:linear-gradient(160deg,#fdf3e7 0%,#f5e6cc 100%); padding:2rem 2rem 0;">
+          <div class="absolute top-0 left-0 right-0 h-1" style="background:linear-gradient(90deg,#ffcc4e,#c48a47,#472510);"></div>
+          <div class="glb-quote-bg">&ldquo;</div>
+
+          <div class="flex flex-col items-center pb-6 relative z-10">
+            <div class="glb-photo-wrap mb-4">
+              <!-- Paste the same Shalini Singh base64 img src from your original code here -->
+              <img src="PASTE_ORIGINAL_BASE64_IMAGE_3" alt="Shalini Singh" style="width:96px;height:96px;" />
+            </div>
+
+            <p class="glb-font-playfair font-bold text-[#472510] text-xl leading-tight text-center">Shalini Singh</p>
+            <span class="glb-programme-tag glb-font-dm">LL.B. &middot; 3 Year Programme &middot; 2025</span>
+
+            <div class="flex gap-1 mt-3">
+              <span class="text-[#c48a47] text-base">★</span>
+              <span class="text-[#c48a47] text-base">★</span>
+              <span class="text-[#c48a47] text-base">★</span>
+              <span class="text-[#c48a47] text-base">★</span>
+              <span class="text-[#c48a47] text-base">★</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6">
+          <div class="glb-divider-light mb-5"></div>
+          <p class="glb-font-dm text-[#444444] text-[0.9rem] leading-relaxed">
+            I receive special academic attention from experienced, dedicated faculty that has helped me understand subjects clearly and build confidence. Moot courts, interactive sessions, and hands-on learning provide invaluable practical exposure alongside strong theoretical foundations.
+          </p>
+          <div class="glb-divider-light mt-5 mb-4"></div>
+          <p class="glb-font-dm text-[0.75rem] text-[#777777] italic text-center">
+            "GL Bajaj is shaping my skills and preparing me for a successful legal career."
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="glb-stat-bar glb-reveal glb-delay-4 mt-16 rounded-2xl overflow-hidden" style="box-shadow:0 12px 48px rgba(71,37,16,0.22);">
+      <div class="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x" style="border-color:rgba(196,138,71,0.15);">
+        <div class="flex flex-col items-center justify-center py-10 px-8 text-center">
+          <span class="glb-font-playfair text-5xl font-bold mb-1" style="color:#ffcc4e;">500<span style="color:#c48a47;">+</span></span>
+          <span class="glb-font-dm text-xs tracking-[0.2em] uppercase mt-1" style="color:#d4b896;">Students Enrolled</span>
+        </div>
+
+        <div class="flex flex-col items-center justify-center py-10 px-8 text-center" style="border-color:rgba(196,138,71,0.15);">
+          <span class="glb-font-playfair text-5xl font-bold mb-1" style="color:#ffcc4e;">3<span style="color:#c48a47;"> Programmes</span></span>
+          <span class="glb-font-dm text-xs tracking-[0.2em] uppercase mt-1" style="color:#d4b896;">BA.LLB · BComLLB · LLB</span>
+        </div>
+
+        <div class="flex flex-col items-center justify-center py-10 px-8 text-center" style="border-color:rgba(196,138,71,0.15);">
+          <span class="glb-font-playfair text-5xl font-bold mb-1" style="color:#ffcc4e;">100<span style="color:#c48a47;">%</span></span>
+          <span class="glb-font-dm text-xs tracking-[0.2em] uppercase mt-1" style="color:#d4b896;">Student Satisfaction</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    const glbIo = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('glb-visible');
+          glbIo.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.glb-reveal').forEach((el) => glbIo.observe(el));
+  })();
+</script>

@@ -163,6 +163,49 @@
             opacity: 0.3;
             z-index: -1;
         }
+
+        /* Hero decorative glow pulse */
+        @keyframes glowPulse {
+
+            0%,
+            100% {
+                opacity: 0.15;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.25;
+                transform: scale(1.05);
+            }
+        }
+
+        .hero-glow-pulse {
+            animation: glowPulse 4s ease-in-out infinite;
+        }
+
+        /* Form field focus glow */
+        .hf-field:focus {
+            box-shadow: 0 0 0 3px rgba(255, 204, 78, 0.15);
+        }
+
+        /* Gradient text shimmer effect */
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        .text-shimmer {
+            background: linear-gradient(90deg, #c48a47 0%, #ffcc4e 25%, #c48a47 50%, #ffcc4e 75%, #c48a47 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
     </style>
 </head>
 
@@ -171,17 +214,18 @@
     <!-- ══════════════════════════════════════════
      STICKY NAV
 ══════════════════════════════════════════ -->
-    <nav class="fixed top-0 left-0 right-0 z-[999] flex items-center justify-between px-10 py-3 border-b-2 border-gold"
+    <nav class="fixed top-0 left-0 right-0 z-[9999] flex items-center justify-between px-10 py-3 border-b-2 border-gold"
         style="background:rgba(255,255,255,0.97); backdrop-filter:blur(10px);">
-        <div>
-            <span class="font-playfair text-navy font-bold text-xl tracking-wide">GL BAJAJ INSTITUTE OF LAW</span>
-            <small class="block text-[#666] text-[0.65rem] tracking-[2px]">GLBIL · GREATER NOIDA · EST. 2024</small>
-        </div>
+        <a href="#" class="flex-shrink-0">
+            <img src="images/logo.webp" alt="GL Bajaj Institute of Law —     GLBIL Greater Noida"
+                class="h-14 sm:h-20 w-auto object-contain">
+        </a>
         <button class="bg-navy text-white font-bold text-sm px-7 py-2.5 rounded cursor-pointer tracking-wide
                  hover:bg-navy-mid hover:-translate-y-0.5 transition-all duration-300">
             Apply Now →
         </button>
     </nav>
+
 
     <!-- ══════════════════════════════════════════
      SECTION 1: HERO BANNER
@@ -207,7 +251,7 @@
 
         <!-- ── MAIN CONTENT GRID ── -->
         <div
-            class="relative z-10 w-full max-w-[1320px] mx-auto px-[60px] pt-[70px] flex items-center justify-between gap-12">
+            class="relative z-10 w-full max-w-[1320px] mx-auto px-[60px] pt-[80px] flex items-center justify-between gap-12">
 
             <!-- Left: Copy -->
             <div class="max-w-[580px]">
@@ -215,164 +259,130 @@
                 <!-- Admission badge -->
                 <div class="inline-flex items-center gap-2.5 rounded-full px-4 py-2 mb-6 animate-fade-up-1"
                     style="background:rgba(196,138,71,0.14);border:1px solid rgba(255,204,78,0.3);">
-                    <span class="w-2 h-2 rounded-full bg-gold-light animate-pulse inline-block"></span>
-                    <span class="text-gold-light text-[0.7rem] font-bold tracking-[3.5px] uppercase">Admissions Open ·
-                        2025–26</span>
-                </div>
-
-                <!-- Institute identifier -->
-                <div class="flex items-center gap-3.5 mb-7 animate-fade-up-2">
-                    <div class="w-12 h-12 rounded-xl flex items-center justify-center font-playfair font-black text-navy text-lg flex-shrink-0"
-                        style="background:linear-gradient(135deg,#c48a47,#ffcc4e);">GL</div>
-                    <div>
-                        <strong class="block text-white font-playfair text-base tracking-wide leading-tight">GL Bajaj
-                            Institute of Law</strong>
-                        <small class="text-gold text-[0.65rem] tracking-[2px] uppercase">Where Ethics Meet
-                            Excellence</small>
-                    </div>
+                    <span class="w-2 h-2 rounded-full bg-gold-light animate-pulse inline-block"
+                        style="background:#ffcc4e;"></span>
+                    <span class="text-[0.7rem] font-bold tracking-[3.5px] uppercase" style="color:#ffcc4e;">Admissions
+                        Open · 2026</span>
                 </div>
 
                 <!-- H1 -->
-                <h1 class="font-playfair font-black text-white leading-[1.08] mb-5 animate-fade-up-3"
+                <h1 class="font-playfair font-black text-white leading-[1.08] mb-4 animate-fade-up-3"
                     style="font-size:clamp(2.6rem,4.2vw,3.8rem);">
                     Where Justice<br>
                     Meets <em
                         style="font-style:italic;background:linear-gradient(90deg,#c48a47,#ffcc4e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Ambition.</em>
                 </h1>
 
-                <!-- Tagline -->
-                <p class="text-white/65 leading-[1.8] mb-8 animate-fade-up-4"
-                    style="font-size:0.97rem;max-width:460px;">
-                    Greater Noida's premier law institute — shaping ethical, globally competent legal professionals for
-                    courts, boardrooms, and beyond.
+                <!-- Subtitle: Best Law College -->
+                <p class="font-playfair text-white/80 font-semibold mb-3 animate-fade-up-3"
+                    style="font-size:clamp(1rem,1.5vw,1.25rem);">
+                    The Best Law College in Delhi-NCR
                 </p>
 
-                <!-- CTAs -->
-                <div class="flex gap-3.5 flex-wrap mb-10 animate-fade-up-5">
-                    <button
-                        class="font-bold text-navy px-8 py-3.5 rounded-lg cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl text-sm tracking-wide"
-                        style="background:linear-gradient(135deg,#ffcc4e 0%,#c48a47 100%);box-shadow:0 8px 28px rgba(196,138,71,0.4);">
-                        Apply for Admission →
-                    </button>
-                    <button
-                        class="px-7 py-3.5 rounded-lg font-semibold text-sm text-white/85 transition-all duration-300 hover:text-gold-light"
-                        style="border:1.5px solid rgba(255,255,255,0.22);background:rgba(255,255,255,0.05);backdrop-filter:blur(8px);">
-                        Download Brochure
-                    </button>
+                <!-- Programme pills -->
+                <div class="flex flex-wrap items-center gap-2 mb-5 animate-fade-up-3">
+                    <span class="rounded-full px-3.5 py-1 text-[0.72rem] font-semibold tracking-wide"
+                        style="background:rgba(196,138,71,0.18);border:1px solid rgba(255,204,78,0.35);color:#ffcc4e;">BA
+                        LLB</span>
+                    <span class="text-white/30 text-xs">·</span>
+                    <span class="rounded-full px-3.5 py-1 text-[0.72rem] font-semibold tracking-wide"
+                        style="background:rgba(196,138,71,0.18);border:1px solid rgba(255,204,78,0.35);color:#ffcc4e;">B.Com
+                        LLB</span>
+                    <span class="text-white/30 text-xs">·</span>
+                    <span class="rounded-full px-3.5 py-1 text-[0.72rem] font-semibold tracking-wide"
+                        style="background:rgba(196,138,71,0.18);border:1px solid rgba(255,204,78,0.35);color:#ffcc4e;">LLB</span>
                 </div>
 
-                <!-- Trust badges -->
-                <div class="flex flex-wrap gap-3 animate-fade-up-6">
-                    <span class="flex items-center gap-1.5 text-white/50 text-[0.72rem] tracking-wide">
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="#c48a47" stroke-width="2" viewBox="0 0 24 24">
-                            <path
-                                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        Bar Council of India Recognised
-                    </span>
-                    <span class="text-white/20">·</span>
-                    <span class="flex items-center gap-1.5 text-white/50 text-[0.72rem] tracking-wide">
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="#c48a47" stroke-width="2" viewBox="0 0 24 24">
-                            <path
-                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        CCS University Affiliated
-                    </span>
-                    <span class="text-white/20">·</span>
-                    <span class="flex items-center gap-1.5 text-white/50 text-[0.72rem] tracking-wide">
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="#c48a47" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M12 14l9-5-9-5-9 5 9 5z" stroke-linecap="round" stroke-linejoin="round" />
-                            <path
-                                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        Est. 2024 · Greater Noida
+                <!-- Admissions open CTA line -->
+                <div class="flex items-center gap-2.5 animate-fade-up-3">
+                    <span class="w-8 h-px" style="background:linear-gradient(90deg,#ffcc4e,transparent);"></span>
+                    <span class="text-white/55 text-[0.78rem] font-medium tracking-widest uppercase">
+                        Admissions Open for <strong style="color:#ffcc4e;">2026</strong>
                     </span>
                 </div>
+
             </div>
 
-            <!-- Right: Counselling Form -->
-            <div class="hidden lg:block flex-shrink-0 w-[320px]">
+            <!-- Right: Counselling Form — compact to avoid going under navbar -->
+            <div class="hidden lg:block flex-shrink-0 w-[290px]">
                 <div class="rounded-2xl overflow-hidden"
                     style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,204,78,0.18);backdrop-filter:blur(20px);">
                     <!-- Form header -->
-                    <div class="px-6 pt-5 pb-4 border-b" style="border-color:rgba(255,255,255,0.07);">
-                        <h3 class="font-playfair text-white text-[1.15rem] font-bold leading-tight">Free Counselling
+                    <div class="px-5 pt-4 pb-3 border-b" style="border-color:rgba(255,255,255,0.07);">
+                        <h3 class="font-playfair text-white text-[1.05rem] font-bold leading-tight">Free Counselling
                             Session</h3>
-                        <p class="text-white/45 text-[0.72rem] mt-1">Our advisors will call you within 24 hrs.</p>
+                        <p class="text-white/45 text-[0.68rem] mt-0.5">Our advisors will call you within 24 hrs.</p>
                     </div>
                     <!-- Form fields -->
                     <form id="glbil-hero-form" novalidate>
-                        <div class="p-5 flex flex-col gap-3">
+                        <div class="px-5 py-4 flex flex-col gap-2.5">
 
                             <!-- Full Name -->
                             <div>
-                                <label class="block text-white/40 text-[0.65rem] tracking-[1.5px] uppercase mb-1.5"
+                                <label class="block text-white/40 text-[0.62rem] tracking-[1.5px] uppercase mb-1"
                                     for="hf-name">Full Name</label>
                                 <input id="hf-name" name="Name" type="text" autocomplete="name"
-                                    class="w-full rounded-lg px-3.5 py-2.5 text-white text-sm outline-none transition-all duration-200 font-dm hf-field"
+                                    class="w-full rounded-lg px-3 py-2 text-white text-[0.82rem] outline-none transition-all duration-200 font-dm hf-field"
                                     style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);caret-color:#ffcc4e;"
                                     placeholder="Arjun Sharma">
-                                <span class="hf-err hidden block text-[0.65rem] mt-1 pl-1" id="err-name"
+                                <span class="hf-err hidden block text-[0.62rem] mt-0.5 pl-1" id="err-name"
                                     style="color:#ff8a95;"></span>
                             </div>
 
                             <!-- Mobile -->
                             <div>
-                                <label class="block text-white/40 text-[0.65rem] tracking-[1.5px] uppercase mb-1.5"
+                                <label class="block text-white/40 text-[0.62rem] tracking-[1.5px] uppercase mb-1"
                                     for="hf-phone">Mobile Number</label>
                                 <input id="hf-phone" name="Phone" type="tel" autocomplete="tel"
-                                    class="w-full rounded-lg px-3.5 py-2.5 text-white text-sm outline-none transition-all duration-200 font-dm hf-field"
+                                    class="w-full rounded-lg px-3 py-2 text-white text-[0.82rem] outline-none transition-all duration-200 font-dm hf-field"
                                     style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);caret-color:#ffcc4e;"
                                     placeholder="9876543210" maxlength="10">
-                                <span class="hf-err hidden block text-[0.65rem] mt-1 pl-1" id="err-phone"
+                                <span class="hf-err hidden block text-[0.62rem] mt-0.5 pl-1" id="err-phone"
                                     style="color:#ff8a95;"></span>
                             </div>
 
                             <!-- Email -->
                             <div>
-                                <label class="block text-white/40 text-[0.65rem] tracking-[1.5px] uppercase mb-1.5"
+                                <label class="block text-white/40 text-[0.62rem] tracking-[1.5px] uppercase mb-1"
                                     for="hf-email">Email Address</label>
                                 <input id="hf-email" name="Email" type="email" autocomplete="email"
-                                    class="w-full rounded-lg px-3.5 py-2.5 text-white text-sm outline-none transition-all duration-200 font-dm hf-field"
+                                    class="w-full rounded-lg px-3 py-2 text-white text-[0.82rem] outline-none transition-all duration-200 font-dm hf-field"
                                     style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);caret-color:#ffcc4e;"
                                     placeholder="you@email.com">
-                                <span class="hf-err hidden block text-[0.65rem] mt-1 pl-1" id="err-email"
+                                <span class="hf-err hidden block text-[0.62rem] mt-0.5 pl-1" id="err-email"
                                     style="color:#ff8a95;"></span>
                             </div>
 
                             <!-- City + State -->
                             <div class="grid grid-cols-2 gap-2">
                                 <div>
-                                    <label class="block text-white/40 text-[0.65rem] tracking-[1.5px] uppercase mb-1.5"
+                                    <label class="block text-white/40 text-[0.62rem] tracking-[1.5px] uppercase mb-1"
                                         for="hf-city">City</label>
                                     <input id="hf-city" name="City" type="text" autocomplete="address-level2"
-                                        class="w-full rounded-lg px-3.5 py-2.5 text-white text-sm outline-none transition-all duration-200 font-dm hf-field"
+                                        class="w-full rounded-lg px-3 py-2 text-white text-[0.82rem] outline-none transition-all duration-200 font-dm hf-field"
                                         style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);caret-color:#ffcc4e;"
                                         placeholder="New Delhi">
-                                    <span class="hf-err hidden block text-[0.65rem] mt-1 pl-1" id="err-city"
+                                    <span class="hf-err hidden block text-[0.62rem] mt-0.5 pl-1" id="err-city"
                                         style="color:#ff8a95;"></span>
                                 </div>
                                 <div>
-                                    <label class="block text-white/40 text-[0.65rem] tracking-[1.5px] uppercase mb-1.5"
+                                    <label class="block text-white/40 text-[0.62rem] tracking-[1.5px] uppercase mb-1"
                                         for="hf-state">State</label>
                                     <input id="hf-state" name="State" type="text"
-                                        class="w-full rounded-lg px-3.5 py-2.5 text-white text-sm outline-none transition-all duration-200 font-dm hf-field"
+                                        class="w-full rounded-lg px-3 py-2 text-white text-[0.82rem] outline-none transition-all duration-200 font-dm hf-field"
                                         style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);caret-color:#ffcc4e;"
                                         placeholder="Uttar Pradesh">
-                                    <span class="hf-err hidden block text-[0.65rem] mt-1 pl-1" id="err-state"
+                                    <span class="hf-err hidden block text-[0.62rem] mt-0.5 pl-1" id="err-state"
                                         style="color:#ff8a95;"></span>
                                 </div>
                             </div>
 
                             <!-- Programme -->
                             <div>
-                                <label class="block text-white/40 text-[0.65rem] tracking-[1.5px] uppercase mb-1.5"
+                                <label class="block text-white/40 text-[0.62rem] tracking-[1.5px] uppercase mb-1"
                                     for="hf-program">Programme</label>
                                 <select id="hf-program" name="Program"
-                                    class="w-full rounded-lg px-3.5 py-2.5 text-white text-sm outline-none transition-all duration-200 font-dm appearance-none cursor-pointer hf-field"
+                                    class="w-full rounded-lg px-3 py-2 text-white text-[0.82rem] outline-none transition-all duration-200 font-dm appearance-none cursor-pointer hf-field"
                                     style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);">
                                     <option value="" style="background:#472510;">Select Programme</option>
                                     <option value="B.A. LL.B. — 5 Year" style="background:#472510;">B.A. LL.B. — 5 Year
@@ -381,14 +391,14 @@
                                         Year</option>
                                     <option value="LL.B. — 3 Year" style="background:#472510;">LL.B. — 3 Year</option>
                                 </select>
-                                <span class="hf-err hidden block text-[0.65rem] mt-1 pl-1" id="err-program"
+                                <span class="hf-err hidden block text-[0.62rem] mt-0.5 pl-1" id="err-program"
                                     style="color:#ff8a95;"></span>
                             </div>
 
-                            <!-- Submit button with states -->
+                            <!-- Submit button -->
                             <button id="hf-submit" type="submit"
-                                class="w-full py-3 rounded-lg text-navy text-sm font-bold tracking-wide mt-1 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl flex items-center justify-center gap-2"
-                                style="background:linear-gradient(135deg,#ffcc4e 0%,#c48a47 100%);box-shadow:0 8px 24px rgba(196,138,71,0.4);">
+                                class="w-full py-2.5 rounded-lg text-sm font-bold tracking-wide mt-0.5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl flex items-center justify-center gap-2"
+                                style="background:linear-gradient(135deg,#ffcc4e 0%,#c48a47 100%);box-shadow:0 8px 24px rgba(196,138,71,0.4);color:#472510;">
                                 <span id="hf-btn-text">Get Free Counselling →</span>
                                 <svg id="hf-spinner" class="hidden animate-spin w-4 h-4" fill="none"
                                     viewBox="0 0 24 24">
@@ -399,30 +409,22 @@
                             </button>
 
                             <!-- Feedback banners -->
-                            <div id="hf-success" class="hidden text-center py-2 px-3 rounded-lg text-sm font-semibold"
+                            <div id="hf-success"
+                                class="hidden text-center py-1.5 px-3 rounded-lg text-[0.78rem] font-semibold"
                                 style="background:rgba(196,138,71,0.15);border:1px solid rgba(255,204,78,0.3);color:#ffcc4e;">
                                 ✅ Thank you! We'll call you within 24 hours.
                             </div>
-                            <div id="hf-error" class="hidden text-center py-2 px-3 rounded-lg text-sm"
+                            <div id="hf-error" class="hidden text-center py-1.5 px-3 rounded-lg text-[0.78rem]"
                                 style="background:rgba(220,53,69,0.12);border:1px solid rgba(220,53,69,0.3);color:#ff8a95;">
                                 ⚠️ Something went wrong. Please try again.
                             </div>
 
-                            <p class="text-center text-white/30 text-[0.65rem] mt-0.5">🔒 100% confidential · No spam,
+                            <p class="text-center text-white/30 text-[0.62rem] mt-0">🔒 100% confidential · No spam,
                                 ever</p>
                         </div>
                     </form>
                 </div>
             </div>
-        </div>
-
-        <!-- Bottom gradient fade -->
-        <div class="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
-            style="background:linear-gradient(to top,rgba(248,245,239,0.08),transparent);"></div>
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-7 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 z-10 opacity-40">
-            <span class="text-white text-[0.6rem] tracking-[3px] uppercase">Scroll</span>
-            <div class="w-px h-8 bg-white/40"></div>
         </div>
     </section>
 
@@ -866,195 +868,430 @@
         </div>
     </section>
 
-    <!-- ══════════════════════════════════════════
-     SECTION 6: PLACEMENT STATISTICS
-══════════════════════════════════════════ -->
-    <section class="py-24 px-[60px] relative overflow-hidden dot-grid"
-        style="background:linear-gradient(135deg,#472510 0%,#5a3015 100%);">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-        <!-- Header -->
-        <div class="text-center mb-[70px]">
-            <p class="text-[0.72rem] tracking-[4px] font-bold text-gold uppercase mb-3">Placement Record</p>
-            <h2 class="font-playfair font-extrabold text-white leading-tight"
-                style="font-size:clamp(1.8rem,3vw,2.6rem);">
-                Our Students. Top Organisations.
-            </h2>
-            <p class="text-white/65 text-center max-w-[560px] mx-auto mt-4 text-[0.95rem]">
-                From GL Bajaj's broader group pedigree to GLBIL's growing placement ecosystem — our numbers speak for
-                themselves.
-            </p>
-        </div>
+        @keyframes glbShimmer {
+            0% {
+                background-position: -200% center;
+            }
 
-        <!-- Stats grid -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-[2px] rounded-2xl overflow-hidden mb-12"
-            style="background:rgba(196,138,71,0.2);">
-            <div class="stat-block py-10 px-6 text-center" style="background:rgba(51,25,8,0.88);">
-                <span class="block font-playfair font-black text-gold leading-none text-5xl">5000<span
-                        class="text-3xl">+</span></span>
-                <span class="block text-white/65 text-[0.82rem] mt-2 tracking-wide">STUDENTS PLACED</span>
-                <span class="block text-white/40 text-[0.72rem] mt-1">Across Group Institutions</span>
-            </div>
-            <div class="stat-block py-10 px-6 text-center" style="background:rgba(51,25,8,0.88);">
-                <span class="block font-playfair font-black text-gold leading-none text-5xl">200<span
-                        class="text-3xl">+</span></span>
-                <span class="block text-white/65 text-[0.82rem] mt-2 tracking-wide">PARTNER RECRUITERS</span>
-                <span class="block text-white/40 text-[0.72rem] mt-1">Law Firms & Corporates</span>
-            </div>
-            <div class="stat-block py-10 px-6 text-center" style="background:rgba(51,25,8,0.88);">
-                <span class="block font-playfair font-black text-gold leading-none text-5xl">100<span
-                        class="text-3xl">+</span></span>
-                <span class="block text-white/65 text-[0.82rem] mt-2 tracking-wide">EXPERT FACULTY</span>
-                <span class="block text-white/40 text-[0.72rem] mt-1">Practitioners & Professors</span>
-            </div>
-            <div class="stat-block py-10 px-6 text-center" style="background:rgba(51,25,8,0.88);">
-                <span class="block font-playfair font-black text-gold leading-none text-5xl">8<span
-                        class="text-3xl">+</span></span>
-                <span class="block text-white/65 text-[0.82rem] mt-2 tracking-wide">INSTITUTIONS</span>
-                <span class="block text-white/40 text-[0.72rem] mt-1">GL Bajaj Group Network</span>
-            </div>
-        </div>
+            100% {
+                background-position: 200% center;
+            }
+        }
 
-        <!-- Feature tiles -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="border border-gold/20 rounded-xl p-7 text-center" style="background:rgba(255,255,255,0.06);">
-                <span class="block text-3xl mb-3">📋</span>
-                <strong class="block text-white text-base mb-1.5">Dedicated Placement Cell</strong>
-                <p class="text-white/55 text-[0.82rem] leading-[1.6]">Year-round career support including CV workshops,
-                    mock interviews, and direct recruiter connects.</p>
+        @keyframes glbFloatBadge {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-4px);
+            }
+        }
+
+        @keyframes glbPulseRing {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(196, 138, 71, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 0 8px rgba(196, 138, 71, 0);
+            }
+        }
+
+        .glb-font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .glb-font-dm {
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .glb-shimmer-text {
+            background: linear-gradient(90deg, #c48a47 0%, #ffcc4e 40%, #c48a47 60%, #80471c 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glbShimmer 3s linear infinite;
+        }
+
+        .glb-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .glb-reveal.glb-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glb-delay-1 {
+            transition-delay: 0.10s;
+        }
+
+        .glb-delay-2 {
+            transition-delay: 0.22s;
+        }
+
+        .glb-delay-3 {
+            transition-delay: 0.34s;
+        }
+
+        .glb-delay-4 {
+            transition-delay: 0.46s;
+        }
+
+        .glb-card {
+            transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.38s ease;
+            cursor: default;
+        }
+
+        .glb-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .glb-card-light:hover {
+            box-shadow: 0 32px 64px rgba(71, 37, 16, 0.15);
+        }
+
+        .glb-card-dark:hover {
+            box-shadow: 0 32px 64px rgba(71, 37, 16, 0.35);
+        }
+
+        .glb-photo-wrap {
+            position: relative;
+            display: inline-block;
+        }
+
+        .glb-photo-wrap::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 9999px;
+            background: conic-gradient(from 0deg, #c48a47, #ffcc4e, #80471c, #c48a47);
+            z-index: 0;
+            animation: glbPulseRing 2.8s ease-in-out infinite;
+        }
+
+        .glb-photo-wrap img {
+            position: relative;
+            z-index: 1;
+            display: block;
+            border-radius: 9999px;
+            object-fit: cover;
+            object-position: top center;
+            background: #3a1d0c;
+        }
+
+        .glb-photo-wrap-featured::before {
+            background: conic-gradient(from 0deg, #ffcc4e, #c48a47, #80471c, #ffcc4e);
+            inset: -5px;
+            animation: glbPulseRing 2.2s ease-in-out infinite;
+        }
+
+        .glb-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #c48a47 40%, transparent);
+        }
+
+        .glb-divider-light {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(196, 138, 71, 0.35) 40%, transparent);
+        }
+
+        .glb-programme-tag {
+            background: linear-gradient(135deg, #472510, #80471c);
+            border: 1px solid rgba(196, 138, 71, 0.3);
+            color: #ffcc4e;
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 100px;
+            display: inline-block;
+            margin-top: 4px;
+        }
+
+        .glb-programme-tag-light {
+            background: linear-gradient(135deg, #ffcc4e, #c48a47);
+            color: #2a1208;
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 100px;
+            display: inline-block;
+            margin-top: 4px;
+        }
+
+        .glb-quote-bg {
+            font-family: 'Playfair Display', serif;
+            font-size: 10rem;
+            line-height: 0.6;
+            color: #c48a47;
+            opacity: 0.08;
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .glb-quote-bg-dark {
+            color: #ffcc4e;
+            opacity: 0.07;
+        }
+
+        .glb-section-bg {
+            background:
+                radial-gradient(ellipse at 15% 0%, rgba(196, 138, 71, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 85% 100%, rgba(71, 37, 16, 0.07) 0%, transparent 50%),
+                #F8F5EF;
+        }
+
+        .glb-deco-line {
+            position: absolute;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(196, 138, 71, 0.3), transparent);
+            pointer-events: none;
+        }
+
+        .glb-stat-bar {
+            background: linear-gradient(135deg, #3a1d0c 0%, #472510 40%, #80471c 100%);
+            border: 1px solid rgba(196, 138, 71, 0.25);
+        }
+
+        .glb-institute-badge {
+            animation: glbFloatBadge 3.5s ease-in-out infinite;
+        }
+    </style>
+
+    <section class="glb-section-bg relative py-24 px-4 sm:px-6 overflow-hidden">
+
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-20 glb-reveal">
+                <div
+                    class="glb-institute-badge glb-font-dm inline-flex items-center gap-2 bg-white border border-[rgba(196,138,71,0.3)] text-[#80471c] text-xs font-semibold tracking-[0.2em] uppercase px-5 py-2 rounded-full mb-6 shadow-sm">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#c48a47] inline-block"></span>
+                    GL Bajaj Institute of Law
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#c48a47] inline-block"></span>
+                </div>
+
+                <h2
+                    class="glb-font-playfair text-4xl sm:text-5xl md:text-6xl font-bold text-[#472510] leading-[1.15] mb-5">
+                    Voices from Our <br><em class="glb-shimmer-text not-italic">Students</em>
+                </h2>
+
+                <div class="glb-divider w-24 mx-auto mb-6"></div>
+
+                <p class="glb-font-dm text-[#444444] max-w-lg mx-auto text-[0.95rem] leading-relaxed">
+                    Real experiences from students who are building their legal careers at GL Bajaj — shaped by
+                    exceptional faculty, practical exposure, and a vibrant campus community.
+                </p>
             </div>
-            <div class="border border-gold/20 rounded-xl p-7 text-center" style="background:rgba(255,255,255,0.06);">
-                <span class="block text-3xl mb-3">🌐</span>
-                <strong class="block text-white text-base mb-1.5">Pan-India Opportunities</strong>
-                <p class="text-white/55 text-[0.82rem] leading-[1.6]">Placements across law firms, MNCs, government
-                    bodies, NGOs, and judicial institutions nationwide.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start">
+                <div class="glb-card glb-card-light glb-reveal glb-delay-1 rounded-2xl overflow-hidden"
+                    style="background:#fff; border:1px solid rgba(196,138,71,0.18); box-shadow:0 8px 32px rgba(71,37,16,0.08);">
+
+                    <div class="relative overflow-hidden"
+                        style="background:linear-gradient(160deg,#fdf3e7 0%,#f5e6cc 100%); padding:2rem 2rem 0;">
+                        <div class="absolute top-0 left-0 right-0 h-1"
+                            style="background:linear-gradient(90deg,#472510,#c48a47,#ffcc4e);"></div>
+                        <div class="glb-quote-bg">&ldquo;</div>
+
+                        <div class="flex flex-col items-center pb-6 relative z-10">
+                            <div class="glb-photo-wrap mb-4">
+                                <!-- Paste the same Teya Bhati base64 img src from your original code here -->
+                                <img src="PASTE_ORIGINAL_BASE64_IMAGE_1" alt="Teya Bhati"
+                                    style="width:96px;height:96px;" />
+                            </div>
+
+                            <p class="glb-font-playfair font-bold text-[#472510] text-xl leading-tight text-center">Teya
+                                Bhati</p>
+                            <span class="glb-programme-tag glb-font-dm">B.A. LL.B. &middot; 5 Year &middot; 2025</span>
+
+                            <div class="flex gap-1 mt-3">
+                                <span class="text-[#c48a47] text-base">★</span>
+                                <span class="text-[#c48a47] text-base">★</span>
+                                <span class="text-[#c48a47] text-base">★</span>
+                                <span class="text-[#c48a47] text-base">★</span>
+                                <span class="text-[#c48a47] text-base">★</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <div class="glb-divider-light mb-5"></div>
+                        <p class="glb-font-dm text-[#444444] text-[0.9rem] leading-relaxed">
+                            The institute provides excellent practical exposure through field visits and helps me
+                            understand the real application of law. Student clubs — the Literary, Mooting, and Debate
+                            Clubs — have enhanced my skills and confidence. Campus life at GL Bajaj is truly engaging.
+                        </p>
+                        <div class="glb-divider-light mt-5 mb-4"></div>
+                        <p class="glb-font-dm text-[0.75rem] text-[#777777] italic text-center">
+                            "I feel confident about my personal and professional growth."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="glb-card glb-card-dark glb-reveal glb-delay-2 rounded-2xl overflow-hidden md:-mt-8"
+                    style="background:linear-gradient(170deg,#3a1d0c 0%,#472510 50%,#80471c 100%); border:1px solid rgba(196,138,71,0.3); box-shadow:0 20px 60px rgba(71,37,16,0.3);">
+
+                    <div
+                        style="height:5px;background:linear-gradient(90deg,#ffcc4e,#c48a47,#80471c,#c48a47,#ffcc4e);background-size:200%;animation:glbShimmer 3s linear infinite;">
+                    </div>
+
+                    <div class="flex justify-center pt-5 pb-0">
+                        <span
+                            class="glb-font-dm text-[#472510] text-[0.62rem] font-bold tracking-widest uppercase px-3 py-1 rounded-full"
+                            style="background:linear-gradient(135deg,#ffcc4e,#c48a47);">
+                            ✦ Featured Student ✦
+                        </span>
+                    </div>
+
+                    <div class="relative px-6 pt-4 pb-0">
+                        <div class="glb-quote-bg glb-quote-bg-dark">&ldquo;</div>
+
+                        <div class="flex flex-col items-center pb-5 relative z-10">
+                            <div class="glb-photo-wrap glb-photo-wrap-featured mb-4">
+                                <!-- Paste the same Shaurya Dutt Singh base64 img src from your original code here -->
+                                <img src="PASTE_ORIGINAL_BASE64_IMAGE_2" alt="Shaurya Dutt Singh"
+                                    style="width:108px;height:108px;" />
+                            </div>
+
+                            <p class="glb-font-playfair font-bold text-[#F8F5EF] text-xl leading-tight text-center">
+                                Shaurya Dutt Singh</p>
+                            <span class="glb-programme-tag-light glb-font-dm">B.Com.LL.B. &middot; 5 Year &middot;
+                                2025</span>
+
+                            <div class="flex gap-1 mt-3">
+                                <span class="text-[#ffcc4e] text-base">★</span>
+                                <span class="text-[#ffcc4e] text-base">★</span>
+                                <span class="text-[#ffcc4e] text-base">★</span>
+                                <span class="text-[#ffcc4e] text-base">★</span>
+                                <span class="text-[#ffcc4e] text-base">★</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="px-6 pb-7">
+                        <div class="glb-divider-light mb-5"></div>
+                        <p class="glb-font-dm text-[0.9rem] leading-relaxed" style="color:#e8d0b0;">
+                            The academic environment is supportive and faculty guide me at every step, helping me build
+                            strong conceptual understanding. Legal aid activities and field visits have enriched my
+                            overall experience. GL Bajaj encourages discipline, confidence, and all-round development.
+                        </p>
+                        <div class="glb-divider-light mt-5 mb-4"></div>
+                        <p class="glb-font-dm text-[0.75rem] italic text-center" style="color:#c48a47;">
+                            "Studying at GL Bajaj is helping me grow both personally and professionally."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="glb-card glb-card-light glb-reveal glb-delay-3 rounded-2xl overflow-hidden"
+                    style="background:#fff; border:1px solid rgba(196,138,71,0.18); box-shadow:0 8px 32px rgba(71,37,16,0.08);">
+
+                    <div class="relative overflow-hidden"
+                        style="background:linear-gradient(160deg,#fdf3e7 0%,#f5e6cc 100%); padding:2rem 2rem 0;">
+                        <div class="absolute top-0 left-0 right-0 h-1"
+                            style="background:linear-gradient(90deg,#ffcc4e,#c48a47,#472510);"></div>
+                        <div class="glb-quote-bg">&ldquo;</div>
+
+                        <div class="flex flex-col items-center pb-6 relative z-10">
+                            <div class="glb-photo-wrap mb-4">
+                                <!-- Paste the same Shalini Singh base64 img src from your original code here -->
+                                <img src="PASTE_ORIGINAL_BASE64_IMAGE_3" alt="Shalini Singh"
+                                    style="width:96px;height:96px;" />
+                            </div>
+
+                            <p class="glb-font-playfair font-bold text-[#472510] text-xl leading-tight text-center">
+                                Shalini Singh</p>
+                            <span class="glb-programme-tag glb-font-dm">LL.B. &middot; 3 Year Programme &middot;
+                                2025</span>
+
+                            <div class="flex gap-1 mt-3">
+                                <span class="text-[#c48a47] text-base">★</span>
+                                <span class="text-[#c48a47] text-base">★</span>
+                                <span class="text-[#c48a47] text-base">★</span>
+                                <span class="text-[#c48a47] text-base">★</span>
+                                <span class="text-[#c48a47] text-base">★</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <div class="glb-divider-light mb-5"></div>
+                        <p class="glb-font-dm text-[#444444] text-[0.9rem] leading-relaxed">
+                            I receive special academic attention from experienced, dedicated faculty that has helped me
+                            understand subjects clearly and build confidence. Moot courts, interactive sessions, and
+                            hands-on learning provide invaluable practical exposure alongside strong theoretical
+                            foundations.
+                        </p>
+                        <div class="glb-divider-light mt-5 mb-4"></div>
+                        <p class="glb-font-dm text-[0.75rem] text-[#777777] italic text-center">
+                            "GL Bajaj is shaping my skills and preparing me for a successful legal career."
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="border border-gold/20 rounded-xl p-7 text-center" style="background:rgba(255,255,255,0.06);">
-                <span class="block text-3xl mb-3">⚡</span>
-                <strong class="block text-white text-base mb-1.5">Industry Mentorship</strong>
-                <p class="text-white/55 text-[0.82rem] leading-[1.6]">One-on-one mentoring from senior advocates,
-                    corporate counsel, and policy experts throughout the programme.</p>
+
+            <div class="glb-stat-bar glb-reveal glb-delay-4 mt-16 rounded-2xl overflow-hidden"
+                style="box-shadow:0 12px 48px rgba(71,37,16,0.22);">
+                <div class="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x"
+                    style="border-color:rgba(196,138,71,0.15);">
+                    <div class="flex flex-col items-center justify-center py-10 px-8 text-center">
+                        <span class="glb-font-playfair text-5xl font-bold mb-1" style="color:#ffcc4e;">500<span
+                                style="color:#c48a47;">+</span></span>
+                        <span class="glb-font-dm text-xs tracking-[0.2em] uppercase mt-1"
+                            style="color:#d4b896;">Students Enrolled</span>
+                    </div>
+
+                    <div class="flex flex-col items-center justify-center py-10 px-8 text-center"
+                        style="border-color:rgba(196,138,71,0.15);">
+                        <span class="glb-font-playfair text-5xl font-bold mb-1" style="color:#ffcc4e;">3<span
+                                style="color:#c48a47;"> Programmes</span></span>
+                        <span class="glb-font-dm text-xs tracking-[0.2em] uppercase mt-1" style="color:#d4b896;">BA.LLB
+                            · BComLLB · LLB</span>
+                    </div>
+
+                    <div class="flex flex-col items-center justify-center py-10 px-8 text-center"
+                        style="border-color:rgba(196,138,71,0.15);">
+                        <span class="glb-font-playfair text-5xl font-bold mb-1" style="color:#ffcc4e;">100<span
+                                style="color:#c48a47;">%</span></span>
+                        <span class="glb-font-dm text-xs tracking-[0.2em] uppercase mt-1" style="color:#d4b896;">Student
+                            Satisfaction</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ══════════════════════════════════════════
-     SECTION 7: RECRUITERS
-══════════════════════════════════════════ -->
-    <section class="py-20 px-[60px] bg-white">
-        <div class="text-center mb-12">
-            <p class="text-[0.72rem] tracking-[4px] font-bold text-crimson uppercase mb-3">Our Recruiters</p>
-            <h2 class="font-playfair font-extrabold text-navy leading-tight"
-                style="font-size:clamp(1.8rem,3vw,2.6rem);">
-                Top <span class="text-gold-dark">Organisations</span> That Hire Our Students
-            </h2>
-            <p class="text-text-light mt-3 text-[0.95rem]">Our graduates are placed across India's leading legal,
-                corporate, and public sector organisations.</p>
-        </div>
+    <script>
+            (function () {
+                const glbIo = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('glb-visible');
+                            glbIo.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
 
-        <div class="grid grid-cols-3 md:grid-cols-6 border border-navy/10 rounded-xl overflow-hidden">
-            <!-- Row 1 -->
-            <div
-                class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-                <span
-                    class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">KHAITAN
-                    &amp; CO.</span>
-            </div>
-            <div
-                class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-                <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">AZB
-                    &amp; PARTNERS</span>
-            </div>
-            <div
-                class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-                <span
-                    class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">SHARDUL
-                    AMARCHAND MANGALDAS</span>
-            </div>
-            <div
-                class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-                <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">CYRIL
-                    AMARCHAND MANGALDAS</span>
-            </div>
-            <div
-                class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-                <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">J.
-                    SAGAR ASSOCIATES</span>
-            </div>
-            <div
-                class="recruiter-logo border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-                <span
-                    class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">TRILEGAL</span>
-            </div>
-            <!-- Row 2 -->
-            <div
-                class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-                <span
-                    class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">NISHITH
-                    DESAI ASSOCIATES</span>
-            </div>
-            <div
-                class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-                <span
-                    class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">LUTHRA
-                    &amp; LUTHRA</span>
-            </div>
-            <div
-                class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-                <span
-                    class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">LAKSHMIKUMARAN
-                    &amp; SRIDHARAN</span>
-            </div>
-            <div
-                class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-                <span
-                    class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">S&amp;R
-                    ASSOCIATES</span>
-            </div>
-            <div
-                class="recruiter-logo border-r border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-                <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">DSK
-                    LEGAL</span>
-            </div>
-            <div
-                class="recruiter-logo border-b border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-                <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">INDUS
-                    LAW</span>
-            </div>
-            <!-- Row 3 -->
-            <div
-                class="recruiter-logo border-r border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-                <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">TATA
-                    CONSULTANCY</span>
-            </div>
-            <div
-                class="recruiter-logo border-r border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-                <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">WIPRO
-                    LEGAL</span>
-            </div>
-            <div
-                class="recruiter-logo border-r border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-                <span
-                    class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">INFOSYS
-                    BPM</span>
-            </div>
-            <div
-                class="recruiter-logo border-r border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-                <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">HCL
-                    LEGAL</span>
-            </div>
-            <div
-                class="recruiter-logo border-r border-navy/[0.08] flex items-center justify-center py-7 px-5 min-h-[90px]">
-                <span class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">LEGAL
-                    AID INDIA</span>
-            </div>
-            <div class="recruiter-logo flex items-center justify-center py-7 px-5 min-h-[90px]">
-                <span
-                    class="recruiter-logo-text text-navy font-bold text-xs text-center tracking-wide opacity-70">MINISTRY
-                    OF LAW &amp; JUSTICE</span>
-            </div>
-        </div>
-    </section>
-
+                document.querySelectorAll('.glb-reveal').forEach((el) => glbIo.observe(el));
+            })();
+    </script>
 
 
     <!-- ════ CTA BANNER ════ -->
@@ -1158,255 +1395,255 @@
      GLBIL FORM — VALIDATION + GAS INTEGRATION
 ══════════════════════════════════════════ -->
     <script>
-            (function () {
-                'use strict';
+        (function () {
+            'use strict';
 
-                /* ═══════════════════════════════════════════════════════════════
-                   1. CONFIGURATION
-                   ─ Paste your deployed GAS Web App URL below after deployment.
-                ═══════════════════════════════════════════════════════════════ */
-                const GAS_URL = "https://script.google.com/macros/s/AKfycbzqQfWrEqGrqkx3rB5a7VB6QJVD9vBE5E8HP_KIlVZiYEWN0avNdFs_NCuefboK4rj-/exec";
+            /* ═══════════════════════════════════════════════════════════════
+               1. CONFIGURATION
+               ─ Paste your deployed GAS Web App URL below after deployment.
+            ═══════════════════════════════════════════════════════════════ */
+            const GAS_URL = "https://script.google.com/macros/s/AKfycbzqQfWrEqGrqkx3rB5a7VB6QJVD9vBE5E8HP_KIlVZiYEWN0avNdFs_NCuefboK4rj-/exec";
 
-                /* ═══════════════════════════════════════════════════════════════
-                   2. VALIDATION RULES
-                   ─ Each entry = { regex, message }
-                   ─ regex: null  → only required (non-empty) check
-                ═══════════════════════════════════════════════════════════════ */
-                const RULES = {
-                    "hf-name": {
-                        label: "Full Name",
-                        regex: /^[A-Za-z ]{2,}$/,
-                        message: "Only letters and spaces allowed (min 2 chars)."
-                    },
-                    "hf-phone": {
-                        label: "Mobile Number",
-                        regex: /^[6-9]\d{9}$/,
-                        message: "Enter a valid 10-digit Indian mobile number (starts with 6–9)."
-                    },
-                    "hf-email": {
-                        label: "Email Address",
-                        regex: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
-                        message: "Enter a valid email address (e.g. you@domain.com)."
-                    },
-                    "hf-city": {
-                        label: "City",
-                        regex: /^[A-Za-z ]{2,}$/,
-                        message: "Only letters and spaces allowed."
-                    },
-                    "hf-state": {
-                        label: "State",
-                        regex: /^[A-Za-z ]{2,}$/,
-                        message: "Only letters and spaces allowed."
-                    },
-                    "hf-program": {
-                        label: "Programme",
-                        regex: null,           // select — just check non-empty
-                        message: "Please select a programme."
+            /* ═══════════════════════════════════════════════════════════════
+               2. VALIDATION RULES
+               ─ Each entry = { regex, message }
+               ─ regex: null  → only required (non-empty) check
+            ═══════════════════════════════════════════════════════════════ */
+            const RULES = {
+                "hf-name": {
+                    label: "Full Name",
+                    regex: /^[A-Za-z ]{2,}$/,
+                    message: "Only letters and spaces allowed (min 2 chars)."
+                },
+                "hf-phone": {
+                    label: "Mobile Number",
+                    regex: /^[6-9]\d{9}$/,
+                    message: "Enter a valid 10-digit Indian mobile number (starts with 6–9)."
+                },
+                "hf-email": {
+                    label: "Email Address",
+                    regex: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
+                    message: "Enter a valid email address (e.g. you@domain.com)."
+                },
+                "hf-city": {
+                    label: "City",
+                    regex: /^[A-Za-z ]{2,}$/,
+                    message: "Only letters and spaces allowed."
+                },
+                "hf-state": {
+                    label: "State",
+                    regex: /^[A-Za-z ]{2,}$/,
+                    message: "Only letters and spaces allowed."
+                },
+                "hf-program": {
+                    label: "Programme",
+                    regex: null,           // select — just check non-empty
+                    message: "Please select a programme."
+                }
+            };
+
+            /* ═══════════════════════════════════════════════════════════════
+               3. BORDER COLOUR CONSTANTS
+            ═══════════════════════════════════════════════════════════════ */
+            const BORDER = {
+                neutral: "1px solid rgba(255,255,255,0.1)",
+                focus: "1px solid rgba(255,204,78,0.55)",
+                valid: "1px solid rgba(100,220,120,0.55)",
+                invalid: "1px solid rgba(220,53,69,0.7)"
+            };
+
+            /* ═══════════════════════════════════════════════════════════════
+               4. HELPERS — validate a single field
+            ═══════════════════════════════════════════════════════════════ */
+            function getField(id) { return document.getElementById(id); }
+            function getErrEl(id) { return document.getElementById("err-" + id.replace("hf-", "")); }
+
+            /**
+             * Validates one field.
+             * @returns {boolean} true = valid, false = invalid
+             */
+            function validateField(id, showError) {
+                const el = getField(id);
+                const err = getErrEl(id);
+                const rule = RULES[id];
+                if (!el || !rule) return true;
+
+                const val = el.value.trim();
+                let msg = "";
+
+                if (!val) {
+                    msg = rule.label + " is required.";
+                } else if (rule.regex && !rule.regex.test(val)) {
+                    msg = rule.message;
+                }
+
+                if (msg) {
+                    if (showError) {
+                        el.style.border = BORDER.invalid;
+                        if (err) { err.textContent = msg; err.classList.remove("hidden"); }
                     }
-                };
-
-                /* ═══════════════════════════════════════════════════════════════
-                   3. BORDER COLOUR CONSTANTS
-                ═══════════════════════════════════════════════════════════════ */
-                const BORDER = {
-                    neutral: "1px solid rgba(255,255,255,0.1)",
-                    focus: "1px solid rgba(255,204,78,0.55)",
-                    valid: "1px solid rgba(100,220,120,0.55)",
-                    invalid: "1px solid rgba(220,53,69,0.7)"
-                };
-
-                /* ═══════════════════════════════════════════════════════════════
-                   4. HELPERS — validate a single field
-                ═══════════════════════════════════════════════════════════════ */
-                function getField(id) { return document.getElementById(id); }
-                function getErrEl(id) { return document.getElementById("err-" + id.replace("hf-", "")); }
-
-                /**
-                 * Validates one field.
-                 * @returns {boolean} true = valid, false = invalid
-                 */
-                function validateField(id, showError) {
-                    const el = getField(id);
-                    const err = getErrEl(id);
-                    const rule = RULES[id];
-                    if (!el || !rule) return true;
-
-                    const val = el.value.trim();
-                    let msg = "";
-
-                    if (!val) {
-                        msg = rule.label + " is required.";
-                    } else if (rule.regex && !rule.regex.test(val)) {
-                        msg = rule.message;
-                    }
-
-                    if (msg) {
-                        if (showError) {
-                            el.style.border = BORDER.invalid;
-                            if (err) { err.textContent = msg; err.classList.remove("hidden"); }
-                        }
-                        return false;
-                    } else {
-                        el.style.border = BORDER.valid;
-                        if (err) { err.textContent = ""; err.classList.add("hidden"); }
-                        return true;
-                    }
+                    return false;
+                } else {
+                    el.style.border = BORDER.valid;
+                    if (err) { err.textContent = ""; err.classList.add("hidden"); }
+                    return true;
                 }
+            }
 
-                /* ═══════════════════════════════════════════════════════════════
-                   5. HELPERS — UI state
-                ═══════════════════════════════════════════════════════════════ */
-                function setLoading(yes) {
-                    const btn = getField("hf-submit");
-                    const text = getField("hf-btn-text");
-                    const spin = getField("hf-spinner");
-                    if (!btn) return;
-                    btn.disabled = yes;
-                    btn.style.opacity = yes ? "0.75" : "1";
-                    text.textContent = yes ? "Submitting…" : "Get Free Counselling →";
-                    spin.classList.toggle("hidden", !yes);
-                }
+            /* ═══════════════════════════════════════════════════════════════
+               5. HELPERS — UI state
+            ═══════════════════════════════════════════════════════════════ */
+            function setLoading(yes) {
+                const btn = getField("hf-submit");
+                const text = getField("hf-btn-text");
+                const spin = getField("hf-spinner");
+                if (!btn) return;
+                btn.disabled = yes;
+                btn.style.opacity = yes ? "0.75" : "1";
+                text.textContent = yes ? "Submitting…" : "Get Free Counselling →";
+                spin.classList.toggle("hidden", !yes);
+            }
 
-                function showBanner(type, msg) {
-                    const el = getField("hf-" + type);
-                    if (!el) return;
-                    if (msg && msg !== true) el.textContent = msg;
-                    el.classList.remove("hidden");
-                    // auto-hide after 7 s
-                    setTimeout(() => el.classList.add("hidden"), 7000);
-                }
+            function showBanner(type, msg) {
+                const el = getField("hf-" + type);
+                if (!el) return;
+                if (msg && msg !== true) el.textContent = msg;
+                el.classList.remove("hidden");
+                // auto-hide after 7 s
+                setTimeout(() => el.classList.add("hidden"), 7000);
+            }
 
-                function hideBanners() {
-                    ["hf-success", "hf-error"].forEach(id => {
-                        getField(id)?.classList.add("hidden");
-                    });
-                }
-
-                /* ═══════════════════════════════════════════════════════════════
-                   6. UTM CAPTURE
-                ═══════════════════════════════════════════════════════════════ */
-                function getUTM(key) {
-                    try { return new URLSearchParams(window.location.search).get(key) || ""; }
-                    catch { return ""; }
-                }
-
-                /* ═══════════════════════════════════════════════════════════════
-                   7. REAL-TIME EVENT LISTENERS (blur + input)
-                ═══════════════════════════════════════════════════════════════ */
-                function attachFieldListeners() {
-                    Object.keys(RULES).forEach(id => {
-                        const el = getField(id);
-                        if (!el) return;
-
-                        // Focus → blue-gold border
-                        el.addEventListener("focus", () => {
-                            if (el.style.border === BORDER.invalid) return; // keep red if already invalid
-                            el.style.border = BORDER.focus;
-                        });
-
-                        // Blur → validate immediately
-                        el.addEventListener("blur", () => {
-                            if (el.value.trim() === "") {
-                                // if untouched-blank, go neutral rather than flagging red on first touch
-                                el.style.border = BORDER.neutral;
-                                const err = getErrEl(id);
-                                if (err) { err.textContent = ""; err.classList.add("hidden"); }
-                            } else {
-                                validateField(id, true);
-                            }
-                        });
-
-                        // Input → clear error as soon as user starts correcting
-                        el.addEventListener("input", () => {
-                            const err = getErrEl(id);
-                            if (el.value.trim() !== "" && err && !err.classList.contains("hidden")) {
-                                validateField(id, true); // re-run silently to clear/update
-                            }
-                        });
-                    });
-                }
-
-                /* ═══════════════════════════════════════════════════════════════
-                   8. FORM SUBMIT HANDLER
-                ═══════════════════════════════════════════════════════════════ */
-                function attachSubmitHandler() {
-                    const form = getField("glbil-hero-form");
-                    if (!form) return;
-
-                    form.addEventListener("submit", async function (e) {
-                        e.preventDefault();
-                        hideBanners();
-
-                        // ── Validate ALL fields, show all errors at once ──
-                        let isValid = true;
-                        Object.keys(RULES).forEach(id => {
-                            if (!validateField(id, true)) isValid = false;
-                        });
-
-                        if (!isValid) {
-                            // Scroll the first error into view
-                            const firstErr = form.querySelector(".hf-err:not(.hidden)");
-                            if (firstErr) firstErr.scrollIntoView({ behavior: "smooth", block: "center" });
-                            return;
-                        }
-
-                        // ── GAS URL guard ──
-                        if (!GAS_URL || GAS_URL.includes("YOUR_GOOGLE")) {
-                            showBanner("error", "⚠️ Form endpoint not configured. Please contact the admin.");
-                            return;
-                        }
-
-                        setLoading(true);
-
-                        // ── Build payload ──
-                        const payload = new URLSearchParams({
-                            Name: getField("hf-name").value.trim(),
-                            Phone: getField("hf-phone").value.trim(),
-                            Email: getField("hf-email").value.trim(),
-                            Program: getField("hf-program").value,
-                            City: getField("hf-city").value.trim(),
-                            State: getField("hf-state").value.trim(),
-                            utm_source: getUTM("utm_source"),
-                            utm_medium: getUTM("utm_medium"),
-                            utm_campaign: getUTM("utm_campaign"),
-                        });
-
-                        try {
-                            await fetch(GAS_URL, {
-                                method: "POST",
-                                mode: "no-cors",   // required for GAS cross-origin requests
-                                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                                body: payload.toString(),
-                            });
-
-                            // no-cors gives opaque response — reaching here = network success
-                            setLoading(false);
-                            showBanner("success", true);
-                            form.reset();
-
-                            // Reset all borders to neutral after success
-                            Object.keys(RULES).forEach(id => {
-                                const el = getField(id);
-                                if (el) el.style.border = BORDER.neutral;
-                            });
-
-                        } catch (networkErr) {
-                            setLoading(false);
-                            showBanner("error", "⚠️ Network error. Check your connection and try again.");
-                            console.error("[GLBIL Form Error]", networkErr);
-                        }
-                    });
-                }
-
-                /* ═══════════════════════════════════════════════════════════════
-                   9. BOOT
-                ═══════════════════════════════════════════════════════════════ */
-                document.addEventListener("DOMContentLoaded", function () {
-                    attachFieldListeners();
-                    attachSubmitHandler();
+            function hideBanners() {
+                ["hf-success", "hf-error"].forEach(id => {
+                    getField(id)?.classList.add("hidden");
                 });
+            }
 
-            })();
+            /* ═══════════════════════════════════════════════════════════════
+               6. UTM CAPTURE
+            ═══════════════════════════════════════════════════════════════ */
+            function getUTM(key) {
+                try { return new URLSearchParams(window.location.search).get(key) || ""; }
+                catch { return ""; }
+            }
+
+            /* ═══════════════════════════════════════════════════════════════
+               7. REAL-TIME EVENT LISTENERS (blur + input)
+            ═══════════════════════════════════════════════════════════════ */
+            function attachFieldListeners() {
+                Object.keys(RULES).forEach(id => {
+                    const el = getField(id);
+                    if (!el) return;
+
+                    // Focus → blue-gold border
+                    el.addEventListener("focus", () => {
+                        if (el.style.border === BORDER.invalid) return; // keep red if already invalid
+                        el.style.border = BORDER.focus;
+                    });
+
+                    // Blur → validate immediately
+                    el.addEventListener("blur", () => {
+                        if (el.value.trim() === "") {
+                            // if untouched-blank, go neutral rather than flagging red on first touch
+                            el.style.border = BORDER.neutral;
+                            const err = getErrEl(id);
+                            if (err) { err.textContent = ""; err.classList.add("hidden"); }
+                        } else {
+                            validateField(id, true);
+                        }
+                    });
+
+                    // Input → clear error as soon as user starts correcting
+                    el.addEventListener("input", () => {
+                        const err = getErrEl(id);
+                        if (el.value.trim() !== "" && err && !err.classList.contains("hidden")) {
+                            validateField(id, true); // re-run silently to clear/update
+                        }
+                    });
+                });
+            }
+
+            /* ═══════════════════════════════════════════════════════════════
+               8. FORM SUBMIT HANDLER
+            ═══════════════════════════════════════════════════════════════ */
+            function attachSubmitHandler() {
+                const form = getField("glbil-hero-form");
+                if (!form) return;
+
+                form.addEventListener("submit", async function (e) {
+                    e.preventDefault();
+                    hideBanners();
+
+                    // ── Validate ALL fields, show all errors at once ──
+                    let isValid = true;
+                    Object.keys(RULES).forEach(id => {
+                        if (!validateField(id, true)) isValid = false;
+                    });
+
+                    if (!isValid) {
+                        // Scroll the first error into view
+                        const firstErr = form.querySelector(".hf-err:not(.hidden)");
+                        if (firstErr) firstErr.scrollIntoView({ behavior: "smooth", block: "center" });
+                        return;
+                    }
+
+                    // ── GAS URL guard ──
+                    if (!GAS_URL || GAS_URL.includes("YOUR_GOOGLE")) {
+                        showBanner("error", "⚠️ Form endpoint not configured. Please contact the admin.");
+                        return;
+                    }
+
+                    setLoading(true);
+
+                    // ── Build payload ──
+                    const payload = new URLSearchParams({
+                        Name: getField("hf-name").value.trim(),
+                        Phone: getField("hf-phone").value.trim(),
+                        Email: getField("hf-email").value.trim(),
+                        Program: getField("hf-program").value,
+                        City: getField("hf-city").value.trim(),
+                        State: getField("hf-state").value.trim(),
+                        utm_source: getUTM("utm_source"),
+                        utm_medium: getUTM("utm_medium"),
+                        utm_campaign: getUTM("utm_campaign"),
+                    });
+
+                    try {
+                        await fetch(GAS_URL, {
+                            method: "POST",
+                            mode: "no-cors",   // required for GAS cross-origin requests
+                            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                            body: payload.toString(),
+                        });
+
+                        // no-cors gives opaque response — reaching here = network success
+                        setLoading(false);
+                        showBanner("success", true);
+                        form.reset();
+
+                        // Reset all borders to neutral after success
+                        Object.keys(RULES).forEach(id => {
+                            const el = getField(id);
+                            if (el) el.style.border = BORDER.neutral;
+                        });
+
+                    } catch (networkErr) {
+                        setLoading(false);
+                        showBanner("error", "⚠️ Network error. Check your connection and try again.");
+                        console.error("[GLBIL Form Error]", networkErr);
+                    }
+                });
+            }
+
+            /* ═══════════════════════════════════════════════════════════════
+               9. BOOT
+            ═══════════════════════════════════════════════════════════════ */
+            document.addEventListener("DOMContentLoaded", function () {
+                attachFieldListeners();
+                attachSubmitHandler();
+            });
+
+        })();
     </script>
 
 
