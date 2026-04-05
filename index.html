@@ -227,234 +227,295 @@
     </nav>
 
 
+    <!-- ══════════════════════════════════════════
+     SECTION 1: HERO BANNER
+══════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════
+     SECTION 1: PREMIUM HERO BANNER (1:1 FIDELITY REFINEMENT)
+══════════════════════════════════════════ -->
     <style>
-  /* Scoped Animations & Custom Gradients */
-  [data-gl-hero] .animate-bg-breathe {
-    animation: gl-bg-breathe 20s ease-in-out infinite alternate;
-  }
-  @keyframes gl-bg-breathe {
-    from { transform: scale(1.06); }
-    to   { transform: scale(1.12); }
-  }
+        @keyframes hero-bg-breathe {
+            from {
+                transform: scale(1.05);
+            }
 
-  [data-gl-hero] .gold-gradient-text {
-    background: linear-gradient(95deg, #c48a47 0%, #ffdb70 45%, #c48a47 100%);
-    background-size: 220% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gl-gold-sweep 5s linear infinite;
-  }
-  @keyframes gl-gold-sweep {
-    0% { background-position: 0% center; }
-    100% { background-position: 220% center; }
-  }
+            to {
+                transform: scale(1.12);
+            }
+        }
 
-  [data-gl-hero] .animate-pulse-ring {
-    animation: gl-pulse-ring 2.2s ease-in-out infinite;
-  }
-  @keyframes gl-pulse-ring {
-    0% { box-shadow: 0 0 0 0 rgba(255,204,78,0.55); }
-    60% { box-shadow: 0 0 0 7px rgba(255,204,78,0); }
-    100% { box-shadow: 0 0 0 0 rgba(255,204,78,0); }
-  }
+        @keyframes hero-gold-sweep {
+            0% {
+                background-position: 0% center;
+            }
 
-  [data-gl-hero] .particle-animation {
-    animation: gl-float-p var(--dur, 9s) ease-in-out var(--del, 0s) infinite;
-  }
-  @keyframes gl-float-p {
-    0% { opacity: 0; transform: translateY(0) scale(0.3); }
-    12% { opacity: var(--op, .3); }
-    88% { opacity: var(--op, .3); }
-    100% { opacity: 0; transform: translateY(-90px) scale(1); }
-  }
+            100% {
+                background-position: 220% center;
+            }
+        }
 
-  [data-gl-hero] .form-bar-anim {
-    background: linear-gradient(90deg, #c48a47 0%, #ffcc4e 40%, #e8a832 70%, #c48a47 100%);
-    background-size: 250% auto;
-    animation: gl-bar-slide 3s linear infinite;
-  }
-  @keyframes gl-bar-slide {
-    0% { background-position: 0% center; }
-    100% { background-position: 250% center; }
-  }
+        @keyframes hero-pulse-ring {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 204, 78, 0.55);
+            }
 
-  [data-gl-hero] .scroll-bob {
-    animation: gl-scroll-bob 2s ease-in-out infinite;
-  }
-  @keyframes gl-scroll-bob {
-    0%, 100% { transform: translateY(0); opacity: 1; }
-    65% { transform: translateY(9px); opacity: 0.15; }
-  }
+            60% {
+                box-shadow: 0 0 0 7px rgba(255, 204, 78, 0);
+            }
 
-  /* Entrance Animations */
-  [data-gl-hero] .reveal-rise {
-    opacity: 0;
-    animation: gl-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0s) forwards;
-  }
-  @keyframes gl-rise {
-    from { opacity: 0; transform: translateY(26px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-</style>
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 204, 78, 0);
+            }
+        }
 
-<section data-gl-hero class="relative min-h-screen flex items-center overflow-hidden isolate bg-[#0e0804] font-['DM_Sans',sans-serif]">
-  
-  <div class="absolute inset-0 z-0">
-    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1800&q=80&fit=crop" 
-         class="w-full h-full object-cover object-[center_22%] brightness-[0.28] saturate-[0.65] animate-bg-breathe" 
-         alt="Law Library">
-  </div>
-  
-  <div class="absolute inset-0 z-[1] bg-gradient-to-br from-[#140802]/95 via-[#281105]/90 to-[#140802]/20"></div>
-  <div class="absolute inset-0 z-[2]" style="background: radial-gradient(ellipse 60% 60% at -5% 100%, rgba(196,138,71,0.17) 0%, transparent 60%), radial-gradient(ellipse 45% 45% at 105% 0%, rgba(196,138,71,0.08) 0%, transparent 55%);"></div>
-  <div class="absolute inset-0 z-[3] opacity-[0.032] pointer-events-none" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;);"></div>
+        @keyframes hero-float-p {
+            0% {
+                opacity: 0;
+                transform: translateY(0) scale(0.3);
+            }
 
-  <div class="absolute top-0 left-1/2 w-[1px] h-full z-[4] bg-gradient-to-b from-transparent via-[#ffcc4e]/20 to-transparent hidden lg:block"></div>
-  <div class="absolute top-0 inset-x-0 h-[1px] z-[4] bg-gradient-to-r from-transparent via-[#c48a47]/35 to-transparent"></div>
-  <div class="absolute bottom-0 inset-x-0 h-[1px] z-[4] bg-gradient-to-r from-transparent via-[#c48a47]/20 to-transparent"></div>
+            12% {
+                opacity: 0.3;
+            }
 
-  <div class="hidden md:block absolute top-[88px] left-10 w-10 h-10 z-[5] border-t-[1.5px] border-l-[1.5px] border-[#c48a47]/45 reveal-rise" style="--delay: 0.9s"></div>
-  <div class="hidden md:block absolute top-[88px] right-10 w-10 h-10 z-[5] border-t-[1.5px] border-r-[1.5px] border-[#c48a47]/45 reveal-rise" style="--delay: 0.9s"></div>
-  <div class="hidden md:block absolute bottom-10 left-10 w-10 h-10 z-[5] border-b-[1.5px] border-l-[1.5px] border-[#c48a47]/45 reveal-rise" style="--delay: 0.9s"></div>
-  <div class="hidden md:block absolute bottom-10 right-10 w-10 h-10 z-[5] border-b-[1.5px] border-r-[1.5px] border-[#c48a47]/45 reveal-rise" style="--delay: 0.9s"></div>
+            88% {
+                opacity: 0.3;
+            }
 
-  <div class="absolute inset-0 z-[4] pointer-events-none overflow-hidden">
-    <div class="particle-animation absolute rounded-full bg-[#ffcc4e]" style="left:5%;bottom:18%;width:3px;height:3px;--dur:10s;--del:0s;--op:.30;"></div>
-    <div class="particle-animation absolute rounded-full bg-[#ffcc4e]" style="left:12%;bottom:32%;width:2px;height:2px;--dur:13s;--del:2s;--op:.22;"></div>
-    <div class="particle-animation absolute rounded-full bg-[#ffcc4e]" style="left:25%;bottom:48%;width:2px;height:2px;--dur:12s;--del:7s;--op:.18;"></div>
-  </div>
+            100% {
+                opacity: 0;
+                transform: translateY(-90px) scale(1.2);
+            }
+        }
 
-  <div class="relative z-10 w-full max-w-[1360px] mx-auto px-7 md:px-12 lg:px-[72px] pt-[90px] min-h-screen grid grid-cols-1 lg:grid-cols-[1fr_306px] items-center gap-8 lg:gap-16">
-    
-    <div class="max-w-[660px]">
-      <div class="inline-flex items-center gap-[10px] rounded-full px-5 py-2 pl-[14px] mb-9 bg-[#c48a47]/10 border border-[#ffcc4e]/30 reveal-rise" style="--delay: 0.05s">
-        <span class="w-2 h-2 rounded-full bg-[#ffcc4e] animate-pulse-ring"></span>
-        <span class="text-[11px] font-bold tracking-[3.2px] uppercase text-[#ffcc4e]">Admissions Open &nbsp;·&nbsp;</span>
-        <span class="text-[12px] font-extrabold tracking-[2px] text-white bg-gradient-to-r from-[#c48a47] to-[#ffcc4e] bg-clip-text text-transparent">2026</span>
-      </div>
+        @keyframes hero-scroll-bob {
 
-      <h1 class="font-['Playfair_Display',serif] font-black text-[clamp(3rem,5.4vw,5rem)] text-white leading-[1.04] tracking-tight mb-7 reveal-rise" style="--delay: 0.18s">
-        <span class="block">Where Justice</span>
-        <span class="block pl-5 md:pl-14">Meets <em class="relative inline-block not-italic gold-gradient-text">Ambition. <span class="absolute left-0 -bottom-1 w-full h-[2px] bg-gradient-to-r from-[#c48a47] via-[#ffcc4e] to-transparent rounded-full"></span></em></span>
-      </h1>
+            0%,
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
 
-      <div class="flex items-center gap-3.5 mb-9 reveal-rise" style="--delay: 0.32s">
-        <span class="flex-shrink-0 w-9 h-[1.5px] bg-gradient-to-r from-[#ffcc4e] to-[#c48a47]/30 rounded-full"></span>
-        <p class="font-['Playfair_Display',serif] text-[clamp(1.05rem,1.7vw,1.35rem)] font-bold italic text-white/70">The Best Law College in Delhi-NCR</p>
-      </div>
+            65% {
+                transform: translateY(8px);
+                opacity: 0.1;
+            }
+        }
 
-      <div class="relative flex flex-wrap items-center gap-4 md:gap-0 p-5 px-6 rounded-xl bg-[#c48a47]/5 border border-[#ffcc4e]/15 overflow-hidden max-w-[480px] reveal-rise" style="--delay: 0.46s">
-        <div class="absolute top-0 left-0 w-[3px] h-full bg-gradient-to-b from-[#ffcc4e] to-[#c48a47]"></div>
-        <div class="flex flex-col items-center flex-1">
-          <span class="text-[clamp(0.82rem,1.1vw,0.95rem)] font-bold tracking-wider text-[#ffcc4e] whitespace-nowrap">BA LLB</span>
-          <span class="text-[10px] font-medium text-white/35 tracking-widest uppercase">5 Year</span>
+        .animate-hero-breathe {
+            animation: hero-bg-breathe 22s ease-in-out infinite alternate;
+        }
+
+        .animate-hero-sweep {
+            animation: hero-gold-sweep 5s linear infinite;
+        }
+
+        .animate-hero-pulse {
+            animation: hero-pulse-ring 2.2s ease-in-out infinite;
+        }
+
+        .animate-hero-bob {
+            animation: hero-scroll-bob 2s ease-in-out infinite;
+        }
+
+        .hero-particle {
+            position: absolute;
+            border-radius: 50%;
+            background: #ffcc4e;
+            opacity: 0;
+            animation: hero-float-p 10s ease-in-out infinite;
+        }
+
+        .hero-bracket {
+            position: absolute;
+            width: 44px;
+            height: 44px;
+            pointer-events: none;
+            border-color: rgba(196, 138, 71, 0.4);
+        }
+    </style>
+
+    <section class="relative min-h-[100vh] flex items-center overflow-hidden isolation-auto" id="hero-section">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1800&q=80&fit=crop"
+                alt="Law library"
+                class="w-full h-full object-cover object-[center_28%] brightness-[0.25] saturate-[0.6] animate-hero-breathe">
         </div>
-        <span class="hidden md:block w-[1px] h-9 bg-[#ffcc4e]/20 mx-1"></span>
-        <div class="flex flex-col items-center flex-1">
-          <span class="text-[clamp(0.82rem,1.1vw,0.95rem)] font-bold tracking-wider text-[#ffcc4e] whitespace-nowrap">B.Com LLB</span>
-          <span class="text-[10px] font-medium text-white/35 tracking-widest uppercase">5 Year</span>
+
+        <!-- Premium Overlays -->
+        <div class="absolute inset-0 z-[1]"
+            style="background: linear-gradient(110deg, rgba(10,5,2,0.98) 0%, rgba(35,16,6,0.93) 35%, rgba(35,16,6,0.55) 60%, rgba(10,5,2,0.2) 100%);">
         </div>
-        <span class="hidden md:block w-[1px] h-9 bg-[#ffcc4e]/20 mx-1"></span>
-        <div class="flex flex-col items-center flex-1">
-          <span class="text-[clamp(0.82rem,1.1vw,0.95rem)] font-bold tracking-wider text-[#ffcc4e] whitespace-nowrap">LLB</span>
-          <span class="text-[10px] font-medium text-white/35 tracking-widest uppercase">3 Year</span>
+        <div class="absolute inset-0 z-[2]"
+            style="background: radial-gradient(ellipse 65% 65% at -5% 100%, rgba(196,138,71,0.16) 0%, transparent 65%), radial-gradient(ellipse 50% 50% at 105% 0%, rgba(196,138,71,0.08) 0%, transparent 60%);">
         </div>
-      </div>
-    </div>
-
-    <div class="hidden lg:block reveal-rise" style="--delay: 0.28s">
-      <div class="rounded-[20px] overflow-hidden bg-white/5 border border-[#ffcc4e]/15 backdrop-blur-[28px] shadow-[0_20px_52px_rgba(0,0,0,0.38)]">
-        <div class="h-[3px] form-bar-anim"></div>
-        <div class="p-5 px-[22px] border-b border-white/5">
-          <h2 class="font-['Playfair_Display',serif] text-[1.06rem] font-bold text-white mb-1">Free Counselling Session</h2>
-          <p class="text-[11px] text-white/40 tracking-wide">Our advisors will call you within 24 hrs.</p>
+        <div class="absolute inset-0 z-[3] opacity-[0.035] pointer-events-none"
+            style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;);">
         </div>
-        <form id="hero-form" class="p-5 px-5 flex flex-col gap-2.5">
-          <div>
-            <label class="block text-[9px] font-semibold tracking-[1.6px] uppercase text-white/35 mb-1.5">Full Name</label>
-            <input id="f-name" type="text" class="w-full rounded-lg px-3 py-2 text-[13px] text-white bg-white/5 border border-white/10 outline-none focus:border-[#ffcc4e]/50 transition-all" placeholder="Arjun Sharma">
-            <span class="hidden text-[10px] text-red-400 mt-1" id="err-name"></span>
-          </div>
-          <div>
-            <label class="block text-[9px] font-semibold tracking-[1.6px] uppercase text-white/35 mb-1.5">Mobile Number</label>
-            <input id="f-phone" type="tel" maxlength="10" class="w-full rounded-lg px-3 py-2 text-[13px] text-white bg-white/5 border border-white/10 outline-none focus:border-[#ffcc4e]/50 transition-all" placeholder="9876543210">
-            <span class="hidden text-[10px] text-red-400 mt-1" id="err-phone"></span>
-          </div>
-          <div>
-            <label class="block text-[9px] font-semibold tracking-[1.6px] uppercase text-white/35 mb-1.5">Programme</label>
-            <select id="f-prog" class="w-full rounded-lg px-3 py-2 text-[13px] text-white bg-white/5 border border-white/10 outline-none focus:border-[#ffcc4e]/50 transition-all appearance-none">
-              <option value="" class="bg-[#2a1004]">Select Programme</option>
-              <option value="BA LLB" class="bg-[#2a1004]">B.A. LL.B.</option>
-              <option value="BCom LLB" class="bg-[#2a1004]">B.Com. LL.B.</option>
-              <option value="LLB" class="bg-[#2a1004]">LL.B.</option>
-            </select>
-            <span class="hidden text-[10px] text-red-400 mt-1" id="err-prog"></span>
-          </div>
-          <button type="submit" id="f-submit" class="w-full mt-2 py-3 rounded-xl bg-gradient-to-br from-[#ffcc4e] via-[#e8a832] to-[#c48a47] text-[#3a1a02] font-bold text-[13px] tracking-wider shadow-[0_6px_22px_rgba(196,138,71,0.36)] hover:-translate-y-0.5 transition-transform active:translate-y-0">
-            Get Free Counselling →
-          </button>
-          <p class="text-center text-[9px] text-white/20 mt-1">🔒 100% confidential · No spam</p>
-        </form>
-      </div>
-    </div>
-  </div>
 
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 reveal-rise" style="--delay: 1.2s">
-    <div class="w-[22px] h-9 border-[1.5px] border-white/20 rounded-full flex justify-center pt-1.5">
-      <div class="w-[3px] h-[7px] bg-[#ffcc4e]/60 rounded-full scroll-bob"></div>
-    </div>
-    <span class="text-[9px] tracking-[2.8px] uppercase text-white/20">Scroll</span>
-  </div>
-</section>
+        <!-- Corner Brackets -->
+        <div class="hero-bracket top-[110px] left-[40px] border-t-[1.5px] border-l-[1.5px] z-[5] hidden md:block"></div>
+        <div class="hero-bracket top-[110px] right-[40px] border-t-[1.5px] border-r-[1.5px] z-[5] hidden md:block">
+        </div>
+        <div class="hero-bracket bottom-[40px] left-[40px] border-b-[1.5px] border-l-[1.5px] z-[5] hidden md:block">
+        </div>
+        <div class="hero-bracket bottom-[40px] right-[40px] border-b-[1.5px] border-r-[1.5px] z-[5] hidden md:block">
+        </div>
 
-<script>
-  (function() {
-    const form = document.getElementById('hero-form');
-    const submitBtn = document.getElementById('f-submit');
+        <!-- Float Particles -->
+        <div class="absolute inset-0 z-[4] pointer-events-none">
+            <div class="hero-particle" style="left:7%; bottom:20%; width:3px; height:3px; animation-delay:0s;"></div>
+            <div class="hero-particle" style="left:25%; bottom:15%; width:3px; height:3px; animation-delay:2s;"></div>
+            <div class="hero-particle" style="left:40%; bottom:35%; width:2px; height:2px; animation-delay:5s;"></div>
+            <div class="hero-particle" style="left:60%; bottom:10%; width:2px; height:2px; animation-delay:1.5s;"></div>
+        </div>
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      // Basic Validation Logic
-      const name = document.getElementById('f-name');
-      const phone = document.getElementById('f-phone');
-      const prog = document.getElementById('f-prog');
-      let isValid = true;
+        <!-- Main Content Grid -->
+        <div
+            class="relative z-20 w-full max-w-[1360px] mx-auto px-6 sm:px-10 md:px-16 pt-[120px] pb-20 grid lg:grid-cols-[1fr_306px] items-center gap-16">
 
-      if (name.value.length < 2) {
-        document.getElementById('err-name').classList.remove('hidden');
-        isValid = false;
-      } else {
-        document.getElementById('err-name').classList.add('hidden');
-      }
+            <!-- LEFT CONTENT -->
+            <div class="animate-fade-up">
+                <!-- Admissions 2026 Badge -->
+                <div
+                    class="inline-flex items-center gap-2.5 rounded-full px-5 py-2 mb-8 bg-gold-dark/10 border border-gold-light/25 backdrop-blur-md">
+                    <span class="w-2.5 h-2.5 rounded-full bg-gold-light animate-hero-pulse"></span>
+                    <span class="text-gold-light text-[0.72rem] font-bold tracking-[3.5px] uppercase">Admissions Open ·
+                        2026 Batch</span>
+                </div>
 
-      if (!/^[6-9]\d{9}$/.test(phone.value)) {
-        document.getElementById('err-phone').classList.remove('hidden');
-        isValid = false;
-      } else {
-        document.getElementById('err-phone').classList.add('hidden');
-      }
+                <!-- Headline -->
+                <h1
+                    class="font-playfair font-black text-white leading-[1.04] text-[clamp(2.8rem,5.5vw,4.8rem)] mb-7 tracking-[-0.01em]">
+                    Where Justice<br>
+                    <span class=" block italic relative mt-2">
+                        Meets <span class="animate-hero-sweep bg-clip-text text-transparent"
+                            style="background-image: linear-gradient(95deg, #c48a47 0%, #ffdb70 45%, #c48a47 100%); background-size: 220% auto;">Ambition.</span>
+                    </span>
+                </h1>
 
-      if (isValid) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Processing...";
-        
-        // Simulate API
-        await new Promise(r => setTimeout(r, 1500));
-        
-        submitBtn.style.background = "#22c55e";
-        submitBtn.style.color = "#ffffff";
-        submitBtn.textContent = "✅ Request Sent!";
-        form.reset();
-      }
-    });
+                <!-- Subtitle with line -->
+                <div class="flex items-center gap-5 mb-12">
+                    <div class="w-10 h-[1.5px] bg-gold/40"></div>
+                    <p
+                        class="font-playfair italic text-white/75 text-[clamp(1.1rem,1.8vw,1.45rem)] font-bold tracking-wide">
+                        The Best Law College in Delhi-NCR</p>
+                </div>
 
-    // Clean phone input
-    document.getElementById('f-phone').addEventListener('input', function(e) {
-      this.value = this.value.replace(/\D/g, '').slice(0, 10);
-    });
-  })();
-</script>
+                <!-- Programme Row (Fidelity Match) -->
+                <div
+                    class="relative flex items-center p-5 px-8 bg-gold-dark/5 border border-gold-light/15 rounded-xl max-w-[500px] backdrop-blur-sm animate-fade-up">
+                    <div
+                        class="absolute inset-y-0 left-0 w-[4px] bg-gradient-to-b from-gold-light to-gold rounded-l-xl">
+                    </div>
+                    <div class="flex flex-col items-center flex-1">
+                        <span class="text-gold-light font-bold text-base md:text-lg tracking-[0.5px]">BA LLB</span>
+                        <span class="text-[0.62rem] text-white/35 uppercase font-bold tracking-widest mt-0.5">5
+                            Year</span>
+                    </div>
+                    <div class="w-[1px] h-10 bg-gold-light/20 mx-3"></div>
+                    <div class="flex flex-col items-center flex-1">
+                        <span class="text-gold-light font-bold text-base md:text-lg tracking-[0.5px]">B.Com LLB</span>
+                        <span class="text-[0.62rem] text-white/35 uppercase font-bold tracking-widest mt-0.5">5
+                            Year</span>
+                    </div>
+                    <div class="w-[1px] h-10 bg-gold-light/20 mx-3"></div>
+                    <div class="flex flex-col items-center flex-1">
+                        <span class="text-gold-light font-bold text-base md:text-lg tracking-[0.5px]">LLB</span>
+                        <span class="text-[0.62rem] text-white/35 uppercase font-bold tracking-widest mt-0.5">3
+                            Year</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT FORM (Visible on All Devices) -->
+            <div class="relative group w-full max-w-[306px] justify-self-center lg:justify-self-auto animate-fade-up" style="animation-delay: 0.28s;">
+                <!-- Decorative Glow -->
+                <div class="absolute -inset-2 bg-white/5 blur-3xl opacity-0 group-hover:opacity-100 transition duration-1000"></div>
+
+                <div class="relative rounded-[20px] overflow-hidden bg-white/[0.055] border border-[rgba(255,204,78,0.15)] backdrop-blur-[28px] shadow-[0_20px_52px_rgba(0,0,0,0.38),inset_0_1px_0_rgba(255,255,255,0.055)]">
+                    <!-- Shimmer Top Bar -->
+                    <div class="h-[3px] w-full animate-hero-sweep" style="background: linear-gradient(90deg, #c48a47 0%, #ffcc4e 40%, #e8a832 70%, #c48a47 100%); background-size: 250% auto;"></div>
+                    
+                    <!-- Head -->
+                    <div class="px-[22px] py-[18px] pb-[14px] border-b border-white/[0.055]">
+                        <h2 class="font-playfair text-white text-[1.06rem] font-bold leading-[1.3]">Free Counselling Session</h2>
+                        <p class="text-white/35 text-[0.67rem] tracking-[0.02em] mt-0.5">Our advisors will call you within 24 hrs.</p>
+                    </div>
+
+                    <!-- Body -->
+                    <form id="glbil-hero-form" class="p-5 pt-4 flex flex-col gap-[10px]" novalidate>
+                        
+                        <div>
+                            <label class="block text-[0.59rem] font-semibold text-white/35 tracking-[1.6px] uppercase mb-1.5" for="hf-name">Full Name</label>
+                            <input id="hf-name" name="Name" type="text" class="w-full bg-white/[0.06] border border-white/[0.09] rounded-[9px] px-[13px] py-[9px] text-white text-[0.81rem] outline-none focus:border-[rgba(255,204,78,0.48)] focus:bg-white/[0.085] focus:ring-[3px] focus:ring-[rgba(255,204,78,0.08)] transition-all duration-200 font-dm hf-field placeholder:text-white/20" placeholder="Arjun Sharma">
+                            <span class="hf-err hidden block text-[0.59rem] text-[#ff8a95] mt-1 pl-1" id="err-name"></span>
+                        </div>
+
+                        <div>
+                            <label class="block text-[0.59rem] font-semibold text-white/35 tracking-[1.6px] uppercase mb-1.5" for="hf-phone">Mobile Number</label>
+                            <input id="hf-phone" name="Phone" type="tel" maxlength="10" class="w-full bg-white/[0.06] border border-white/[0.09] rounded-[9px] px-[13px] py-[9px] text-white text-[0.81rem] outline-none focus:border-[rgba(255,204,78,0.48)] focus:bg-white/[0.085] focus:ring-[3px] focus:ring-[rgba(255,204,78,0.08)] transition-all duration-200 font-dm hf-field placeholder:text-white/20" placeholder="9876543210">
+                            <span class="hf-err hidden block text-[0.59rem] text-[#ff8a95] mt-1 pl-1" id="err-phone"></span>
+                        </div>
+
+                        <div>
+                            <label class="block text-[0.59rem] font-semibold text-white/35 tracking-[1.6px] uppercase mb-1.5" for="hf-email">Email Address</label>
+                            <input id="hf-email" name="Email" type="email" class="w-full bg-white/[0.06] border border-white/[0.09] rounded-[9px] px-[13px] py-[9px] text-white text-[0.81rem] outline-none focus:border-[rgba(255,204,78,0.48)] focus:bg-white/[0.085] focus:ring-[3px] focus:ring-[rgba(255,204,78,0.08)] transition-all duration-200 font-dm hf-field placeholder:text-white/20" placeholder="you@email.com">
+                            <span class="hf-err hidden block text-[0.59rem] text-[#ff8a95] mt-1 pl-1" id="err-email"></span>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="block text-[0.59rem] font-semibold text-white/35 tracking-[1.6px] uppercase mb-1.5" for="hf-city">City</label>
+                                <input id="hf-city" name="City" type="text" class="w-full bg-white/[0.06] border border-white/[0.09] rounded-[9px] px-[13px] py-[9px] text-white text-[0.81rem] outline-none focus:border-[rgba(255,204,78,0.48)] focus:bg-white/[0.085] focus:ring-[3px] focus:ring-[rgba(255,204,78,0.08)] transition-all duration-200 font-dm hf-field placeholder:text-white/20" placeholder="City">
+                                <span class="hf-err hidden block text-[0.59rem] text-[#ff8a95] mt-1 pl-1" id="err-city"></span>
+                            </div>
+                            <div>
+                                <label class="block text-[0.59rem] font-semibold text-white/35 tracking-[1.6px] uppercase mb-1.5" for="hf-state">State</label>
+                                <input id="hf-state" name="State" type="text" class="w-full bg-white/[0.06] border border-white/[0.09] rounded-[9px] px-[13px] py-[9px] text-white text-[0.81rem] outline-none focus:border-[rgba(255,204,78,0.48)] focus:bg-white/[0.085] focus:ring-[3px] focus:ring-[rgba(255,204,78,0.08)] transition-all duration-200 font-dm hf-field placeholder:text-white/20" placeholder="State">
+                                <span class="hf-err hidden block text-[0.59rem] text-[#ff8a95] mt-1 pl-1" id="err-state"></span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-[0.59rem] font-semibold text-white/35 tracking-[1.6px] uppercase mb-1.5" for="hf-program">Programme</label>
+                            <div class="relative">
+                                <select id="hf-program" name="Program" class="w-full bg-white/[0.06] border border-white/[0.09] rounded-[9px] px-[13px] py-[9px] text-white text-[0.81rem] outline-none focus:border-[rgba(255,204,78,0.48)] focus:bg-white/[0.085] appearance-none font-dm hf-field cursor-pointer">
+                                    <option value="" class="bg-[#2a1004]">Select Programme</option>
+                                    <option value="B.A. LL.B. — 5 Year" class="bg-[#2a1004]">B.A. LL.B. — 5 Year</option>
+                                    <option value="B.Com. LL.B. — 5 Year" class="bg-[#2a1004]">B.Com. LL.B. — 5 Year</option>
+                                    <option value="LL.B. — 3 Year" class="bg-[#2a1004]">LL.B. — 3 Year</option>
+                                </select>
+                                <div class="absolute right-[12px] top-1/2 -translate-y-1/2 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[5px] border-t-[rgba(255,204,78,0.5)] pointer-events-none"></div>
+                            </div>
+                            <span class="hf-err hidden block text-[0.59rem] text-[#ff8a95] mt-1 pl-1" id="err-program"></span>
+                        </div>
+
+                        <button id="hf-submit" type="submit" class="w-full py-[11px] rounded-[10px] text-[#3a1a02] font-bold text-[0.85rem] tracking-[0.05em] mt-0.5 transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_10px_28px_rgba(196,138,71,0.50)] flex items-center justify-center gap-[7px] active:scale-95 group relative overflow-hidden" style="background: linear-gradient(135deg, #ffcc4e 0%, #e8a832 50%, #c48a47 100%); background-size: 200% auto;">
+                            <span id="hf-btn-text">Get Counselling →</span>
+                            <div id="hf-spinner" class="hidden w-[15px] h-[15px] border-2 border-[rgba(58,26,2,0.3)] border-t-[#3a1a02] rounded-full animate-spin"></div>
+                        </button>
+
+                        <!-- Response States -->
+                        <div id="hf-success" class="hidden text-center p-[9px] px-3 rounded-lg text-[0.75rem] font-semibold bg-[rgba(196,138,71,0.12)] border border-[rgba(255,204,78,0.25)] text-[#ffcc4e]">✅ Thank you! Expect a call soon.</div>
+                        <div id="hf-error" class="hidden text-center p-[9px] px-3 rounded-lg text-[0.75rem] bg-[rgba(220,53,69,0.10)] border border-[rgba(220,53,69,0.25)] text-[#ff8a95]">⚠️ Submission failed. Please retry.</div>
+                        
+                        <p class="text-center text-white/20 text-[0.59rem] mt-0.5 font-medium italic">🔒 Secured & 100% Confidential</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div
+            class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-0 md:opacity-100 animate-fade-in transition-all">
+            <div class="w-6 h-10 border-[1.5px] border-white/20 rounded-full flex justify-center p-1.5">
+                <div class="w-1 h-2 bg-gold-light rounded-full animate-hero-bob"></div>
+            </div>
+            <span class="text-[0.6rem] tracking-[3px] uppercase text-white/30 font-bold">Scroll</span>
+        </div>
+    </section>
 
     <!-- ══════════════════════════════════════════
      SECTION 2: ABOUT GLBIL
@@ -1142,8 +1203,8 @@
                         <div class="flex flex-col items-center pb-6 relative z-10">
                             <div class="glb-photo-wrap mb-4">
                                 <!-- Paste the same Teya Bhati base64 img src from your original code here -->
-                                <img src="PASTE_ORIGINAL_BASE64_IMAGE_1" alt="Teya Bhati"
-                                    style="width:96px;height:96px;" />
+                                <img src="./images/teya.png" alt="Teya Bhati"
+                                    style="width:120px;height:120px;" />
                             </div>
 
                             <p class="glb-font-playfair font-bold text-[#472510] text-xl leading-tight text-center">Teya
@@ -1195,8 +1256,8 @@
                         <div class="flex flex-col items-center pb-5 relative z-10">
                             <div class="glb-photo-wrap glb-photo-wrap-featured mb-4">
                                 <!-- Paste the same Shaurya Dutt Singh base64 img src from your original code here -->
-                                <img src="PASTE_ORIGINAL_BASE64_IMAGE_2" alt="Shaurya Dutt Singh"
-                                    style="width:108px;height:108px;" />
+                                <img src="./images/shaurya.png" alt="Shaurya Dutt Singh"
+                                    style="width:120px;height:120px;" />
                             </div>
 
                             <p class="glb-font-playfair font-bold text-[#F8F5EF] text-xl leading-tight text-center">
@@ -1240,8 +1301,8 @@
                         <div class="flex flex-col items-center pb-6 relative z-10">
                             <div class="glb-photo-wrap mb-4">
                                 <!-- Paste the same Shalini Singh base64 img src from your original code here -->
-                                <img src="PASTE_ORIGINAL_BASE64_IMAGE_3" alt="Shalini Singh"
-                                    style="width:96px;height:96px;" />
+                                <img src="./images/shalini.png" alt="Shalini Singh"
+                                    style="width:120px;height:120px;" />
                             </div>
 
                             <p class="glb-font-playfair font-bold text-[#472510] text-xl leading-tight text-center">
@@ -1621,30 +1682,32 @@
                         return;
                     }
 
+                    // ── GAS POST (doPost) Submission ──
                     setLoading(true);
 
                     // ── Build payload ──
-                    const payload = new URLSearchParams({
+                    const params = new URLSearchParams({
                         Name: getField("hf-name").value.trim(),
                         Phone: getField("hf-phone").value.trim(),
                         Email: getField("hf-email").value.trim(),
                         Program: getField("hf-program").value,
-                        City: getField("hf-city").value.trim(),
                         State: getField("hf-state").value.trim(),
+                        City: getField("hf-city").value.trim(),
                         utm_source: getUTM("utm_source"),
                         utm_medium: getUTM("utm_medium"),
                         utm_campaign: getUTM("utm_campaign"),
                     });
 
                     try {
+                        // Using POST to match user's doPost() script
                         await fetch(GAS_URL, {
                             method: "POST",
-                            mode: "no-cors",   // required for GAS cross-origin requests
+                            mode: "no-cors", // required for GAS cross-origin
                             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                            body: payload.toString(),
+                            body: params.toString()
                         });
 
-                        // no-cors gives opaque response — reaching here = network success
+                        // no-cors gives opaque response — reaching here = lead sent
                         setLoading(false);
                         showBanner("success", true);
                         form.reset();
