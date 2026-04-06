@@ -377,17 +377,10 @@
 
             <!-- LEFT CONTENT -->
             <div class="animate-fade-up">
-                <!-- Admissions 2026 Badge -->
-                <div
-                    class="inline-flex items-center gap-2.5 rounded-full px-5 py-2 mb-8 bg-gold-dark/10 border border-gold-light/25 backdrop-blur-md">
-                    <span class="w-2.5 h-2.5 rounded-full bg-gold-light animate-hero-pulse"></span>
-                    <span class="text-gold-light text-[0.72rem] font-bold tracking-[3.5px] uppercase">Admissions Open ·
-                        2026 Batch</span>
-                </div>
 
                 <!-- Headline -->
                 <h1
-                    class="font-playfair font-black text-white leading-[1.04] text-[clamp(2.8rem,5.5vw,4.8rem)] mb-7 tracking-[-0.01em]">
+                    class="font-playfair font-black text-white leading-[1.04] text-4xl md:text-5xl mb-7 tracking-[-0.01em]">
                     Where Justice<br>
                     <span class=" block italic relative mt-2">
                         Meets <span class="animate-hero-sweep bg-clip-text text-transparent"
@@ -403,28 +396,54 @@
                         The Best Law College in Delhi-NCR</p>
                 </div>
 
-                <!-- Programme Row (Fidelity Match) -->
-                <div
-                    class="relative flex items-center p-5 px-8 bg-gold-dark/5 border border-gold-light/15 rounded-xl max-w-[500px] backdrop-blur-sm animate-fade-up">
-                    <div
-                        class="absolute inset-y-0 left-0 w-[4px] bg-gradient-to-b from-gold-light to-gold rounded-l-xl">
+                <!-- Programme Bento Grid (High Impact) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 max-w-[720px] animate-fade-up" style="animation-delay: 0.15s;">
+                    
+                    <!-- BA LLB Card -->
+                    <div class="group relative rounded-2xl overflow-hidden p-5 sm:p-6 bg-white/[0.04] border border-gold-light/20 backdrop-blur-2xl shadow-[0_12px_45px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-500 hover:-translate-y-1.5 hover:border-gold-light/45">
+                        <div class="absolute -inset-1 bg-gold-light/5 blur-xl group-hover:bg-gold-light/10 transition duration-500 opacity-0 group-hover:opacity-100"></div>
+                        <div class="relative flex flex-col items-center text-center">
+                            <span class="text-gold-light font-playfair font-black text-xl sm:text-2xl md:text-3xl tracking-tight">BA LLB</span>
+                            <span class="text-[0.67rem] text-white/35 uppercase font-black tracking-[0.2em] mt-3 py-1 px-3 border border-white/5 rounded-full bg-white/5">5 Year</span>
+                        </div>
                     </div>
-                    <div class="flex flex-col items-center flex-1">
-                        <span class="text-gold-light font-bold text-base md:text-lg tracking-[0.5px]">BA LLB</span>
-                        <span class="text-[0.62rem] text-white/35 uppercase font-bold tracking-widest mt-0.5">5
-                            Year</span>
+
+                    <!-- B.Com LLB Card -->
+                    <div class="group relative rounded-2xl overflow-hidden p-5 sm:p-6 bg-white/[0.04] border border-gold-light/20 backdrop-blur-2xl shadow-[0_12px_45px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-500 hover:-translate-y-1.5 hover:border-gold-light/45">
+                        <div class="absolute -inset-1 bg-gold-light/5 blur-xl group-hover:bg-gold-light/10 transition duration-500 opacity-0 group-hover:opacity-100"></div>
+                        <div class="relative flex flex-col items-center text-center">
+                            <span class="text-gold-light font-playfair font-black text-xl sm:text-2xl md:text-3xl tracking-tight">B.Com LLB</span>
+                            <span class="text-[0.67rem] text-white/35 uppercase font-black tracking-[0.2em] mt-3 py-1 px-3 border border-white/5 rounded-full bg-white/5">5 Year</span>
+                        </div>
                     </div>
-                    <div class="w-[1px] h-10 bg-gold-light/20 mx-3"></div>
-                    <div class="flex flex-col items-center flex-1">
-                        <span class="text-gold-light font-bold text-base md:text-lg tracking-[0.5px]">B.Com LLB</span>
-                        <span class="text-[0.62rem] text-white/35 uppercase font-bold tracking-widest mt-0.5">5
-                            Year</span>
+
+                    <!-- LLB Card -->
+                    <div class="group relative rounded-2xl overflow-hidden p-5 sm:p-6 bg-white/[0.04] border border-gold-light/20 backdrop-blur-2xl shadow-[0_12px_45px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-500 hover:-translate-y-1.5 hover:border-gold-light/45">
+                        <div class="absolute -inset-1 bg-gold-light/5 blur-xl group-hover:bg-gold-light/10 transition duration-500 opacity-0 group-hover:opacity-100"></div>
+                        <div class="relative flex flex-col items-center text-center">
+                            <span class="text-gold-light font-playfair font-black text-xl sm:text-2xl md:text-3xl tracking-tight">LLB</span>
+                            <span class="text-[0.67rem] text-white/35 uppercase font-black tracking-[0.2em] mt-3 py-1 px-3 border border-white/5 rounded-full bg-white/5">3 Year</span>
+                        </div>
                     </div>
-                    <div class="w-[1px] h-10 bg-gold-light/20 mx-3"></div>
-                    <div class="flex flex-col items-center flex-1">
-                        <span class="text-gold-light font-bold text-base md:text-lg tracking-[0.5px]">LLB</span>
-                        <span class="text-[0.62rem] text-white/35 uppercase font-bold tracking-widest mt-0.5">3
-                            Year</span>
+                </div>
+
+                <!-- Admissions 2026 Layout (The Glass Ribbon) -->
+                <div class="relative group mt-10 md:mt-12 animate-hero-bob" style="max-width: fit-content;">
+                    <!-- Breathing Aura Glow -->
+                    <div class="absolute -inset-2 bg-gold-light/10 blur-2xl rounded-xl animate-hero-pulse opacity-50 group-hover:opacity-80 transition-opacity"></div>
+                    
+                    <div class="relative flex items-center bg-white/[0.03] border border-gold-light/25 rounded-xl backdrop-blur-2xl shadow-[0_12px_45px_rgba(196,138,71,0.22),inset_0_1px_0_rgba(255,255,255,0.05)] py-3 px-6 sm:px-8 overflow-hidden transition-all duration-500 hover:border-gold-light/45">
+                        <!-- Vertical Gold Accent (Anchor) -->
+                        <div class="absolute inset-y-0 left-0 w-[3px] bg-gradient-to-b from-gold-light to-gold-dark rounded-l-xl shadow-[0_0_15px_#ffcc4e]"></div>
+                        
+                        <!-- Shimmer Sweep -->
+                        <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full animate-hero-sweep"></div>
+                        
+                        <div class="flex items-center gap-3 sm:gap-4 relative z-10">
+                            <span class="text-white font-black text-2xl sm:text-3xl tracking-[0.2em] sm:tracking-[0.4em] uppercase drop-shadow-lg leading-none pt-[1px]">Admissions Open</span>
+                            <div class="w-[1px] h-3 bg-white/20 mx-1"></div>
+                            <span class="text-gold-light font-black text-xl sm:text-2xl tracking-[0.15em] sm:tracking-[0.2em] uppercase opacity-90 pt-[1px]">2026 Batch</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1332,35 +1351,6 @@
                         <p class="glb-font-dm text-[0.75rem] text-[#777777] italic text-center">
                             "GL Bajaj is shaping my skills and preparing me for a successful legal career."
                         </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="glb-stat-bar glb-reveal glb-delay-4 mt-16 rounded-2xl overflow-hidden"
-                style="box-shadow:0 12px 48px rgba(71,37,16,0.22);">
-                <div class="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x"
-                    style="border-color:rgba(196,138,71,0.15);">
-                    <div class="flex flex-col items-center justify-center py-10 px-8 text-center">
-                        <span class="glb-font-playfair text-5xl font-bold mb-1" style="color:#ffcc4e;">500<span
-                                style="color:#c48a47;">+</span></span>
-                        <span class="glb-font-dm text-xs tracking-[0.2em] uppercase mt-1"
-                            style="color:#d4b896;">Students Enrolled</span>
-                    </div>
-
-                    <div class="flex flex-col items-center justify-center py-10 px-8 text-center"
-                        style="border-color:rgba(196,138,71,0.15);">
-                        <span class="glb-font-playfair text-5xl font-bold mb-1" style="color:#ffcc4e;">3<span
-                                style="color:#c48a47;"> Programmes</span></span>
-                        <span class="glb-font-dm text-xs tracking-[0.2em] uppercase mt-1" style="color:#d4b896;">BA.LLB
-                            · BComLLB · LLB</span>
-                    </div>
-
-                    <div class="flex flex-col items-center justify-center py-10 px-8 text-center"
-                        style="border-color:rgba(196,138,71,0.15);">
-                        <span class="glb-font-playfair text-5xl font-bold mb-1" style="color:#ffcc4e;">100<span
-                                style="color:#c48a47;">%</span></span>
-                        <span class="glb-font-dm text-xs tracking-[0.2em] uppercase mt-1" style="color:#d4b896;">Student
-                            Satisfaction</span>
                     </div>
                 </div>
             </div>
